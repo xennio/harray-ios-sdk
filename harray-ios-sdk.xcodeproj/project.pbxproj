@@ -49,6 +49,9 @@
 		1D6C7F7724503876001FE80C /* Xennio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6C7F51245037CF001FE80C /* Xennio.swift */; };
 		1D6C7F7924505DE5001FE80C /* SDKEventProcessorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6C7F7824505DE5001FE80C /* SDKEventProcessorHandler.swift */; };
 		1D6C7F7B24505EF3001FE80C /* DeviceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6C7F7A24505EF3001FE80C /* DeviceService.swift */; };
+		75F7936590788B5E2B4D582A /* DeviceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6C7F7A24505EF3001FE80C /* DeviceService.swift */; };
+		75F796CFB20ACD51266EDC35 /* NotificationProcessorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F7937C8E4A3DE0197BA508 /* NotificationProcessorHandler.swift */; };
+		75F7995A3063770EB44E8F6D /* NotificationProcessorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F7937C8E4A3DE0197BA508 /* NotificationProcessorHandler.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,6 +96,7 @@
 		1D6C7F60245037E4001FE80C /* EncodingServiceTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EncodingServiceTest.swift; sourceTree = "<group>"; };
 		1D6C7F7824505DE5001FE80C /* SDKEventProcessorHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SDKEventProcessorHandler.swift; sourceTree = "<group>"; };
 		1D6C7F7A24505EF3001FE80C /* DeviceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceService.swift; sourceTree = "<group>"; };
+		75F7937C8E4A3DE0197BA508 /* NotificationProcessorHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationProcessorHandler.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +148,7 @@
 				1D6C7F3124503782001FE80C /* common */,
 				1D6C7F1A2450372D001FE80C /* harray_ios_sdk.h */,
 				1D6C7F1B2450372D001FE80C /* Info.plist */,
+				75F798C46AF94CC7C85D387F /* notification */,
 			);
 			path = "harray-ios-sdk";
 			sourceTree = "<group>";
@@ -261,6 +266,14 @@
 				1D6C7F60245037E4001FE80C /* EncodingServiceTest.swift */,
 			);
 			path = service;
+			sourceTree = "<group>";
+		};
+		75F798C46AF94CC7C85D387F /* notification */ = {
+			isa = PBXGroup;
+			children = (
+				75F7937C8E4A3DE0197BA508 /* NotificationProcessorHandler.swift */,
+			);
+			path = notification;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -388,6 +401,7 @@
 				1D6C7F52245037CF001FE80C /* Xennio.swift in Sources */,
 				1D6C7F4D245037C6001FE80C /* JsonSerializerService.swift in Sources */,
 				1D6C7F7B24505EF3001FE80C /* DeviceService.swift in Sources */,
+				75F7995A3063770EB44E8F6D /* NotificationProcessorHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -419,6 +433,8 @@
 				1D6C7F6F2450385E001FE80C /* HttpService.swift in Sources */,
 				1D6C7F65245037E4001FE80C /* XennEventTest.swift in Sources */,
 				1D6C7F66245037E4001FE80C /* SessionContextHolderTest.swift in Sources */,
+				75F7936590788B5E2B4D582A /* DeviceService.swift in Sources */,
+				75F796CFB20ACD51266EDC35 /* NotificationProcessorHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -4,10 +4,24 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>harray-ios-sdk.xcscheme_^#shared#^_</key>
+		<key>harray-ios-sdk.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
+		</dict>
+		<key>EncodingServiceTest.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false />
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
+		<key>EntitySerializerServiceTest.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false />
+			<key>orderHint</key>
+			<integer>2</integer>
 		</dict>
 	</dict>
 </dict>
