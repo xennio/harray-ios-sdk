@@ -10,6 +10,43 @@
 		1D6C7F212450372D001FE80C /* harray_ios_sdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D6C7F172450372D001FE80C /* harray_ios_sdk.framework */; };
 		1D6C7F262450372D001FE80C /* harray_ios_sdkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6C7F252450372D001FE80C /* harray_ios_sdkTests.swift */; };
 		1D6C7F282450372D001FE80C /* harray_ios_sdk.h in Headers */ = {isa = PBXBuildFile; fileRef = 1D6C7F1A2450372D001FE80C /* harray_ios_sdk.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1D6C7F3324503782001FE80C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6C7F3224503782001FE80C /* Constants.swift */; };
+		1D6C7F38245037BC001FE80C /* SessionContextHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6C7F35245037BC001FE80C /* SessionContextHolder.swift */; };
+		1D6C7F39245037BC001FE80C /* ApplicationContextHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6C7F36245037BC001FE80C /* ApplicationContextHolder.swift */; };
+		1D6C7F3A245037BC001FE80C /* SessionState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6C7F37245037BC001FE80C /* SessionState.swift */; };
+		1D6C7F48245037C6001FE80C /* EventProcessorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6C7F3C245037C6001FE80C /* EventProcessorHandler.swift */; };
+		1D6C7F49245037C6001FE80C /* ClockUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6C7F3E245037C6001FE80C /* ClockUtils.swift */; };
+		1D6C7F4A245037C6001FE80C /* XennioLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6C7F3F245037C6001FE80C /* XennioLogger.swift */; };
+		1D6C7F4B245037C6001FE80C /* RandomValueUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6C7F40245037C6001FE80C /* RandomValueUtils.swift */; };
+		1D6C7F4C245037C6001FE80C /* EncodingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6C7F42245037C6001FE80C /* EncodingService.swift */; };
+		1D6C7F4D245037C6001FE80C /* JsonSerializerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6C7F43245037C6001FE80C /* JsonSerializerService.swift */; };
+		1D6C7F4E245037C6001FE80C /* EntitySerializerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6C7F44245037C6001FE80C /* EntitySerializerService.swift */; };
+		1D6C7F4F245037C6001FE80C /* HttpService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6C7F45245037C6001FE80C /* HttpService.swift */; };
+		1D6C7F50245037C6001FE80C /* XennEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6C7F47245037C6001FE80C /* XennEvent.swift */; };
+		1D6C7F52245037CF001FE80C /* Xennio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6C7F51245037CF001FE80C /* Xennio.swift */; };
+		1D6C7F61245037E4001FE80C /* Stubbings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6C7F54245037E4001FE80C /* Stubbings.swift */; };
+		1D6C7F62245037E4001FE80C /* ClockUtilsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6C7F55245037E4001FE80C /* ClockUtilsTest.swift */; };
+		1D6C7F63245037E4001FE80C /* RandomValueUtilsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6C7F56245037E4001FE80C /* RandomValueUtilsTest.swift */; };
+		1D6C7F64245037E4001FE80C /* EventProcessorHandlerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6C7F58245037E4001FE80C /* EventProcessorHandlerTest.swift */; };
+		1D6C7F65245037E4001FE80C /* XennEventTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6C7F5A245037E4001FE80C /* XennEventTest.swift */; };
+		1D6C7F66245037E4001FE80C /* SessionContextHolderTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6C7F5C245037E4001FE80C /* SessionContextHolderTest.swift */; };
+		1D6C7F67245037E4001FE80C /* ApplicationContextHolderTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6C7F5D245037E4001FE80C /* ApplicationContextHolderTest.swift */; };
+		1D6C7F68245037E4001FE80C /* EntitySerializerServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6C7F5F245037E4001FE80C /* EntitySerializerServiceTest.swift */; };
+		1D6C7F69245037E4001FE80C /* EncodingServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6C7F60245037E4001FE80C /* EncodingServiceTest.swift */; };
+		1D6C7F6A2450384E001FE80C /* EventProcessorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6C7F3C245037C6001FE80C /* EventProcessorHandler.swift */; };
+		1D6C7F6B24503851001FE80C /* XennEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6C7F47245037C6001FE80C /* XennEvent.swift */; };
+		1D6C7F6C24503855001FE80C /* EncodingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6C7F42245037C6001FE80C /* EncodingService.swift */; };
+		1D6C7F6D24503859001FE80C /* JsonSerializerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6C7F43245037C6001FE80C /* JsonSerializerService.swift */; };
+		1D6C7F6E2450385C001FE80C /* EntitySerializerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6C7F44245037C6001FE80C /* EntitySerializerService.swift */; };
+		1D6C7F6F2450385E001FE80C /* HttpService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6C7F45245037C6001FE80C /* HttpService.swift */; };
+		1D6C7F7024503861001FE80C /* ClockUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6C7F3E245037C6001FE80C /* ClockUtils.swift */; };
+		1D6C7F7124503863001FE80C /* XennioLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6C7F3F245037C6001FE80C /* XennioLogger.swift */; };
+		1D6C7F7224503866001FE80C /* RandomValueUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6C7F40245037C6001FE80C /* RandomValueUtils.swift */; };
+		1D6C7F7324503869001FE80C /* SessionContextHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6C7F35245037BC001FE80C /* SessionContextHolder.swift */; };
+		1D6C7F742450386B001FE80C /* ApplicationContextHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6C7F36245037BC001FE80C /* ApplicationContextHolder.swift */; };
+		1D6C7F752450386E001FE80C /* SessionState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6C7F37245037BC001FE80C /* SessionState.swift */; };
+		1D6C7F7624503870001FE80C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6C7F3224503782001FE80C /* Constants.swift */; };
+		1D6C7F7724503876001FE80C /* Xennio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6C7F51245037CF001FE80C /* Xennio.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +66,29 @@
 		1D6C7F202450372D001FE80C /* harray-ios-sdkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "harray-ios-sdkTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D6C7F252450372D001FE80C /* harray_ios_sdkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = harray_ios_sdkTests.swift; sourceTree = "<group>"; };
 		1D6C7F272450372D001FE80C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1D6C7F3224503782001FE80C /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		1D6C7F35245037BC001FE80C /* SessionContextHolder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionContextHolder.swift; sourceTree = "<group>"; };
+		1D6C7F36245037BC001FE80C /* ApplicationContextHolder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationContextHolder.swift; sourceTree = "<group>"; };
+		1D6C7F37245037BC001FE80C /* SessionState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionState.swift; sourceTree = "<group>"; };
+		1D6C7F3C245037C6001FE80C /* EventProcessorHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventProcessorHandler.swift; sourceTree = "<group>"; };
+		1D6C7F3E245037C6001FE80C /* ClockUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClockUtils.swift; sourceTree = "<group>"; };
+		1D6C7F3F245037C6001FE80C /* XennioLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XennioLogger.swift; sourceTree = "<group>"; };
+		1D6C7F40245037C6001FE80C /* RandomValueUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomValueUtils.swift; sourceTree = "<group>"; };
+		1D6C7F42245037C6001FE80C /* EncodingService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EncodingService.swift; sourceTree = "<group>"; };
+		1D6C7F43245037C6001FE80C /* JsonSerializerService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonSerializerService.swift; sourceTree = "<group>"; };
+		1D6C7F44245037C6001FE80C /* EntitySerializerService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntitySerializerService.swift; sourceTree = "<group>"; };
+		1D6C7F45245037C6001FE80C /* HttpService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpService.swift; sourceTree = "<group>"; };
+		1D6C7F47245037C6001FE80C /* XennEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XennEvent.swift; sourceTree = "<group>"; };
+		1D6C7F51245037CF001FE80C /* Xennio.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Xennio.swift; sourceTree = "<group>"; };
+		1D6C7F54245037E4001FE80C /* Stubbings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stubbings.swift; sourceTree = "<group>"; };
+		1D6C7F55245037E4001FE80C /* ClockUtilsTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClockUtilsTest.swift; sourceTree = "<group>"; };
+		1D6C7F56245037E4001FE80C /* RandomValueUtilsTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomValueUtilsTest.swift; sourceTree = "<group>"; };
+		1D6C7F58245037E4001FE80C /* EventProcessorHandlerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventProcessorHandlerTest.swift; sourceTree = "<group>"; };
+		1D6C7F5A245037E4001FE80C /* XennEventTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XennEventTest.swift; sourceTree = "<group>"; };
+		1D6C7F5C245037E4001FE80C /* SessionContextHolderTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionContextHolderTest.swift; sourceTree = "<group>"; };
+		1D6C7F5D245037E4001FE80C /* ApplicationContextHolderTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationContextHolderTest.swift; sourceTree = "<group>"; };
+		1D6C7F5F245037E4001FE80C /* EntitySerializerServiceTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntitySerializerServiceTest.swift; sourceTree = "<group>"; };
+		1D6C7F60245037E4001FE80C /* EncodingServiceTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EncodingServiceTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +131,13 @@
 		1D6C7F192450372D001FE80C /* harray-ios-sdk */ = {
 			isa = PBXGroup;
 			children = (
+				1D6C7F51245037CF001FE80C /* Xennio.swift */,
+				1D6C7F3B245037C6001FE80C /* event */,
+				1D6C7F46245037C6001FE80C /* model */,
+				1D6C7F41245037C6001FE80C /* service */,
+				1D6C7F3D245037C6001FE80C /* utils */,
+				1D6C7F34245037BC001FE80C /* context */,
+				1D6C7F3124503782001FE80C /* common */,
 				1D6C7F1A2450372D001FE80C /* harray_ios_sdk.h */,
 				1D6C7F1B2450372D001FE80C /* Info.plist */,
 			);
@@ -80,10 +147,114 @@
 		1D6C7F242450372D001FE80C /* harray-ios-sdkTests */ = {
 			isa = PBXGroup;
 			children = (
+				1D6C7F5B245037E4001FE80C /* context */,
+				1D6C7F57245037E4001FE80C /* event */,
+				1D6C7F59245037E4001FE80C /* model */,
+				1D6C7F5E245037E4001FE80C /* service */,
+				1D6C7F53245037E4001FE80C /* utils */,
 				1D6C7F252450372D001FE80C /* harray_ios_sdkTests.swift */,
 				1D6C7F272450372D001FE80C /* Info.plist */,
 			);
 			path = "harray-ios-sdkTests";
+			sourceTree = "<group>";
+		};
+		1D6C7F3124503782001FE80C /* common */ = {
+			isa = PBXGroup;
+			children = (
+				1D6C7F3224503782001FE80C /* Constants.swift */,
+			);
+			path = common;
+			sourceTree = "<group>";
+		};
+		1D6C7F34245037BC001FE80C /* context */ = {
+			isa = PBXGroup;
+			children = (
+				1D6C7F35245037BC001FE80C /* SessionContextHolder.swift */,
+				1D6C7F36245037BC001FE80C /* ApplicationContextHolder.swift */,
+				1D6C7F37245037BC001FE80C /* SessionState.swift */,
+			);
+			path = context;
+			sourceTree = "<group>";
+		};
+		1D6C7F3B245037C6001FE80C /* event */ = {
+			isa = PBXGroup;
+			children = (
+				1D6C7F3C245037C6001FE80C /* EventProcessorHandler.swift */,
+			);
+			path = event;
+			sourceTree = "<group>";
+		};
+		1D6C7F3D245037C6001FE80C /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				1D6C7F3E245037C6001FE80C /* ClockUtils.swift */,
+				1D6C7F3F245037C6001FE80C /* XennioLogger.swift */,
+				1D6C7F40245037C6001FE80C /* RandomValueUtils.swift */,
+			);
+			path = utils;
+			sourceTree = "<group>";
+		};
+		1D6C7F41245037C6001FE80C /* service */ = {
+			isa = PBXGroup;
+			children = (
+				1D6C7F42245037C6001FE80C /* EncodingService.swift */,
+				1D6C7F43245037C6001FE80C /* JsonSerializerService.swift */,
+				1D6C7F44245037C6001FE80C /* EntitySerializerService.swift */,
+				1D6C7F45245037C6001FE80C /* HttpService.swift */,
+			);
+			path = service;
+			sourceTree = "<group>";
+		};
+		1D6C7F46245037C6001FE80C /* model */ = {
+			isa = PBXGroup;
+			children = (
+				1D6C7F47245037C6001FE80C /* XennEvent.swift */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		1D6C7F53245037E4001FE80C /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				1D6C7F54245037E4001FE80C /* Stubbings.swift */,
+				1D6C7F55245037E4001FE80C /* ClockUtilsTest.swift */,
+				1D6C7F56245037E4001FE80C /* RandomValueUtilsTest.swift */,
+			);
+			path = utils;
+			sourceTree = "<group>";
+		};
+		1D6C7F57245037E4001FE80C /* event */ = {
+			isa = PBXGroup;
+			children = (
+				1D6C7F58245037E4001FE80C /* EventProcessorHandlerTest.swift */,
+			);
+			path = event;
+			sourceTree = "<group>";
+		};
+		1D6C7F59245037E4001FE80C /* model */ = {
+			isa = PBXGroup;
+			children = (
+				1D6C7F5A245037E4001FE80C /* XennEventTest.swift */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		1D6C7F5B245037E4001FE80C /* context */ = {
+			isa = PBXGroup;
+			children = (
+				1D6C7F5C245037E4001FE80C /* SessionContextHolderTest.swift */,
+				1D6C7F5D245037E4001FE80C /* ApplicationContextHolderTest.swift */,
+			);
+			path = context;
+			sourceTree = "<group>";
+		};
+		1D6C7F5E245037E4001FE80C /* service */ = {
+			isa = PBXGroup;
+			children = (
+				1D6C7F5F245037E4001FE80C /* EntitySerializerServiceTest.swift */,
+				1D6C7F60245037E4001FE80C /* EncodingServiceTest.swift */,
+			);
+			path = service;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -195,6 +366,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1D6C7F4B245037C6001FE80C /* RandomValueUtils.swift in Sources */,
+				1D6C7F38245037BC001FE80C /* SessionContextHolder.swift in Sources */,
+				1D6C7F4A245037C6001FE80C /* XennioLogger.swift in Sources */,
+				1D6C7F48245037C6001FE80C /* EventProcessorHandler.swift in Sources */,
+				1D6C7F4C245037C6001FE80C /* EncodingService.swift in Sources */,
+				1D6C7F4F245037C6001FE80C /* HttpService.swift in Sources */,
+				1D6C7F49245037C6001FE80C /* ClockUtils.swift in Sources */,
+				1D6C7F39245037BC001FE80C /* ApplicationContextHolder.swift in Sources */,
+				1D6C7F3A245037BC001FE80C /* SessionState.swift in Sources */,
+				1D6C7F3324503782001FE80C /* Constants.swift in Sources */,
+				1D6C7F50245037C6001FE80C /* XennEvent.swift in Sources */,
+				1D6C7F4E245037C6001FE80C /* EntitySerializerService.swift in Sources */,
+				1D6C7F52245037CF001FE80C /* Xennio.swift in Sources */,
+				1D6C7F4D245037C6001FE80C /* JsonSerializerService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -202,7 +387,30 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1D6C7F7324503869001FE80C /* SessionContextHolder.swift in Sources */,
+				1D6C7F742450386B001FE80C /* ApplicationContextHolder.swift in Sources */,
+				1D6C7F63245037E4001FE80C /* RandomValueUtilsTest.swift in Sources */,
 				1D6C7F262450372D001FE80C /* harray_ios_sdkTests.swift in Sources */,
+				1D6C7F6C24503855001FE80C /* EncodingService.swift in Sources */,
+				1D6C7F7224503866001FE80C /* RandomValueUtils.swift in Sources */,
+				1D6C7F7624503870001FE80C /* Constants.swift in Sources */,
+				1D6C7F62245037E4001FE80C /* ClockUtilsTest.swift in Sources */,
+				1D6C7F61245037E4001FE80C /* Stubbings.swift in Sources */,
+				1D6C7F6A2450384E001FE80C /* EventProcessorHandler.swift in Sources */,
+				1D6C7F69245037E4001FE80C /* EncodingServiceTest.swift in Sources */,
+				1D6C7F7024503861001FE80C /* ClockUtils.swift in Sources */,
+				1D6C7F67245037E4001FE80C /* ApplicationContextHolderTest.swift in Sources */,
+				1D6C7F64245037E4001FE80C /* EventProcessorHandlerTest.swift in Sources */,
+				1D6C7F68245037E4001FE80C /* EntitySerializerServiceTest.swift in Sources */,
+				1D6C7F6E2450385C001FE80C /* EntitySerializerService.swift in Sources */,
+				1D6C7F7724503876001FE80C /* Xennio.swift in Sources */,
+				1D6C7F7124503863001FE80C /* XennioLogger.swift in Sources */,
+				1D6C7F752450386E001FE80C /* SessionState.swift in Sources */,
+				1D6C7F6B24503851001FE80C /* XennEvent.swift in Sources */,
+				1D6C7F6D24503859001FE80C /* JsonSerializerService.swift in Sources */,
+				1D6C7F6F2450385E001FE80C /* HttpService.swift in Sources */,
+				1D6C7F65245037E4001FE80C /* XennEventTest.swift in Sources */,
+				1D6C7F66245037E4001FE80C /* SessionContextHolderTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -388,6 +596,7 @@
 		1D6C7F2F2450372D001FE80C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZG2XXGUTAX;
 				INFOPLIST_FILE = "harray-ios-sdkTests/Info.plist";
@@ -406,6 +615,7 @@
 		1D6C7F302450372D001FE80C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZG2XXGUTAX;
 				INFOPLIST_FILE = "harray-ios-sdkTests/Info.plist";
