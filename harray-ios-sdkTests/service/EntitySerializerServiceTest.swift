@@ -10,20 +10,51 @@ import XCTest
 
 class EntitySerializerServiceTest: XCTestCase {
     
-    var encodingService = FakeEncodingService()
-    var jsonSerializerService = FakeJsonSerializerService()
-    
-
     func test_it_should_convert_entity_to_base_64_url_encoded_string(){
+        let encodingService = FakeEncodingService()
+        let jsonSerializerService = FakeJsonSerializerService()
+        
         let event = Dictionary<String,Any>()
         let entitySerializerService = EntitySerializerService(encodingService: encodingService,jsonSerializerService: jsonSerializerService)
         
         jsonSerializerService.givenSerializeReturns(callWith: event, expect: "JSONVALUE")
         encodingService.givenUrlEncodedStringReturns(callWith: "JSONVALUE", expect: "URLENCODEDVALUE")
-        encodingService.givenUrlEncodedStringReturns(callWith:"URLENCODEDVALUE", expect:" BASE64STRINGVALUE")
+        encodingService.givenBase64EncodedStringReturns(callWith:"URLENCODEDVALUE", expect:"BASE64STRINGVALUE")
+       
         let serializedEntity = entitySerializerService.serialize(event:event)
         
-        XCTAssertEqual("BASE64STRINGVALUE", serializedEntity)
+        XCTAssertEqual("BASE64STRINGVALUE", serializedEntity!)
+    }
+    
+    func test_it_should_return_nil_entity_when_event_not_serializable(){
+        let encodingService = FakeEncodingService()
+        let jsonSerializerService = FakeJsonSerializerService()
+        
+        let event = Dictionary<String,Any>()
+        let entitySerializerService = EntitySerializerService(encodingService: encodingService,jsonSerializerService: jsonSerializerService)
+        
+        jsonSerializerService.givenSerializeReturns(callWith: event, expect: nil)
+    
+       
+        let serializedEntity = entitySerializerService.serialize(event:event)
+        
+        XCTAssertNil(serializedEntity)
+    }
+    
+    func test_it_should_return_nil_entity_when_event_serializable_but_not_sutiable_for_url_encode(){
+        let encodingService = FakeEncodingService()
+        let jsonSerializerService = FakeJsonSerializerService()
+        
+        let event = Dictionary<String,Any>()
+        let entitySerializerService = EntitySerializerService(encodingService: encodingService,jsonSerializerService: jsonSerializerService)
+        
+        jsonSerializerService.givenSerializeReturns(callWith: event, expect: "JSONVALUE")
+               encodingService.givenUrlEncodedStringReturns(callWith: "JSONVALUE", expect: nil)
+    
+       
+        let serializedEntity = entitySerializerService.serialize(event:event)
+        
+        XCTAssertNil(serializedEntity)
     }
     
 }

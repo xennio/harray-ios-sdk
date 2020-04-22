@@ -12,6 +12,7 @@ class ApplicationContextHolder {
     private let collectorUrl = "https://c.xenn.io"
     private let sdkKey: String
     private let persistentId: String
+    private let sdkVersion = "1.1"
     
     init(userDefaults: UserDefaults, sdkKey: String) {
         var value = userDefaults.string(forKey: Constants.SDK_PERSISTENT_ID_KEY.rawValue)
@@ -33,5 +34,9 @@ class ApplicationContextHolder {
     
     func getTimezone() ->String {
         return String(TimeZone.current.secondsFromGMT() / 3600)
+    }
+    
+    func getSdkVersion() -> String{
+        return self.sdkVersion
     }
 }

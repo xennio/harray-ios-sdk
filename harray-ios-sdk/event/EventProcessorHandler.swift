@@ -37,7 +37,56 @@ class EventProcessorHandler {
         if serializedEvent != nil {
             httpService.postFormUrlEncoded(payload: serializedEvent!)
         } else {
-            //XennioLogger.log(message: "Page View Event Error")
+            XennioLogger.log(message: "Page View Event Error")
+        }
+    }
+    
+    func actionResult(pageType: String) {
+        pageView(pageType: pageType, params: Dictionary<String, Any>() )
+    }
+    
+    func actionResult(type: String, params: Dictionary<String, Any>) {
+        let pageViewEvent = XennEvent.create(name: "AR", persistentId: applicationContextHolder.getPersistentId(), sessionId: sessionContextHolder.getSessionId())
+            .addBody(key: "type", value: type)
+            .memberId(memberId: sessionContextHolder.getMemberId())
+            .appendExtra(params: params)
+            .toMap()
+        let serializedEvent = entitySerializerService.serialize(event: pageViewEvent)
+        if serializedEvent != nil {
+            httpService.postFormUrlEncoded(payload: serializedEvent!)
+        } else {
+            XennioLogger.log(message: "Action Result Event Error")
+        }
+    }
+    
+    func impression(pageType: String) {
+        pageView(pageType: pageType, params: Dictionary<String, Any>() )
+    }
+    
+    func impression(type: String, params: Dictionary<String, Any>) {
+        let pageViewEvent = XennEvent.create(name: "IM", persistentId: applicationContextHolder.getPersistentId(), sessionId: sessionContextHolder.getSessionId())
+            .addBody(key: "type", value: type)
+            .memberId(memberId: sessionContextHolder.getMemberId())
+            .appendExtra(params: params)
+            .toMap()
+        let serializedEvent = entitySerializerService.serialize(event: pageViewEvent)
+        if serializedEvent != nil {
+            httpService.postFormUrlEncoded(payload: serializedEvent!)
+        } else {
+            XennioLogger.log(message: "Impression Event Error")
+        }
+    }
+    
+    func custom(eventName: String, params: Dictionary<String, Any>) {
+        let pageViewEvent = XennEvent.create(name: eventName, persistentId: applicationContextHolder.getPersistentId(), sessionId: sessionContextHolder.getSessionId())
+            .memberId(memberId: sessionContextHolder.getMemberId())
+            .appendExtra(params: params)
+            .toMap()
+        let serializedEvent = entitySerializerService.serialize(event: pageViewEvent)
+        if serializedEvent != nil {
+            httpService.postFormUrlEncoded(payload: serializedEvent!)
+        } else {
+            XennioLogger.log(message: "Custom Event Error")
         }
     }
 }

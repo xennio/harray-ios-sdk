@@ -20,7 +20,7 @@ class FakeJsonSerializerService : JsonSerializerService{
         return expectedJsonSerializedValue
     }
 
-    func givenSerializeReturns(callWith: Dictionary<String, Any>, expect: String){
+    func givenSerializeReturns(callWith: Dictionary<String, Any>, expect: String?){
            self.dictionaryCallWith = callWith
            self.expectedJsonSerializedValue = expect
     }

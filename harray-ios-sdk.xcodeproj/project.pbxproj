@@ -47,6 +47,8 @@
 		1D6C7F752450386E001FE80C /* SessionState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6C7F37245037BC001FE80C /* SessionState.swift */; };
 		1D6C7F7624503870001FE80C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6C7F3224503782001FE80C /* Constants.swift */; };
 		1D6C7F7724503876001FE80C /* Xennio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6C7F51245037CF001FE80C /* Xennio.swift */; };
+		1D6C7F7924505DE5001FE80C /* SDKEventProcessorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6C7F7824505DE5001FE80C /* SDKEventProcessorHandler.swift */; };
+		1D6C7F7B24505EF3001FE80C /* DeviceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6C7F7A24505EF3001FE80C /* DeviceService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +91,8 @@
 		1D6C7F5D245037E4001FE80C /* ApplicationContextHolderTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationContextHolderTest.swift; sourceTree = "<group>"; };
 		1D6C7F5F245037E4001FE80C /* EntitySerializerServiceTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntitySerializerServiceTest.swift; sourceTree = "<group>"; };
 		1D6C7F60245037E4001FE80C /* EncodingServiceTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EncodingServiceTest.swift; sourceTree = "<group>"; };
+		1D6C7F7824505DE5001FE80C /* SDKEventProcessorHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SDKEventProcessorHandler.swift; sourceTree = "<group>"; };
+		1D6C7F7A24505EF3001FE80C /* DeviceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,6 +184,7 @@
 			isa = PBXGroup;
 			children = (
 				1D6C7F3C245037C6001FE80C /* EventProcessorHandler.swift */,
+				1D6C7F7824505DE5001FE80C /* SDKEventProcessorHandler.swift */,
 			);
 			path = event;
 			sourceTree = "<group>";
@@ -201,6 +206,7 @@
 				1D6C7F43245037C6001FE80C /* JsonSerializerService.swift */,
 				1D6C7F44245037C6001FE80C /* EntitySerializerService.swift */,
 				1D6C7F45245037C6001FE80C /* HttpService.swift */,
+				1D6C7F7A24505EF3001FE80C /* DeviceService.swift */,
 			);
 			path = service;
 			sourceTree = "<group>";
@@ -368,6 +374,7 @@
 			files = (
 				1D6C7F4B245037C6001FE80C /* RandomValueUtils.swift in Sources */,
 				1D6C7F38245037BC001FE80C /* SessionContextHolder.swift in Sources */,
+				1D6C7F7924505DE5001FE80C /* SDKEventProcessorHandler.swift in Sources */,
 				1D6C7F4A245037C6001FE80C /* XennioLogger.swift in Sources */,
 				1D6C7F48245037C6001FE80C /* EventProcessorHandler.swift in Sources */,
 				1D6C7F4C245037C6001FE80C /* EncodingService.swift in Sources */,
@@ -380,6 +387,7 @@
 				1D6C7F4E245037C6001FE80C /* EntitySerializerService.swift in Sources */,
 				1D6C7F52245037CF001FE80C /* Xennio.swift in Sources */,
 				1D6C7F4D245037C6001FE80C /* JsonSerializerService.swift in Sources */,
+				1D6C7F7B24505EF3001FE80C /* DeviceService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

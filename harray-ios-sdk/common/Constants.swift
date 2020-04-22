@@ -9,5 +9,5 @@
 import Foundation
 
 enum Constants : String {
-    case SDK_PERSISTENT_ID_KEY = "pid"
+    case SDK_PERSISTENT_ID_KEY = "xLifeTimeId"
 }
