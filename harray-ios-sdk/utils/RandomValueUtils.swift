@@ -12,7 +12,10 @@ class RandomValueUtils {
     
     private static var isFrozen: Bool = false
     private static var randomUUIDValue: String!
-    
+    private init(){
+
+    }
+
     class func randomUUID() -> String {
         if isFrozen {
             return randomUUIDValue

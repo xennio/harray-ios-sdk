@@ -9,27 +9,31 @@
 import Foundation
 
 class ClockUtils {
-    
+
     private static var isFrozen: Bool = false
     private static var currentTime: Int!
-    
-    class func getTime() -> Int{
+
+    private init() {
+
+    }
+
+    class func getTime() -> Int {
         if isFrozen {
             return currentTime
         }
         return Int(Date().timeIntervalSince1970) * 1000
     }
-    
+
     class func freeze() {
         isFrozen = true
         currentTime = Int(Date().timeIntervalSince1970) * 1000
     }
-    
+
     class func freeze(expectedTime: Int) {
         isFrozen = true
         currentTime = expectedTime
     }
-    
+
     class func unFreeze() {
         isFrozen = false
         currentTime = 0

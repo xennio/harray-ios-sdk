@@ -10,9 +10,9 @@ import Foundation
 
 class JsonSerializerService {
     func serialize(value: Dictionary<String, Any>) -> String? {
-        let jsonSerialzed = try? JSONSerialization.data(withJSONObject: value, options: [])
-        if jsonSerialzed != nil{
-            return String(data: jsonSerialzed!, encoding: .utf8)
+        let jsonSerialized = try? JSONSerialization.data(withJSONObject: value, options: [])
+        if jsonSerialized != nil {
+            return String(data: jsonSerialized!, encoding: .utf8)
         }
         return nil
     }
