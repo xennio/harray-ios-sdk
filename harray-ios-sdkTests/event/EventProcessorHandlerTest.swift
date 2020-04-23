@@ -25,7 +25,6 @@ class EventProcessorHandlerTest: XCTestCase {
         let captured = entitySerializerService.getCapturedEvent()
 
         XCTAssertFalse(httpService.hasError)
-        XCTAssertTrue(httpService.invoked)
 
         let header = captured["h"] as! Dictionary<String, Any>
         let body = captured["b"] as! Dictionary<String, Any>
@@ -53,7 +52,6 @@ class EventProcessorHandlerTest: XCTestCase {
         let captured = entitySerializerService.getCapturedEvent()
 
         XCTAssertFalse(httpService.hasError)
-        XCTAssertTrue(httpService.invoked)
 
         let header = captured["h"] as! Dictionary<String, Any>
         let body = captured["b"] as! Dictionary<String, Any>
@@ -79,7 +77,7 @@ class EventProcessorHandlerTest: XCTestCase {
 
         eventProcessorHandler.pageView(pageType: "homePage", params: ["param1": "value1", "param2": 1])
 
-        XCTAssertFalse(httpService.invoked)
+        XCTAssertNil(httpService.expectedPayload)
     }
 
     func test_it_should_construct_action_result_event_and_make_api_call() {
@@ -97,7 +95,6 @@ class EventProcessorHandlerTest: XCTestCase {
         let captured = entitySerializerService.getCapturedEvent()
 
         XCTAssertFalse(httpService.hasError)
-        XCTAssertTrue(httpService.invoked)
 
         let header = captured["h"] as! Dictionary<String, Any>
         let body = captured["b"] as! Dictionary<String, Any>
@@ -124,7 +121,6 @@ class EventProcessorHandlerTest: XCTestCase {
         let captured = entitySerializerService.getCapturedEvent()
 
         XCTAssertFalse(httpService.hasError)
-        XCTAssertTrue(httpService.invoked)
 
         let header = captured["h"] as! Dictionary<String, Any>
         let body = captured["b"] as! Dictionary<String, Any>
@@ -149,7 +145,7 @@ class EventProcessorHandlerTest: XCTestCase {
 
         eventProcessorHandler.actionResult(type: "conversion", params: ["param1": "value1", "param2": 1])
 
-        XCTAssertFalse(httpService.invoked)
+        XCTAssertNil(httpService.expectedPayload)
     }
 
     func test_it_should_construct_impression_event_and_make_api_call() {
@@ -167,7 +163,6 @@ class EventProcessorHandlerTest: XCTestCase {
         let captured = entitySerializerService.getCapturedEvent()
 
         XCTAssertFalse(httpService.hasError)
-        XCTAssertTrue(httpService.invoked)
 
         let header = captured["h"] as! Dictionary<String, Any>
         let body = captured["b"] as! Dictionary<String, Any>
@@ -194,7 +189,6 @@ class EventProcessorHandlerTest: XCTestCase {
         let captured = entitySerializerService.getCapturedEvent()
 
         XCTAssertFalse(httpService.hasError)
-        XCTAssertTrue(httpService.invoked)
 
         let header = captured["h"] as! Dictionary<String, Any>
         let body = captured["b"] as! Dictionary<String, Any>
@@ -219,7 +213,7 @@ class EventProcessorHandlerTest: XCTestCase {
 
         eventProcessorHandler.impression(pageType: "productDetail", params: ["param1": "value1", "param2": 1])
 
-        XCTAssertFalse(httpService.invoked)
+        XCTAssertNil(httpService.expectedPayload)
     }
 
 
@@ -238,7 +232,6 @@ class EventProcessorHandlerTest: XCTestCase {
         let captured = entitySerializerService.getCapturedEvent()
 
         XCTAssertFalse(httpService.hasError)
-        XCTAssertTrue(httpService.invoked)
 
         let header = captured["h"] as! Dictionary<String, Any>
         let body = captured["b"] as! Dictionary<String, Any>
@@ -262,6 +255,6 @@ class EventProcessorHandlerTest: XCTestCase {
 
         eventProcessorHandler.custom(eventName: "customEvent", params: ["param1": "value1", "param2": 1])
 
-        XCTAssertFalse(httpService.invoked)
+        XCTAssertNil(httpService.expectedPayload)
     }
 }

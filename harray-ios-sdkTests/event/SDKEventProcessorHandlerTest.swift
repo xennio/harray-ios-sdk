@@ -26,7 +26,6 @@ class SDKEventProcessorHandlerTest: XCTestCase {
         let captured = entitySerializerService.getCapturedEvent()
 
         XCTAssertFalse(httpService.hasError)
-        XCTAssertTrue(httpService.invoked)
 
         let header = captured["h"] as! Dictionary<String, Any>
         let body = captured["b"] as! Dictionary<String, Any>
@@ -45,7 +44,7 @@ class SDKEventProcessorHandlerTest: XCTestCase {
         XCTAssertTrue("xennio" == body["utm_medium"] as! String)
     }
 
-    func test_it_should_not_invoke_http_service_when_serializer_service_has_error_on_session_start() {
+    func test_it_should_invoke_with_nil_http_service_when_serializer_service_has_error_on_session_start() {
         let sessionContextHolder = FakeSessionContextHolder().withExtraParameters(["utm_medium": "xennio"])
         let applicationContextHolder = FakeApplicationContextHolder(userDefaults: InitializedUserDefaults(), sdkKey: "SDK-KEY")
 
@@ -61,7 +60,7 @@ class SDKEventProcessorHandlerTest: XCTestCase {
 
         sdkEventProcessorHandler.sessionStart()
 
-        XCTAssertFalse(httpService.invoked)
+        XCTAssertNil(httpService.expectedPayload)
     }
 
 
@@ -85,7 +84,6 @@ class SDKEventProcessorHandlerTest: XCTestCase {
         let captured = entitySerializerService.getCapturedEvent()
 
         XCTAssertFalse(httpService.hasError)
-        XCTAssertTrue(httpService.invoked)
 
         let header = captured["h"] as! Dictionary<String, Any>
         let body = captured["b"] as! Dictionary<String, Any>
@@ -98,7 +96,7 @@ class SDKEventProcessorHandlerTest: XCTestCase {
         ClockUtils.unFreeze()
     }
 
-    func it_should_not_send_heart_beat_event_when_last_event_time_is_not_before_current_time_minus_interval() {
+    func it_should_invoke_with_nil_heart_beat_event_when_last_event_time_is_not_before_current_time_minus_interval() {
         ClockUtils.freeze(expectedTime: 1587237294000)
         let sessionContextHolder = FakeSessionContextHolder().withExtraParameters(["utm_medium": "xennio"]).withLastActivityTime(1587237260000)
         let applicationContextHolder = FakeApplicationContextHolder(userDefaults: InitializedUserDefaults(), sdkKey: "SDK-KEY")
@@ -115,12 +113,10 @@ class SDKEventProcessorHandlerTest: XCTestCase {
 
         sdkEventProcessorHandler.heatBeat()
 
-        XCTAssertFalse(httpService.invoked)
-
         ClockUtils.unFreeze()
     }
 
-    func test_it_should_not_invoke_http_service_when_serializer_service_has_error_on_heart_beat() {
+    func test_it_should_invoke_with_nil_http_service_when_serializer_service_has_error_on_heart_beat() {
         ClockUtils.freeze(expectedTime: 1587237170000)
         let sessionContextHolder = FakeSessionContextHolder().withExtraParameters(["utm_medium": "xennio"]).withLastActivityTime(1584558770000)
         let applicationContextHolder = FakeApplicationContextHolder(userDefaults: InitializedUserDefaults(), sdkKey: "SDK-KEY")
@@ -136,9 +132,6 @@ class SDKEventProcessorHandlerTest: XCTestCase {
         entitySerializerService.givenSerializeReturns(callWith: TestUtils.anyDictionary(), expect: nil)
         sdkEventProcessorHandler.heatBeat()
 
-        XCTAssertFalse(httpService.invoked)
         ClockUtils.unFreeze()
     }
-
-
 }

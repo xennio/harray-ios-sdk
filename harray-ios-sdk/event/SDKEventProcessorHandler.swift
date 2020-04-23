@@ -41,11 +41,7 @@ class SDKEventProcessorHandler {
                 .appendExtra(params: sessionContextHolder.getExternalParameters())
                 .toMap()
         let serializedEvent = entitySerializerService.serialize(event: pageViewEvent)
-        if serializedEvent != nil {
-            httpService.postFormUrlEncoded(payload: serializedEvent!)
-        } else {
-            XennioLogger.log(message: "Page View Event Error")
-        }
+        httpService.postFormUrlEncoded(payload: serializedEvent)
     }
 
     func heatBeat() {
@@ -54,11 +50,7 @@ class SDKEventProcessorHandler {
                     .memberId(memberId: sessionContextHolder.getMemberId())
                     .toMap()
             let serializedEvent = entitySerializerService.serialize(event: pageViewEvent)
-            if serializedEvent != nil {
-                httpService.postFormUrlEncoded(payload: serializedEvent!)
-            } else {
-                XennioLogger.log(message: "Heart Beat Event Error")
-            }
+            httpService.postFormUrlEncoded(payload: serializedEvent)
         }
     }
 }

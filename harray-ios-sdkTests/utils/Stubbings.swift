@@ -53,16 +53,14 @@ class FakeDeviceService: DeviceService {
 
 class FakeHttpService: HttpService {
 
-    var expectedPayload = "fake-base64-value"
+    var expectedPayload: String!
     var payloadCallWith: String = ""
     var hasError: Bool = false
-    var invoked: Bool = false
 
-    override func postFormUrlEncoded(payload: String) {
+    override func postFormUrlEncoded(payload: String!) {
         if payloadCallWith != payload {
             self.hasError = true
         }
-        invoked = true
     }
 
     func givenPostWithPayload(callWith: String) {
@@ -160,7 +158,7 @@ class FakeSessionContextHolder: SessionContextHolder {
 
     private var lastActivityTime: Int?
 
-    func withLastActivityTime(_ expectedTime: Int) ->FakeSessionContextHolder {
+    func withLastActivityTime(_ expectedTime: Int) -> FakeSessionContextHolder {
         lastActivityTime = expectedTime
         return self
     }
