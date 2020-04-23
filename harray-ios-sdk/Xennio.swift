@@ -66,6 +66,6 @@ class Xennio: Equatable {
     }
 
     static func ==(lhs: Xennio, rhs: Xennio) -> Bool {
-        lhs.hashValue == rhs.hashValue
+        return lhs.hashValue == rhs.hashValue
     }
 }
