@@ -39,7 +39,7 @@ class SDKEventProcessorHandlerTest: XCTestCase {
         XCTAssertTrue(fakeDeviceService.getManufacturer() == body["mn"] as! String)
         XCTAssertTrue(fakeDeviceService.getBrand() == body["br"] as! String)
         XCTAssertTrue(fakeDeviceService.getCarrier() == body["op"] as! String)
-        XCTAssertTrue(fakeDeviceService.getAppVersion() == body["av"] as! String)
+        XCTAssertTrue(fakeDeviceService.getAppVersion() == body["av"] as! String?)
         XCTAssertTrue(applicationContextHolder.getTimezone() == body["zn"] as! String)
         XCTAssertTrue("xennio" == body["utm_medium"] as! String)
     }

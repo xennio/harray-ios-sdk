@@ -1,8 +1,8 @@
 Pod::Spec.new do |spec|
 
   spec.name          = "Xennio-ios-sdk"
-  spec.version       = "1.1"
-  spec.swift_version = "5.1"
+  spec.version       = "1.2"
+  spec.swift_version = "4.2"
   spec.summary       = "Xennio unified engine IOS SDK"
   spec.description   = "Xennio unified engine official IOS SDK"
   spec.platform      = :ios, '8.0'

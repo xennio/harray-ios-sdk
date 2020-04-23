@@ -9,7 +9,7 @@ class XennioTest: XCTestCase {
 
     func test_it_should_throw_error_when_try_to_get_instance_without_invoking_configuration() throws {
         do {
-            let _ = try Xennio.eventing()
+            try Xennio.eventing()
         } catch XennError.configuration(let message) {
             XCTAssertEqual("Xennio.configure(sdkKey: sdkKey) must be called before getting instance", message)
         }
