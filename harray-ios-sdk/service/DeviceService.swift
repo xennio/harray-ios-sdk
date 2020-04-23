@@ -40,6 +40,6 @@ class DeviceService {
     }
 
     func getBrand() -> String {
-        "Apple"
+        return "Apple"
     }
 }
