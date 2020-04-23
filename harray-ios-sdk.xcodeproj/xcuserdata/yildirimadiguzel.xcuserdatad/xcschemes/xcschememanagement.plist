@@ -9,35 +9,35 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
-		<key>SDKEventProcessorHandlerTest.xcscheme</key>
+		<key>XennioTest.test_it_should_throw_error_when_try_to_get_instance_without_invoking_configuration.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false />
 			<key>orderHint</key>
 			<integer>1</integer>
 		</dict>
-		<key>XennioTest.test_it_should_throw_error_when_try_to_get_instance_without_invoking_configuration.xcscheme</key>
+		<key>XennioTest.test_it_should_return_same_instance_when_get_method_called_more_than_one_time.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false />
 			<key>orderHint</key>
 			<integer>2</integer>
 		</dict>
-		<key>XennioTest.test_it_should_return_same_instance_when_get_method_called_more_than_one_time.xcscheme</key>
+		<key>JsonSerializerServiceTest.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false />
 			<key>orderHint</key>
 			<integer>3</integer>
 		</dict>
-		<key>JsonSerializerServiceTest.xcscheme</key>
+		<key>JsonSerializerServiceTest.test_it_should_convert_object_to_json_string.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false />
 			<key>orderHint</key>
 			<integer>4</integer>
 		</dict>
-		<key>JsonSerializerServiceTest.test_it_should_convert_object_to_json_string.xcscheme</key>
+		<key>EncodingServiceTest.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false />

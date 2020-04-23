@@ -10,7 +10,7 @@ import XCTest
 
 class EncodingServiceTest: XCTestCase  {
     
-    func test_it_should_convert_url_encoded_version_of_given_text(){
+    func it_should_convert_url_encoded_version_of_given_text(){
         let text =  "http://www.xenn.io?foo=bar&a=b+c"
         let encodingService = EncodingService()
         let result = encodingService.getUrlEncodedString(value: text)

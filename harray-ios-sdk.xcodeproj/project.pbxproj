@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		1D6C7F212450372D001FE80C /* harray_ios_sdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D6C7F172450372D001FE80C /* harray_ios_sdk.framework */; };
-		1D6C7F262450372D001FE80C /* harray_ios_sdkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6C7F252450372D001FE80C /* harray_ios_sdkTests.swift */; };
 		1D6C7F282450372D001FE80C /* harray_ios_sdk.h in Headers */ = {isa = PBXBuildFile; fileRef = 1D6C7F1A2450372D001FE80C /* harray_ios_sdk.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1D6C7F3324503782001FE80C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6C7F3224503782001FE80C /* Constants.swift */; };
 		1D6C7F38245037BC001FE80C /* SessionContextHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6C7F35245037BC001FE80C /* SessionContextHolder.swift */; };
@@ -75,7 +74,6 @@
 		1D6C7F1A2450372D001FE80C /* harray_ios_sdk.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = harray_ios_sdk.h; sourceTree = "<group>"; };
 		1D6C7F1B2450372D001FE80C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1D6C7F202450372D001FE80C /* harray-ios-sdkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "harray-ios-sdkTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		1D6C7F252450372D001FE80C /* harray_ios_sdkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = harray_ios_sdkTests.swift; sourceTree = "<group>"; };
 		1D6C7F272450372D001FE80C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1D6C7F3224503782001FE80C /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		1D6C7F35245037BC001FE80C /* SessionContextHolder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionContextHolder.swift; sourceTree = "<group>"; };
@@ -171,7 +169,6 @@
 				1D6C7F59245037E4001FE80C /* model */,
 				1D6C7F5E245037E4001FE80C /* service */,
 				1D6C7F53245037E4001FE80C /* utils */,
-				1D6C7F252450372D001FE80C /* harray_ios_sdkTests.swift */,
 				1D6C7F272450372D001FE80C /* Info.plist */,
 				75F798090784860D02671AE4 /* XennioTest.swift */,
 			);
@@ -427,7 +424,6 @@
 				1D6C7F7324503869001FE80C /* SessionContextHolder.swift in Sources */,
 				1D6C7F742450386B001FE80C /* ApplicationContextHolder.swift in Sources */,
 				1D6C7F63245037E4001FE80C /* RandomValueUtilsTest.swift in Sources */,
-				1D6C7F262450372D001FE80C /* harray_ios_sdkTests.swift in Sources */,
 				1D6C7F6C24503855001FE80C /* EncodingService.swift in Sources */,
 				1D6C7F7224503866001FE80C /* RandomValueUtils.swift in Sources */,
 				1D6C7F7624503870001FE80C /* Constants.swift in Sources */,
