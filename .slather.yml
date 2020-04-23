@@ -1,0 +1,6 @@
+coverage_service: cobertura_xml
+xcodeproj: harray-ios-sdk.xcodeproj
+scheme: harray-ios-sdk
+output_directory: reports
+ignore:
+  - harray-ios-sdkTests/*
