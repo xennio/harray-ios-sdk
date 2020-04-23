@@ -5,6 +5,9 @@ env:
   matrix:
     - TEST_SDK=iphonesimulator12.1 OS=12.1 NAME='iPhone 8'
 
+install:
+  - gem install slather
+
 script:
   - set -o pipefail && xcodebuild test -enableCodeCoverage YES -project harray-ios-sdk.xcodeproj -scheme harray-ios-sdk -sdk $TEST_SDK -destination "platform=iOS Simulator,OS=$OS,name=$NAME" ONLY_ACTIVE_ARCH=YES
 
