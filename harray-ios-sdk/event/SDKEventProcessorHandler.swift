@@ -34,6 +34,7 @@ class SDKEventProcessorHandler {
                 .memberId(memberId: sessionContextHolder.getMemberId())
                 .addBody(key: "os", value: "IOS \(deviceService.getOsVersion())")
                 .addBody(key: "mn", value: deviceService.getManufacturer())
+                .addBody(key: "md", value: deviceService.getModel())
                 .addBody(key: "br", value: deviceService.getBrand())
                 .addBody(key: "op", value: deviceService.getCarrier())
                 .addBody(key: "av", value: deviceService.getAppVersion() ?? "")
