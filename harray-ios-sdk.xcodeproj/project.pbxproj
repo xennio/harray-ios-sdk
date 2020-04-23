@@ -50,6 +50,7 @@
 		1D6C7F7924505DE5001FE80C /* SDKEventProcessorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6C7F7824505DE5001FE80C /* SDKEventProcessorHandler.swift */; };
 		1D6C7F7B24505EF3001FE80C /* DeviceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6C7F7A24505EF3001FE80C /* DeviceService.swift */; };
 		75F7936590788B5E2B4D582A /* DeviceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6C7F7A24505EF3001FE80C /* DeviceService.swift */; };
+		75F796494FDB1AD75C5B9729 /* SDKEventProcessorHandlerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F793896A549ED373F17825 /* SDKEventProcessorHandlerTest.swift */; };
 		75F796CFB20ACD51266EDC35 /* NotificationProcessorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F7937C8E4A3DE0197BA508 /* NotificationProcessorHandler.swift */; };
 		75F7995A3063770EB44E8F6D /* NotificationProcessorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F7937C8E4A3DE0197BA508 /* NotificationProcessorHandler.swift */; };
 /* End PBXBuildFile section */
@@ -97,6 +98,7 @@
 		1D6C7F7824505DE5001FE80C /* SDKEventProcessorHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SDKEventProcessorHandler.swift; sourceTree = "<group>"; };
 		1D6C7F7A24505EF3001FE80C /* DeviceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceService.swift; sourceTree = "<group>"; };
 		75F7937C8E4A3DE0197BA508 /* NotificationProcessorHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationProcessorHandler.swift; sourceTree = "<group>"; };
+		75F793896A549ED373F17825 /* SDKEventProcessorHandlerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SDKEventProcessorHandlerTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -238,6 +240,7 @@
 			isa = PBXGroup;
 			children = (
 				1D6C7F58245037E4001FE80C /* EventProcessorHandlerTest.swift */,
+				75F793896A549ED373F17825 /* SDKEventProcessorHandlerTest.swift */,
 			);
 			path = event;
 			sourceTree = "<group>";
@@ -435,6 +438,7 @@
 				1D6C7F66245037E4001FE80C /* SessionContextHolderTest.swift in Sources */,
 				75F7936590788B5E2B4D582A /* DeviceService.swift in Sources */,
 				75F796CFB20ACD51266EDC35 /* NotificationProcessorHandler.swift in Sources */,
+				75F796494FDB1AD75C5B9729 /* SDKEventProcessorHandlerTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

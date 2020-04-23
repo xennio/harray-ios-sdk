@@ -8,100 +8,155 @@
 
 import Foundation
 
-class FakeJsonSerializerService : JsonSerializerService{
-    
+enum TestError: Error {
+    case suiteConfigError(message: String)
+}
+
+class TestUtils {
+    class func anyDictionary() -> Dictionary<String, Any> {
+        return Dictionary<String, Any>()
+    }
+}
+
+class FakeHttpService: HttpService {
+
+    var expectedPayload = "fake-base64-value"
+    var payloadCallWith: String = ""
+    var hasError: Bool = false
+    var invoked: Bool = false
+
+    override func postFormUrlEncoded(payload: String) {
+        if payloadCallWith != payload {
+            self.hasError = true
+        }
+        invoked = true
+    }
+
+    func givenPostWithPayload(callWith: String) {
+        self.payloadCallWith = callWith
+    }
+
+}
+
+class CapturingEntitySerializerService: EntitySerializerService {
+
+    private var expected: String?
+    private var captured: Dictionary<String, Any> = Dictionary<String, Any>()
+
+    init() {
+        super.init(encodingService: FakeEncodingService(), jsonSerializerService: FakeJsonSerializerService())
+    }
+
+    override func serialize(event: Dictionary<String, Any>) -> String? {
+        self.captured = event
+        return expected
+    }
+
+    func givenSerializeReturns(callWith: Dictionary<String, Any>, expect: String?) {
+        self.expected = expect
+    }
+
+    func getCapturedEvent() -> Dictionary<String, Any> {
+        return captured
+    }
+
+}
+
+
+class FakeJsonSerializerService: JsonSerializerService {
+
     var expectedJsonSerializedValue: String? = "fake-json-serialized-value"
-    var dictionaryCallWith : Dictionary<String,Any>?
-    
-    override func serialize(value: Dictionary<String, Any>) -> String?{
+    var dictionaryCallWith: Dictionary<String, Any>?
+
+    override func serialize(value: Dictionary<String, Any>) -> String? {
         if dictionaryCallWith == nil {
             return "dictionary was not expected during suite setup"
         }
         return expectedJsonSerializedValue
     }
 
-    func givenSerializeReturns(callWith: Dictionary<String, Any>, expect: String?){
-           self.dictionaryCallWith = callWith
-           self.expectedJsonSerializedValue = expect
+    func givenSerializeReturns(callWith: Dictionary<String, Any>, expect: String?) {
+        self.dictionaryCallWith = callWith
+        self.expectedJsonSerializedValue = expect
     }
 }
 
-class FakeEncodingService : EncodingService {
-    
-    var expectedUrlEncodedValue :String? = "fake-encoded-value"
+class FakeEncodingService: EncodingService {
+
+    var expectedUrlEncodedValue: String? = "fake-encoded-value"
     var expectedBase64EncodedValue = "fake-base64-value"
-    var base64CallWith :String?
-    var urlEncodeCallWith :String?
-    
+    var base64CallWith: String?
+    var urlEncodeCallWith: String?
+
     override func getUrlEncodedString(value: String) -> String? {
         if urlEncodeCallWith != value {
-           return value + " was not expected during suite setup"
+            return value + " was not expected during suite setup"
         }
         return expectedUrlEncodedValue
     }
-    
+
     override func getBase64EncodedString(value: String) -> String {
         if base64CallWith != value {
-                  return value + " was not expected during suite setup"
+            return value + " was not expected during suite setup"
         }
         return expectedBase64EncodedValue
     }
-    
-    func givenBase64EncodedStringReturns(callWith: String, expect: String){
+
+    func givenBase64EncodedStringReturns(callWith: String, expect: String) {
         self.base64CallWith = callWith
         self.expectedBase64EncodedValue = expect
     }
-    
-    func givenUrlEncodedStringReturns(callWith: String, expect: String?){
+
+    func givenUrlEncodedStringReturns(callWith: String, expect: String?) {
         self.urlEncodeCallWith = callWith
         self.expectedUrlEncodedValue = expect
     }
 }
 
-class FakeApplicationContextHolder : ApplicationContextHolder {
-    
+class FakeApplicationContextHolder: ApplicationContextHolder {
     override func getPersistentId() -> String {
         "fake-persistent-id"
     }
 }
 
 class FakeSessionContextHolder: SessionContextHolder {
+
     override func getSessionIdAndExtendSession() -> String {
         "fake-session-id"
     }
-    
-    override func getExternalParameters() -> Dictionary<String,Any> {
-        let externalParameters: Dictionary<String, Any> = [
-                "utm_soudce":"xennio"
-        ]
-        return externalParameters
-    }
-    
+
     override func getMemberId() -> String {
         return "fake-member-id"
     }
+
+    func withExtraParameters(_ params: Dictionary<String, Any>) -> FakeSessionContextHolder {
+        super.updateExternalParameters(data: params)
+        return self
+    }
+
 }
 
-class NotInitializedUserDefaults : UserDefaults {
-    
+class NotInitializedUserDefaults: UserDefaults {
+
     var keyValue: String?
     var value: Any?
-    
-    override func string(forKey defaultName:String) -> String? {
+
+    override func string(forKey defaultName: String) -> String? {
         return nil
     }
-    
+
     override func set(_ value: Any?, forKey defaultName: String) {
         self.keyValue = defaultName
         self.value = value
     }
-    
+
 }
 
-class InitializedUserDefaults : UserDefaults {
-    
+class InitializedUserDefaults: UserDefaults {
+
     var value: Any?
-    override func string(forKey defaultName:String) -> String? {
+
+    override func string(forKey defaultName: String) -> String? {
         return "stored-persistent-id"
     }
 }

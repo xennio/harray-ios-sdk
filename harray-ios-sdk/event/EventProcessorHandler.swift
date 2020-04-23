@@ -41,8 +41,8 @@ class EventProcessorHandler {
         }
     }
     
-    func actionResult(pageType: String) {
-        pageView(pageType: pageType, params: Dictionary<String, Any>() )
+    func actionResult(type: String) {
+        actionResult(type: type, params: Dictionary<String, Any>() )
     }
     
     func actionResult(type: String, params: Dictionary<String, Any>) {
@@ -60,12 +60,12 @@ class EventProcessorHandler {
     }
     
     func impression(pageType: String) {
-        pageView(pageType: pageType, params: Dictionary<String, Any>() )
+        impression(pageType: pageType, params: Dictionary<String, Any>() )
     }
     
-    func impression(type: String, params: Dictionary<String, Any>) {
+    func impression(pageType: String, params: Dictionary<String, Any>) {
         let pageViewEvent = XennEvent.create(name: "IM", persistentId: applicationContextHolder.getPersistentId(), sessionId: sessionContextHolder.getSessionId())
-            .addBody(key: "type", value: type)
+            .addBody(key: "pageType", value: pageType)
             .memberId(memberId: sessionContextHolder.getMemberId())
             .appendExtra(params: params)
             .toMap()
