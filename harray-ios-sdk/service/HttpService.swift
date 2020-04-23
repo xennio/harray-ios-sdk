@@ -33,5 +33,4 @@ class HttpService {
             task.resume()
         }
     }
-
 }
