@@ -42,7 +42,7 @@ class ApplicationContextHolderTest: XCTestCase {
         let userDefaults = InitializedUserDefaults()
              
         let applicationContextHolder = ApplicationContextHolder(userDefaults: userDefaults, sdkKey: "SDK-KEY")
-        XCTAssertEqual("3", applicationContextHolder.getTimezone())
+        XCTAssertEqual("0", applicationContextHolder.getTimezone())
     }
 
 }
