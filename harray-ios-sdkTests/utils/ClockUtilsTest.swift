@@ -20,7 +20,7 @@ class ClockUtilsTest: XCTestCase {
     func test_it_should_get_same_timestamp_if_it_is_frozen() {
            ClockUtils.freeze()
            let time1 = ClockUtils.getTime()
-           sleep(10000)
+           sleep(4)
            let time2 = ClockUtils.getTime()
            XCTAssertEqual(time1,time2)
            ClockUtils.unFreeze()
