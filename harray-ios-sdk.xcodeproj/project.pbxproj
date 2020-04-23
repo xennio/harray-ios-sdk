@@ -48,7 +48,6 @@
 		1D6C7F7724503876001FE80C /* Xennio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6C7F51245037CF001FE80C /* Xennio.swift */; };
 		1D6C7F7924505DE5001FE80C /* SDKEventProcessorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6C7F7824505DE5001FE80C /* SDKEventProcessorHandler.swift */; };
 		1D6C7F7B24505EF3001FE80C /* DeviceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6C7F7A24505EF3001FE80C /* DeviceService.swift */; };
-		1D9E61C32451F73400C39D84 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1D6C7F1B2450372D001FE80C /* Info.plist */; };
 		75F7936590788B5E2B4D582A /* DeviceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6C7F7A24505EF3001FE80C /* DeviceService.swift */; };
 		75F79538A038695F8306DA6D /* XennioTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F798090784860D02671AE4 /* XennioTest.swift */; };
 		75F795E919E1F03BF1032952 /* JsonSerializerServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F79865A169584F33FA5B1C /* JsonSerializerServiceTest.swift */; };
@@ -380,7 +379,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1D9E61C32451F73400C39D84 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
