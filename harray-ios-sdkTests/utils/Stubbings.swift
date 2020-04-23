@@ -47,7 +47,7 @@ class FakeDeviceService: DeviceService {
     }
 
     override func getBrand() -> String {
-        "Apple"
+        return "Apple"
     }
 }
 
@@ -146,7 +146,7 @@ class FakeEncodingService: EncodingService {
 
 class FakeApplicationContextHolder: ApplicationContextHolder {
     override func getPersistentId() -> String {
-        "fake-persistent-id"
+        return "fake-persistent-id"
     }
 
     override func getTimezone() -> String {
@@ -164,7 +164,7 @@ class FakeSessionContextHolder: SessionContextHolder {
     }
 
     override func getSessionIdAndExtendSession() -> String {
-        "fake-session-id"
+        return "fake-session-id"
     }
 
     override func getMemberId() -> String {
