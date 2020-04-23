@@ -9,35 +9,35 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
-		<key>EventProcessorHandlerTest.test_it_should_construct_page_view_event_and_make_api_call.xcscheme</key>
+		<key>EventProcessorHandlerTest.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false />
 			<key>orderHint</key>
 			<integer>1</integer>
 		</dict>
-		<key>SessionContextHolderTest.xcscheme</key>
+		<key>EventProcessorHandlerTest.test_it_should_not_invoke_http_service_when_serializer_service_has_error.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false />
 			<key>orderHint</key>
 			<integer>2</integer>
 		</dict>
-		<key>EventProcessorHandlerTest.xcscheme</key>
+		<key>SDKEventProcessorHandlerTest.test_it_should_construct_session_start_event_and_make_api_call.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false />
 			<key>orderHint</key>
 			<integer>3</integer>
 		</dict>
-		<key>EventProcessorHandlerTest.test_it_should_construct_page_view_and_append_extra_params_to_event_and_make_api_call.xcscheme</key>
+		<key>SDKEventProcessorHandlerTest.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false />
 			<key>orderHint</key>
 			<integer>4</integer>
 		</dict>
-		<key>EventProcessorHandlerTest.test_it_should_not_invoke_http_service_when_serializer_service_has_error.xcscheme</key>
+		<key>SDKEventProcessorHandlerTest.test_it_should_not_invoke_http_service_when_serializer_service_has_error_on_session_start.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false />

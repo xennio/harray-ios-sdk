@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import UIKit
+
 
 enum TestError: Error {
     case suiteConfigError(message: String)
@@ -15,6 +17,37 @@ enum TestError: Error {
 class TestUtils {
     class func anyDictionary() -> Dictionary<String, Any> {
         return Dictionary<String, Any>()
+    }
+}
+
+class FakeDeviceService: DeviceService {
+
+    init() {
+        super.init(bundle: Bundle.main, uiDevice: UIDevice.current)
+    }
+
+    override func getModel() -> String {
+        return "model"
+    }
+
+    override func getManufacturer() -> String {
+        return "Apple"
+    }
+
+    override func getOsVersion() -> String {
+        return "uiDevice.systemVersion"
+    }
+
+    override func getAppVersion() -> String? {
+        return "CFBundleShortVersionString"
+    }
+
+    override func getCarrier() -> String {
+        return "AT"
+    }
+
+    override func getBrand() -> String {
+        "Apple"
     }
 }
 
@@ -117,9 +150,20 @@ class FakeApplicationContextHolder: ApplicationContextHolder {
     override func getPersistentId() -> String {
         "fake-persistent-id"
     }
+
+    override func getTimezone() -> String {
+        return "2"
+    }
 }
 
 class FakeSessionContextHolder: SessionContextHolder {
+
+    private var lastActivityTime: Int?
+
+    func withLastActivityTime(_ expectedTime: Int) ->FakeSessionContextHolder {
+        lastActivityTime = expectedTime
+        return self
+    }
 
     override func getSessionIdAndExtendSession() -> String {
         "fake-session-id"
@@ -134,6 +178,9 @@ class FakeSessionContextHolder: SessionContextHolder {
         return self
     }
 
+    override func getLastActivityTime() -> Int {
+        return lastActivityTime!
+    }
 }
 
 class NotInitializedUserDefaults: UserDefaults {

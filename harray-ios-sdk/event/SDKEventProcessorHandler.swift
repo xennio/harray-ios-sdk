@@ -32,7 +32,7 @@ class SDKEventProcessorHandler {
         let pageViewEvent = XennEvent.create(name: "SS", persistentId: applicationContextHolder.getPersistentId(), sessionId: sessionContextHolder.getSessionId())
                 .addHeader(key: "sv", value: applicationContextHolder.getSdkVersion())
                 .memberId(memberId: sessionContextHolder.getMemberId())
-                .addBody(key: "os", value: "IOS /deviceService.getOsVersion()")
+                .addBody(key: "os", value: "IOS \(deviceService.getOsVersion())")
                 .addBody(key: "mn", value: deviceService.getManufacturer())
                 .addBody(key: "br", value: deviceService.getBrand())
                 .addBody(key: "op", value: deviceService.getCarrier())

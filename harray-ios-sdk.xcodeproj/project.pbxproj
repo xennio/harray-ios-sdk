@@ -53,6 +53,7 @@
 		75F796494FDB1AD75C5B9729 /* SDKEventProcessorHandlerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F793896A549ED373F17825 /* SDKEventProcessorHandlerTest.swift */; };
 		75F796CFB20ACD51266EDC35 /* NotificationProcessorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F7937C8E4A3DE0197BA508 /* NotificationProcessorHandler.swift */; };
 		75F7995A3063770EB44E8F6D /* NotificationProcessorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F7937C8E4A3DE0197BA508 /* NotificationProcessorHandler.swift */; };
+		75F79C72E86B55AF069A2635 /* SDKEventProcessorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6C7F7824505DE5001FE80C /* SDKEventProcessorHandler.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -439,6 +440,7 @@
 				75F7936590788B5E2B4D582A /* DeviceService.swift in Sources */,
 				75F796CFB20ACD51266EDC35 /* NotificationProcessorHandler.swift in Sources */,
 				75F796494FDB1AD75C5B9729 /* SDKEventProcessorHandlerTest.swift in Sources */,
+				75F79C72E86B55AF069A2635 /* SDKEventProcessorHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
