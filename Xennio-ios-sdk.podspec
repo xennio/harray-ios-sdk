@@ -10,5 +10,5 @@ Pod::Spec.new do |spec|
   spec.license       = "MIT"
   spec.author        = { "Yildirim Adiguzel" => "yildirim@xenn.io" }
   spec.source        = { :git => "https://github.com/xennio/harray-ios-sdk" }
-  spec.source_files  = "harray-ios-sdk/**/*"
+  spec.source_files  = "harray-ios-sdk/**/*.{h,m,swift}"
 end
