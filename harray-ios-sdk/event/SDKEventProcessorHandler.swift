@@ -36,7 +36,7 @@ class SDKEventProcessorHandler {
                 .addBody(key: "mn", value: deviceService.getManufacturer())
                 .addBody(key: "br", value: deviceService.getBrand())
                 .addBody(key: "op", value: deviceService.getCarrier())
-                .addBody(key: "av", value: deviceService.getAppVersion())
+                .addBody(key: "av", value: deviceService.getAppVersion() ?? "")
                 .addBody(key: "zn", value: applicationContextHolder.getTimezone())
                 .appendExtra(params: sessionContextHolder.getExternalParameters())
                 .toMap()
