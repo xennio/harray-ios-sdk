@@ -1,4 +1,10 @@
 language: objective-c
-xcode_project: harray-ios-sdk.xcodeproj # path to your xcodeproj folder
-xcode_scheme: harray-ios-sdkTests
-xcode_destination: platform=iOS Simulator,OS=10.1,name=iPad Pro (9.7-inch)
+
+osx_image: xcode10.1
+env:
+  matrix:
+    - TEST_SDK=iphonesimulator12.1 OS=12.1 NAME='iPhone XR'
+    - TEST_SDK=iphonesimulator12.1 OS=12.1 NAME='iPhone 7'
+
+script:
+  - set -o pipefail && xcodebuild test -enableCodeCoverage YES -project harray-ios-sdk.xcodeproj -scheme SwiftyLib -sdk $TEST_SDK -destination "platform=iOS Simulator,OS=$OS,name=$NAME" ONLY_ACTIVE_ARCH=YES
