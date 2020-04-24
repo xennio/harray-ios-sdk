@@ -9,11 +9,11 @@
 import Foundation
 import UIKit
 
-class Xennio: Equatable {
+public class Xennio: Equatable {
 
-    private static var instance: Xennio?
+    static var instance: Xennio?
 
-    private let sessionContextHolder: SessionContextHolder
+    let sessionContextHolder: SessionContextHolder
     private let applicationContextHolder: ApplicationContextHolder
     private let eventProcessorHandler: EventProcessorHandler
     private let sdkEventProcessorHandler: SDKEventProcessorHandler
@@ -30,9 +30,9 @@ class Xennio: Equatable {
         self.sdkEventProcessorHandler = sdkEventProcessorHandler
     }
 
-    class func configure(skdKey: String) {
+    public class func configure(sdkKey: String) {
         let sessionContextHolder = SessionContextHolder()
-        let applicationContextHolder = ApplicationContextHolder(userDefaults: UserDefaults.standard, sdkKey: skdKey)
+        let applicationContextHolder = ApplicationContextHolder(userDefaults: UserDefaults.standard, sdkKey: sdkKey)
         let httpService = HttpService(collectorUrl: applicationContextHolder.getCollectorUrl())
         let entitySerializerService = EntitySerializerService(encodingService: EncodingService(), jsonSerializerService: JsonSerializerService())
         let deviceService = DeviceService(bundle: Bundle.main, uiDevice: UIDevice.current)
@@ -40,7 +40,7 @@ class Xennio: Equatable {
         let eventProcessorHandler = EventProcessorHandler(applicationContextHolder: applicationContextHolder, sessionContextHolder: sessionContextHolder, httpService: httpService, entitySerializerService: entitySerializerService)
         let sdkEventProcessorHandler = SDKEventProcessorHandler(applicationContextHolder: applicationContextHolder, sessionContextHolder: sessionContextHolder, httpService: httpService, entitySerializerService: entitySerializerService, deviceService: deviceService)
 
-        instance = Xennio(sdkKey: skdKey,
+        instance = Xennio(sdkKey: sdkKey,
                 sessionContextHolder: sessionContextHolder,
                 applicationContextHolder: applicationContextHolder,
                 eventProcessorHandler: eventProcessorHandler,
@@ -55,7 +55,7 @@ class Xennio: Equatable {
         return instance!
     }
 
-    class func eventing() throws -> EventProcessorHandler {
+    public class func eventing() throws -> EventProcessorHandler {
         let xennioInstance = try getInstance()
         let sessionContextHolder = xennioInstance.sessionContextHolder
         if (sessionContextHolder.getSessionState() != SessionState.SESSION_STARTED) {
@@ -65,7 +65,17 @@ class Xennio: Equatable {
         return xennioInstance.eventProcessorHandler
     }
 
-    static func ==(lhs: Xennio, rhs: Xennio) -> Bool {
+    public class func login(memberId: String) throws {
+        let xennioInstance = try getInstance()
+        xennioInstance.sessionContextHolder.login(memberId: memberId)
+    }
+
+    public class func logout() throws {
+        let xennioInstance = try getInstance()
+        xennioInstance.sessionContextHolder.logout()
+    }
+
+    public static func ==(lhs: Xennio, rhs: Xennio) -> Bool {
         return lhs.hashValue == rhs.hashValue
     }
 }

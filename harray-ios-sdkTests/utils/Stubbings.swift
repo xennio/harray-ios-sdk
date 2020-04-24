@@ -145,6 +145,7 @@ class FakeEncodingService: EncodingService {
 }
 
 class FakeApplicationContextHolder: ApplicationContextHolder {
+
     override func getPersistentId() -> String {
         return "fake-persistent-id"
     }

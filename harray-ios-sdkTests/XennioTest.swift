@@ -16,11 +16,15 @@ class XennioTest: XCTestCase {
     }
 
     func test_it_should_return_same_instance_when_get_method_called_more_than_one_time() throws {
-        Xennio.configure(skdKey: "SDK_KEY")
+        try! Xennio.configure(sdkKey: "SDK_KEY")
         let instance1 = try Xennio.getInstance()
         let instance2 = try Xennio.getInstance()
         XCTAssertEqual(instance1, instance2)
     }
 
-
+    func test_it_should_log_in_with_memberId() throws {
+        try! Xennio.configure(sdkKey: "SDK_KEY")
+        try! Xennio.login(memberId: "memberId")
+        XCTAssertEqual("memberId", Xennio.instance!.sessionContextHolder.getMemberId())
+    }
 }

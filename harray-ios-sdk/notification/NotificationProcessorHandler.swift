@@ -5,6 +5,6 @@
 
 import Foundation
 
-class NotificationProcessorHandler {
+public class NotificationProcessorHandler {
     
 }
