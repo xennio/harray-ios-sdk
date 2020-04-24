@@ -4,6 +4,7 @@
 //
 
 import Foundation
+import UserNotifications
 
 public class NotificationProcessorHandler {
 
@@ -49,6 +50,24 @@ public class NotificationProcessorHandler {
                 .toMap()
         let serializedEvent = entitySerializerService.serialize(event: pageViewEvent)
         httpService.postFormUrlEncoded(payload: serializedEvent)
+    }
+
+    public func handlePushNotification(request: UNNotificationRequest, bestAttemptContent: UNMutableNotificationContent) {
+
+        let source = request.content.userInfo[Constants.PUSH_PAYLOAD_SOURCE.rawValue]
+        if source != nil {
+            let pushChannelId = source as? String
+            if Constants.PUSH_CHANNEL_ID.rawValue == pushChannelId {
+                sessionContextHolder.updateExternalParameters(data: request.content.userInfo)
+                pushMessageReceived()
+                let imageUrl = request.content.userInfo[Constants.PUSH_PAYLOAD_IMAGE_URL.rawValue] as? String
+                httpService.downloadImage(endpoint: imageUrl) { attachment in
+                    if attachment != nil {
+                        bestAttemptContent.attachments = [attachment!]
+                    }
+                }
+            }
+        }
     }
 
 }

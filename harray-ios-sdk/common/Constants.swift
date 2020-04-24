@@ -8,6 +8,10 @@
 
 import Foundation
 
-enum Constants : String {
+enum Constants: String {
     case SDK_PERSISTENT_ID_KEY = "xLifeTimeId"
+    case PUSH_CHANNEL_ID = "xennio"
+    case PUSH_PAYLOAD_IMAGE_URL = "image_url"
+    case PUSH_PAYLOAD_SOURCE = "source"
+
 }

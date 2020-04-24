@@ -133,4 +133,39 @@ class SessionContextHolderTest: XCTestCase {
         XCTAssertNil(boundedExternalParameters["utm_campaign"])
         XCTAssertTrue("campaignId" == boundedExternalParameters["campaignId"] as! String)
     }
+
+    func test_it_should_update_external_parameters_with_any_hashable(){
+        let sessionContextHolder = SessionContextHolder()
+        let externalParameters: Dictionary<AnyHashable, Any> = [
+            "a":"b",
+            "c":"e",
+            "d":"f",
+            "campaignId": "campaignId",
+            "campaignDate": "campaignDate",
+            "pushId": "pushId",
+            "url": "url",
+            "utm_source": "utm_source",
+            "utm_medium": "utm_medium",
+            "utm_campaign": "utm_campaign",
+            "utm_term": "utm_term",
+            "utm_content": "utm_content",
+            1: "asa"
+
+        ]
+        sessionContextHolder.updateExternalParameters(data: externalParameters)
+        let boundedExternalParameters = sessionContextHolder.getExternalParameters()
+        XCTAssertNil(boundedExternalParameters["a"])
+        XCTAssertNil(boundedExternalParameters["c"])
+        XCTAssertNil(boundedExternalParameters["d"])
+
+        XCTAssertTrue("campaignId" == boundedExternalParameters["campaignId"] as! String)
+        XCTAssertTrue("campaignDate" == boundedExternalParameters["campaignDate"] as! String)
+        XCTAssertTrue("pushId" == boundedExternalParameters["pushId"] as! String)
+        XCTAssertTrue("url" == boundedExternalParameters["url"] as! String)
+        XCTAssertTrue("utm_source" == boundedExternalParameters["utm_source"] as! String)
+        XCTAssertTrue("utm_medium" == boundedExternalParameters["utm_medium"] as! String)
+        XCTAssertTrue("utm_campaign" == boundedExternalParameters["utm_campaign"] as! String)
+        XCTAssertTrue("utm_term" == boundedExternalParameters["utm_term"] as! String)
+        XCTAssertTrue("utm_content" == boundedExternalParameters["utm_content"] as! String)
+    }
 }

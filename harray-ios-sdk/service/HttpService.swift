@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UserNotifications
 
 class HttpService {
 
@@ -36,6 +37,49 @@ class HttpService {
         } else {
             XennioLogger.log(message: "Attempt to store nil value")
         }
-
     }
+
+    func downloadImage(endpoint: String?, with completionHandler: @escaping (UNNotificationAttachment?) -> Void) {
+        guard let imageUrlString = endpoint else {
+            completionHandler(nil)
+            return
+        }
+
+        let imageUrlOptional = URL(string: imageUrlString)
+        guard let imageUrl = imageUrlOptional else {
+            completionHandler(nil)
+            return
+        }
+
+        let task = URLSession.shared.downloadTask(with: imageUrl) { (downloadedUrl: URL?, response: URLResponse?, error: Error?) -> Void in
+            guard let downloadedUrl = downloadedUrl else {
+                completionHandler(nil)
+                return
+            }
+
+            let extensionIndex = imageUrlString.lastIndex(of: ".")
+            guard let index = extensionIndex else {
+                completionHandler(nil)
+                return
+            }
+
+            let fileExtension = imageUrlString.substring(from: index)
+
+            var urlPath = URL(fileURLWithPath: NSTemporaryDirectory())
+            let uniqueURLEnding = ProcessInfo.processInfo.globallyUniqueString + fileExtension
+            urlPath = urlPath.appendingPathComponent(uniqueURLEnding)
+
+            try? FileManager.default.moveItem(at: downloadedUrl, to: urlPath)
+
+            do {
+                let attachment = try UNNotificationAttachment(identifier: "picture", url: urlPath, options: nil)
+                completionHandler(attachment)
+            } catch {
+                completionHandler(nil)
+            }
+
+        }
+        task.resume()
+    }
+
 }

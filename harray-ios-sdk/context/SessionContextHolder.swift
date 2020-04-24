@@ -57,6 +57,14 @@ class SessionContextHolder {
         }
     }
 
+    func updateExternalParameters(data: Dictionary<AnyHashable, Any>) {
+        for eachItem in self.externalParameterKeys {
+            if data[eachItem] != nil {
+                self.externalParameters[eachItem] = data[eachItem]
+            }
+        }
+    }
+
     func getSessionId() -> String {
         return self.sessionId
     }
