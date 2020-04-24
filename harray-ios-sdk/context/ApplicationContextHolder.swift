@@ -12,7 +12,7 @@ class ApplicationContextHolder {
     private let collectorUrl = "https://c.xenn.io"
     private let sdkKey: String
     private let persistentId: String
-    private let sdkVersion = "1.2"
+    private let sdkVersion = "1.3"
     
     init(userDefaults: UserDefaults, sdkKey: String) {
         var value = userDefaults.string(forKey: Constants.SDK_PERSISTENT_ID_KEY.rawValue)
