@@ -2,6 +2,8 @@
 
 [![Build Status](https://travis-ci.org/xennio/harray-ios-sdk.svg?branch=master)](https://travis-ci.org/xennio/harray-ios-sdk)
 [![codecov](https://codecov.io/gh/xennio/harray-ios-sdk/branch/master/graph/badge.svg)](https://codecov.io/gh/xennio/harray-ios-sdk)
+[![Platform](https://img.shields.io/cocoapods/p/Xennio.svg?style=flat)](https://cocoapods.org/pods/Xennio)
+[![Version](https://img.shields.io/cocoapods/v/Xennio.svg?style=flat)](https://cocoapods.org/pods/Xennio)
 ![GitHub](https://img.shields.io/github/license/xennio/harray-ios-sdk?style=flat-square)
 
 # Integration Guide
