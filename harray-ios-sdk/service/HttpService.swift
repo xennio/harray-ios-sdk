@@ -63,7 +63,7 @@ class HttpService {
                 return
             }
 
-            let fileExtension = imageUrlString.substring(from: index)
+            let fileExtension = imageUrlString[index...]
 
             var urlPath = URL(fileURLWithPath: NSTemporaryDirectory())
             let uniqueURLEnding = ProcessInfo.processInfo.globallyUniqueString + fileExtension
