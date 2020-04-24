@@ -17,17 +17,20 @@ public class Xennio: Equatable {
     private let applicationContextHolder: ApplicationContextHolder
     private let eventProcessorHandler: EventProcessorHandler
     private let sdkEventProcessorHandler: SDKEventProcessorHandler
+    private let notificationProcessorHandler: NotificationProcessorHandler
     private let hashValue: String = RandomValueUtils.randomUUID()
 
     private init(sdkKey: String,
                  sessionContextHolder: SessionContextHolder,
                  applicationContextHolder: ApplicationContextHolder,
                  eventProcessorHandler: EventProcessorHandler,
-                 sdkEventProcessorHandler: SDKEventProcessorHandler) {
+                 sdkEventProcessorHandler: SDKEventProcessorHandler,
+                 notificationProcessorHandler: NotificationProcessorHandler) {
         self.sessionContextHolder = sessionContextHolder
         self.applicationContextHolder = applicationContextHolder
         self.eventProcessorHandler = eventProcessorHandler
         self.sdkEventProcessorHandler = sdkEventProcessorHandler
+        self.notificationProcessorHandler = notificationProcessorHandler
     }
 
     public class func configure(sdkKey: String) {
@@ -39,24 +42,23 @@ public class Xennio: Equatable {
 
         let eventProcessorHandler = EventProcessorHandler(applicationContextHolder: applicationContextHolder, sessionContextHolder: sessionContextHolder, httpService: httpService, entitySerializerService: entitySerializerService)
         let sdkEventProcessorHandler = SDKEventProcessorHandler(applicationContextHolder: applicationContextHolder, sessionContextHolder: sessionContextHolder, httpService: httpService, entitySerializerService: entitySerializerService, deviceService: deviceService)
+        let notificationProcessorHandler = NotificationProcessorHandler(applicationContextHolder: applicationContextHolder, sessionContextHolder: sessionContextHolder, httpService: httpService, entitySerializerService: entitySerializerService)
 
         instance = Xennio(sdkKey: sdkKey,
                 sessionContextHolder: sessionContextHolder,
                 applicationContextHolder: applicationContextHolder,
                 eventProcessorHandler: eventProcessorHandler,
-                sdkEventProcessorHandler: sdkEventProcessorHandler
+                sdkEventProcessorHandler: sdkEventProcessorHandler,
+                notificationProcessorHandler: notificationProcessorHandler
         )
     }
 
-    class func getInstance() throws -> Xennio {
-        if instance == nil {
-            throw XennError.configuration(message: "Xennio.configure(sdkKey: sdkKey) must be called before getting instance")
-        }
+    class func getInstance() -> Xennio {
         return instance!
     }
 
-    public class func eventing() throws -> EventProcessorHandler {
-        let xennioInstance = try getInstance()
+    public class func eventing() -> EventProcessorHandler {
+        let xennioInstance = getInstance()
         let sessionContextHolder = xennioInstance.sessionContextHolder
         if (sessionContextHolder.getSessionState() != SessionState.SESSION_STARTED) {
             xennioInstance.sdkEventProcessorHandler.sessionStart()
@@ -65,14 +67,16 @@ public class Xennio: Equatable {
         return xennioInstance.eventProcessorHandler
     }
 
-    public class func login(memberId: String) throws {
-        let xennioInstance = try getInstance()
-        xennioInstance.sessionContextHolder.login(memberId: memberId)
+    public class func notifications() -> NotificationProcessorHandler {
+        return getInstance().notificationProcessorHandler
     }
 
-    public class func logout() throws {
-        let xennioInstance = try getInstance()
-        xennioInstance.sessionContextHolder.logout()
+    public class func login(memberId: String) {
+        getInstance().sessionContextHolder.login(memberId: memberId)
+    }
+
+    public class func logout() {
+        getInstance().sessionContextHolder.logout()
     }
 
     public static func ==(lhs: Xennio, rhs: Xennio) -> Bool {

@@ -23,6 +23,34 @@
 			<key>orderHint</key>
 			<integer>2</integer>
 		</dict>
+		<key>NotificationProcessorHandlerTest.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false />
+			<key>orderHint</key>
+			<integer>3</integer>
+		</dict>
+		<key>NotificationProcessorHandlerTest.test_it_should_construct_page_view_event_and_make_api_call.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false />
+			<key>orderHint</key>
+			<integer>4</integer>
+		</dict>
+		<key>XennioTest.test_it_should_log_out_with_memberId.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false />
+			<key>orderHint</key>
+			<integer>5</integer>
+		</dict>
+		<key>XennioTest.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false />
+			<key>orderHint</key>
+			<integer>6</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>

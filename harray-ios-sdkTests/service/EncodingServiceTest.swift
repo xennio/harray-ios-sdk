@@ -10,12 +10,12 @@ import XCTest
 
 class EncodingServiceTest: XCTestCase  {
     
-    func it_should_convert_url_encoded_version_of_given_text(){
+    func test_it_should_convert_url_encoded_version_of_given_text(){
         let text =  "http://www.xenn.io?foo=bar&a=b+c"
         let encodingService = EncodingService()
         let result = encodingService.getUrlEncodedString(value: text)
         
-        XCTAssertEqual("http%3A%2F%2Fwww.xenn.io%3Ffoo%3Dbar%26a%3Db%2Bc", result)
+        XCTAssertEqual("http%3A%2F%2Fwww.xenn.io%3Ffoo=bar&a=b+c", result)
     }
     
     func test_it_should_encode_string_to_base_64_string(){
