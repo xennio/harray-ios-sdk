@@ -1,7 +1,7 @@
 Pod::Spec.new do |spec|
 
-  spec.name          = "Xennio-ios-sdk"
-  spec.version       = "1.3"
+  spec.name          = "Xennio"
+  spec.version       = "1.5"
   spec.swift_version = "4.2"
   spec.summary       = "Xennio unified engine IOS SDK"
   spec.description   = "Xennio unified engine official IOS SDK"
@@ -9,7 +9,7 @@ Pod::Spec.new do |spec|
   spec.ios.deployment_target = "12.1"
   spec.homepage      = "https://github.com/xennio/harray-ios-sdk"
   spec.license       = { :type => "MIT", :file => "LICENSE" }
-  spec.author        = { "Yildirim Adiguzel" => "yildirim@xenn.io" }
+  spec.author        = { "Xennio Development Team" => "developer@xenn.io" }
   spec.source        = { :git => "https://github.com/xennio/harray-ios-sdk.git", :tag => "#{spec.version}" }
   spec.source_files  = "harray-ios-sdk/**/*.{h,m,swift}"
 end
