@@ -36,7 +36,7 @@ public class Xennio: Equatable {
     public class func configure(sdkKey: String) {
         let sessionContextHolder = SessionContextHolder()
         let applicationContextHolder = ApplicationContextHolder(userDefaults: UserDefaults.standard, sdkKey: sdkKey)
-        let httpService = HttpService(collectorUrl: applicationContextHolder.getCollectorUrl())
+        let httpService = HttpService(collectorUrl: applicationContextHolder.getCollectorUrl(), session: URLSession.shared)
         let entitySerializerService = EntitySerializerService(encodingService: EncodingService(), jsonSerializerService: JsonSerializerService())
         let deviceService = DeviceService(bundle: Bundle.main, uiDevice: UIDevice.current)
 

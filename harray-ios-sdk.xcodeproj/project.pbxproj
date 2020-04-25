@@ -48,6 +48,7 @@
 		1D6C7F7924505DE5001FE80C /* SDKEventProcessorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6C7F7824505DE5001FE80C /* SDKEventProcessorHandler.swift */; };
 		1D6C7F7B24505EF3001FE80C /* DeviceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6C7F7A24505EF3001FE80C /* DeviceService.swift */; };
 		75F7936590788B5E2B4D582A /* DeviceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6C7F7A24505EF3001FE80C /* DeviceService.swift */; };
+		75F794E5C382C753E6924F0F /* HttpServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F79E2D8FC019EEC9D0E3FB /* HttpServiceTest.swift */; };
 		75F79538A038695F8306DA6D /* XennioTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F798090784860D02671AE4 /* XennioTest.swift */; };
 		75F795E919E1F03BF1032952 /* JsonSerializerServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F79865A169584F33FA5B1C /* JsonSerializerServiceTest.swift */; };
 		75F796494FDB1AD75C5B9729 /* SDKEventProcessorHandlerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F793896A549ED373F17825 /* SDKEventProcessorHandlerTest.swift */; };
@@ -107,6 +108,7 @@
 		75F79865A169584F33FA5B1C /* JsonSerializerServiceTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonSerializerServiceTest.swift; sourceTree = "<group>"; };
 		75F799FEC7295DCD9574A776 /* XennEventTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XennEventTest.swift; sourceTree = "<group>"; };
 		75F79C386130ECC4CD1638D9 /* NotificationProcessorHandlerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationProcessorHandlerTest.swift; sourceTree = "<group>"; };
+		75F79E2D8FC019EEC9D0E3FB /* HttpServiceTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpServiceTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -270,6 +272,7 @@
 				1D6C7F5F245037E4001FE80C /* EntitySerializerServiceTest.swift */,
 				1D6C7F60245037E4001FE80C /* EncodingServiceTest.swift */,
 				75F79865A169584F33FA5B1C /* JsonSerializerServiceTest.swift */,
+				75F79E2D8FC019EEC9D0E3FB /* HttpServiceTest.swift */,
 			);
 			path = service;
 			sourceTree = "<group>";
@@ -465,6 +468,7 @@
 				75F795E919E1F03BF1032952 /* JsonSerializerServiceTest.swift in Sources */,
 				75F79A2864363C2E049B9E77 /* XennEventTest.swift in Sources */,
 				75F79F68E5A695270A8E308A /* NotificationProcessorHandlerTest.swift in Sources */,
+				75F794E5C382C753E6924F0F /* HttpServiceTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

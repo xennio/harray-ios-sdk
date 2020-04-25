@@ -12,9 +12,11 @@ import UserNotifications
 class HttpService {
 
     private let collectorUrl: String
+    private let session: URLSession
 
-    init(collectorUrl: String) {
+    init(collectorUrl: String, session: URLSession) {
         self.collectorUrl = collectorUrl
+        self.session = session
     }
 
     func postFormUrlEncoded(payload: String?) {
@@ -27,7 +29,7 @@ class HttpService {
 
                 let d = "e=\(payload!)".data(using: String.Encoding.ascii, allowLossyConversion: false)
                 r.httpBody = d
-                let task = URLSession.shared.dataTask(with: r) { data, response, error in
+                let task = session.dataTask(with: r) { data, response, error in
                     if let httpResponse = response as? HTTPURLResponse {
                         print(httpResponse.statusCode)
                     }
@@ -51,7 +53,7 @@ class HttpService {
             return
         }
 
-        let task = URLSession.shared.downloadTask(with: imageUrl) { (downloadedUrl: URL?, response: URLResponse?, error: Error?) -> Void in
+        let task = session.downloadTask(with: imageUrl) { (downloadedUrl: URL?, response: URLResponse?, error: Error?) -> Void in
             guard let downloadedUrl = downloadedUrl else {
                 completionHandler(nil)
                 return
