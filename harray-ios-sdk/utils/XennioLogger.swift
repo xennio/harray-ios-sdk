@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import os
 
 class XennioLogger {
     private init() {
@@ -14,7 +15,7 @@ class XennioLogger {
     }
 
     class func log(message: String) {
-        print(message)
+        os_log("%@.", message)
     }
 
 }
