@@ -31,4 +31,24 @@ class HttpServiceTest: XCTestCase {
         XCTAssertFalse(result!.isSuccess())
     }
 
+    func test_it_should_call_completion_handler_with_nil_when_endpoint_is_nil() {
+        let fakeUrlSession = MockUrlSession(httpResult: HttpResult.clientError())
+        let httpService = HttpService(collectorUrl: "https://c.xenn.io", session: fakeUrlSession)
+        var result: HttpDownloadableResult?
+        httpService.downloadContent(endpoint: nil) {
+            result = $0
+        }
+        XCTAssertNil(result)
+    }
+
+    func test_it_should_call_completion_handler_with_http_downloadable_result_when_response_is_valid() {
+        let fakeUrlSession = MockUrlSession(httpDownloadableResult: HttpDownloadableResult(path: URL(string: "http://www.xenn.io")!))
+        let httpService = HttpService(collectorUrl: "https://c.xenn.io", session: fakeUrlSession)
+        var result: HttpDownloadableResult?
+        httpService.downloadContent(endpoint: "https://c.xenn.io/img.gif") {
+            result = $0
+        }
+        XCTAssertEqual(URL(string: "http://www.xenn.io")!,result?.getPath())
+    }
+
 }

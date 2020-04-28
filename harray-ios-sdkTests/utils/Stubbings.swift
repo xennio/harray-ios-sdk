@@ -71,18 +71,23 @@ class FakeUrlSession: URLSession {
 
 class MockUrlSession: HttpSession {
 
-    let httpResult: HttpResult
+    var httpResult: HttpResult?
+    var httpDownloadableResult: HttpDownloadableResult?
 
     init(httpResult: HttpResult) {
         self.httpResult = httpResult
     }
 
+    init(httpDownloadableResult: HttpDownloadableResult) {
+        self.httpDownloadableResult = httpDownloadableResult
+    }
+
     func doRequest(from urlRequest: URLRequest, completionHandler: @escaping (HttpResult) -> Void) {
-        completionHandler(httpResult)
+        completionHandler(httpResult!)
     }
 
     func downloadTask(with endpoint: String?, completionHandler: @escaping (HttpDownloadableResult?) -> Void) {
-        completionHandler(nil)
+        completionHandler(httpDownloadableResult)
     }
 }
 
