@@ -9,9 +9,12 @@
 import Foundation
 
 class XennioLogger {
-    
+    private init() {
+
+    }
+
     class func log(message: String) {
         print(message)
     }
-    
+
 }

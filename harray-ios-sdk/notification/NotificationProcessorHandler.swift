@@ -63,8 +63,12 @@ public class NotificationProcessorHandler {
                 let imageUrl = request.content.userInfo[Constants.PUSH_PAYLOAD_IMAGE_URL.rawValue] as? String
                 httpService.downloadContent(endpoint: imageUrl) { response in
                     if response != nil {
-                        let imageAttachment = UNNotificationAttachment(identifier: RandomValueUtils.randomUUID(), url: response!.getPath())
-                        bestAttemptContent.attachments = [imageAttachment]
+                        do {
+                            let imageAttachment = try UNNotificationAttachment(identifier: RandomValueUtils.randomUUID(), url: response!.getPath())
+                            bestAttemptContent.attachments = [imageAttachment]
+                        } catch {
+                            XennioLogger.log(message: "unable to handle push notification image")
+                        }
                     }
                 }
             }

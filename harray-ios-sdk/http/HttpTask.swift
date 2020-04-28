@@ -80,11 +80,9 @@ extension URLSession: HttpSession {
             var urlPath = URL(fileURLWithPath: NSTemporaryDirectory())
             let uniqueURLEnding = ProcessInfo.processInfo.globallyUniqueString + fileExtension
             urlPath = urlPath.appendingPathComponent(uniqueURLEnding)
-
-            try? FileManager.default.moveItem(at: downloadedUrl, to: urlPath)
-
             do {
-                let attachment = try HttpDownloadableResult(identifier: "picture", path: urlPath)
+                try FileManager.default.moveItem(at: downloadedUrl, to: urlPath)
+                let attachment = HttpDownloadableResult(path: urlPath)
                 completionHandler(attachment)
             } catch {
                 completionHandler(nil)
