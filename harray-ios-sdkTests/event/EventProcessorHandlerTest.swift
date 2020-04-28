@@ -14,7 +14,7 @@ class EventProcessorHandlerTest: XCTestCase {
         let sessionContextHolder = FakeSessionContextHolder().withExtraParameters(["utm_medium": "xennio"])
         let applicationContextHolder = FakeApplicationContextHolder(userDefaults: InitializedUserDefaults(), sdkKey: "SDK-KEY")
 
-        let httpService = FakeHttpService(collectorUrl: "collector-url")
+        let httpService = FakeHttpService(collectorUrl: "collector-url", session: FakeUrlSession())
         let entitySerializerService = CapturingEntitySerializerService.init()
         let eventProcessorHandler = EventProcessorHandler(applicationContextHolder: applicationContextHolder, sessionContextHolder: sessionContextHolder, httpService: httpService, entitySerializerService: entitySerializerService)
         entitySerializerService.givenSerializeReturns(callWith: TestUtils.anyDictionary(), expect: "serialized_event")
@@ -41,7 +41,8 @@ class EventProcessorHandlerTest: XCTestCase {
         let sessionContextHolder = FakeSessionContextHolder().withExtraParameters(["utm_medium": "xennio"])
         let applicationContextHolder = FakeApplicationContextHolder(userDefaults: InitializedUserDefaults(), sdkKey: "SDK-KEY")
 
-        let httpService = FakeHttpService(collectorUrl: "collector-url")
+        let httpService = FakeHttpService(collectorUrl: "collector-url", session: FakeUrlSession())
+
         let entitySerializerService = CapturingEntitySerializerService.init()
         let eventProcessorHandler = EventProcessorHandler(applicationContextHolder: applicationContextHolder, sessionContextHolder: sessionContextHolder, httpService: httpService, entitySerializerService: entitySerializerService)
         entitySerializerService.givenSerializeReturns(callWith: TestUtils.anyDictionary(), expect: "serialized_event")
@@ -70,7 +71,7 @@ class EventProcessorHandlerTest: XCTestCase {
         let sessionContextHolder = FakeSessionContextHolder().withExtraParameters(["utm_medium": "xennio"])
         let applicationContextHolder = FakeApplicationContextHolder(userDefaults: InitializedUserDefaults(), sdkKey: "SDK-KEY")
 
-        let httpService = FakeHttpService(collectorUrl: "collector-url")
+        let httpService = FakeHttpService(collectorUrl: "collector-url", session: FakeUrlSession())
         let entitySerializerService = CapturingEntitySerializerService.init()
         let eventProcessorHandler = EventProcessorHandler(applicationContextHolder: applicationContextHolder, sessionContextHolder: sessionContextHolder, httpService: httpService, entitySerializerService: entitySerializerService)
         entitySerializerService.givenSerializeReturns(callWith: TestUtils.anyDictionary(), expect: nil)
@@ -84,7 +85,7 @@ class EventProcessorHandlerTest: XCTestCase {
         let sessionContextHolder = FakeSessionContextHolder()
         let applicationContextHolder = FakeApplicationContextHolder(userDefaults: InitializedUserDefaults(), sdkKey: "SDK-KEY")
 
-        let httpService = FakeHttpService(collectorUrl: "collector-url")
+        let httpService = FakeHttpService(collectorUrl: "collector-url", session: FakeUrlSession())
         let entitySerializerService = CapturingEntitySerializerService.init()
         let eventProcessorHandler = EventProcessorHandler(applicationContextHolder: applicationContextHolder, sessionContextHolder: sessionContextHolder, httpService: httpService, entitySerializerService: entitySerializerService)
         entitySerializerService.givenSerializeReturns(callWith: TestUtils.anyDictionary(), expect: "serialized_event")
@@ -110,7 +111,7 @@ class EventProcessorHandlerTest: XCTestCase {
         let sessionContextHolder = FakeSessionContextHolder()
         let applicationContextHolder = FakeApplicationContextHolder(userDefaults: InitializedUserDefaults(), sdkKey: "SDK-KEY")
 
-        let httpService = FakeHttpService(collectorUrl: "collector-url")
+        let httpService = FakeHttpService(collectorUrl: "collector-url", session: FakeUrlSession())
         let entitySerializerService = CapturingEntitySerializerService.init()
         let eventProcessorHandler = EventProcessorHandler(applicationContextHolder: applicationContextHolder, sessionContextHolder: sessionContextHolder, httpService: httpService, entitySerializerService: entitySerializerService)
         entitySerializerService.givenSerializeReturns(callWith: TestUtils.anyDictionary(), expect: "serialized_event")
@@ -138,7 +139,7 @@ class EventProcessorHandlerTest: XCTestCase {
         let sessionContextHolder = FakeSessionContextHolder().withExtraParameters(["utm_medium": "xennio"])
         let applicationContextHolder = FakeApplicationContextHolder(userDefaults: InitializedUserDefaults(), sdkKey: "SDK-KEY")
 
-        let httpService = FakeHttpService(collectorUrl: "collector-url")
+        let httpService = FakeHttpService(collectorUrl: "collector-url", session: FakeUrlSession())
         let entitySerializerService = CapturingEntitySerializerService.init()
         let eventProcessorHandler = EventProcessorHandler(applicationContextHolder: applicationContextHolder, sessionContextHolder: sessionContextHolder, httpService: httpService, entitySerializerService: entitySerializerService)
         entitySerializerService.givenSerializeReturns(callWith: TestUtils.anyDictionary(), expect: nil)
@@ -152,7 +153,7 @@ class EventProcessorHandlerTest: XCTestCase {
         let sessionContextHolder = FakeSessionContextHolder()
         let applicationContextHolder = FakeApplicationContextHolder(userDefaults: InitializedUserDefaults(), sdkKey: "SDK-KEY")
 
-        let httpService = FakeHttpService(collectorUrl: "collector-url")
+        let httpService = FakeHttpService(collectorUrl: "collector-url", session: FakeUrlSession())
         let entitySerializerService = CapturingEntitySerializerService.init()
         let eventProcessorHandler = EventProcessorHandler(applicationContextHolder: applicationContextHolder, sessionContextHolder: sessionContextHolder, httpService: httpService, entitySerializerService: entitySerializerService)
         entitySerializerService.givenSerializeReturns(callWith: TestUtils.anyDictionary(), expect: "serialized_event")
@@ -178,7 +179,7 @@ class EventProcessorHandlerTest: XCTestCase {
         let sessionContextHolder = FakeSessionContextHolder()
         let applicationContextHolder = FakeApplicationContextHolder(userDefaults: InitializedUserDefaults(), sdkKey: "SDK-KEY")
 
-        let httpService = FakeHttpService(collectorUrl: "collector-url")
+        let httpService = FakeHttpService(collectorUrl: "collector-url", session: FakeUrlSession())
         let entitySerializerService = CapturingEntitySerializerService.init()
         let eventProcessorHandler = EventProcessorHandler(applicationContextHolder: applicationContextHolder, sessionContextHolder: sessionContextHolder, httpService: httpService, entitySerializerService: entitySerializerService)
         entitySerializerService.givenSerializeReturns(callWith: TestUtils.anyDictionary(), expect: "serialized_event")
@@ -206,7 +207,7 @@ class EventProcessorHandlerTest: XCTestCase {
         let sessionContextHolder = FakeSessionContextHolder().withExtraParameters(["utm_medium": "xennio"])
         let applicationContextHolder = FakeApplicationContextHolder(userDefaults: InitializedUserDefaults(), sdkKey: "SDK-KEY")
 
-        let httpService = FakeHttpService(collectorUrl: "collector-url")
+        let httpService = FakeHttpService(collectorUrl: "collector-url", session: FakeUrlSession())
         let entitySerializerService = CapturingEntitySerializerService.init()
         let eventProcessorHandler = EventProcessorHandler(applicationContextHolder: applicationContextHolder, sessionContextHolder: sessionContextHolder, httpService: httpService, entitySerializerService: entitySerializerService)
         entitySerializerService.givenSerializeReturns(callWith: TestUtils.anyDictionary(), expect: nil)
@@ -221,7 +222,7 @@ class EventProcessorHandlerTest: XCTestCase {
         let sessionContextHolder = FakeSessionContextHolder().withExtraParameters(["utm_medium": "xennio"])
         let applicationContextHolder = FakeApplicationContextHolder(userDefaults: InitializedUserDefaults(), sdkKey: "SDK-KEY")
 
-        let httpService = FakeHttpService(collectorUrl: "collector-url")
+        let httpService = FakeHttpService(collectorUrl: "collector-url", session: FakeUrlSession())
         let entitySerializerService = CapturingEntitySerializerService.init()
         let eventProcessorHandler = EventProcessorHandler(applicationContextHolder: applicationContextHolder, sessionContextHolder: sessionContextHolder, httpService: httpService, entitySerializerService: entitySerializerService)
         entitySerializerService.givenSerializeReturns(callWith: TestUtils.anyDictionary(), expect: "serialized_event")
@@ -248,7 +249,7 @@ class EventProcessorHandlerTest: XCTestCase {
         let sessionContextHolder = FakeSessionContextHolder().withExtraParameters(["utm_medium": "xennio"])
         let applicationContextHolder = FakeApplicationContextHolder(userDefaults: InitializedUserDefaults(), sdkKey: "SDK-KEY")
 
-        let httpService = FakeHttpService(collectorUrl: "collector-url")
+        let httpService = FakeHttpService(collectorUrl: "collector-url", session: FakeUrlSession())
         let entitySerializerService = CapturingEntitySerializerService.init()
         let eventProcessorHandler = EventProcessorHandler(applicationContextHolder: applicationContextHolder, sessionContextHolder: sessionContextHolder, httpService: httpService, entitySerializerService: entitySerializerService)
         entitySerializerService.givenSerializeReturns(callWith: TestUtils.anyDictionary(), expect: nil)

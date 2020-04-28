@@ -16,35 +16,35 @@
 			<key>orderHint</key>
 			<integer>1</integer>
 		</dict>
-		<key>XennioTest.test_it_should_log_in_with_memberId.xcscheme</key>
+		<key>JsonSerializerServiceTest.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false />
 			<key>orderHint</key>
 			<integer>2</integer>
 		</dict>
-		<key>NotificationProcessorHandlerTest.xcscheme</key>
+		<key>HttpServiceTest.test_it_should_post_to_end_point_with_add_post_parameters.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false />
 			<key>orderHint</key>
 			<integer>3</integer>
 		</dict>
-		<key>XennioTest.test_it_should_log_out_with_memberId.xcscheme</key>
+		<key>HttpServiceTest.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false />
 			<key>orderHint</key>
 			<integer>4</integer>
 		</dict>
-		<key>XennioTest.xcscheme</key>
+		<key>HttpServiceTest.test_it_should_respond_with_client_error_when_payload_is_nill.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false />
 			<key>orderHint</key>
 			<integer>5</integer>
 		</dict>
-		<key>JsonSerializerServiceTest.xcscheme</key>
+		<key>PostFormUrlEncodedRequestTest.test_it_should_construct_post_url_encoded_request.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false />

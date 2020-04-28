@@ -7,8 +7,28 @@ import XCTest
 
 class HttpServiceTest: XCTestCase {
 
+    func test_it_should_post_to_end_point_with_add_post_parameters() {
+        let fakeUrlSession = MockUrlSession(httpResult: HttpResult(statusCode: 201, hasError: false))
+        let httpService = HttpService(collectorUrl: "https://c.xenn.io", session: fakeUrlSession)
 
+        var result: HttpResult?
+        httpService.postFormUrlEncoded(payload: "payload") {
+            result = $0
+        }
+        XCTAssertEqual(201, result!.getStatusCode())
+        XCTAssertTrue(result!.isSuccess())
+    }
 
+    func test_it_should_respond_with_client_error_when_payload_is_nill() {
+        let fakeUrlSession = MockUrlSession(httpResult: HttpResult.clientError())
+        let httpService = HttpService(collectorUrl: "https://c.xenn.io", session: fakeUrlSession)
 
+        var result: HttpResult?
+        httpService.postFormUrlEncoded(payload: nil) {
+            result = $0
+        }
+        XCTAssertEqual(0, result!.getStatusCode())
+        XCTAssertFalse(result!.isSuccess())
+    }
 
 }

@@ -11,7 +11,7 @@ class NotificationProcessorHandlerTest: XCTestCase {
         let sessionContextHolder = FakeSessionContextHolder()
         let applicationContextHolder = FakeApplicationContextHolder(userDefaults: InitializedUserDefaults(), sdkKey: "SDK-KEY")
 
-        let httpService = FakeHttpService(collectorUrl: "collector-url")
+        let httpService = FakeHttpService(collectorUrl: "collector-url", session: FakeUrlSession())
         let entitySerializerService = CapturingEntitySerializerService.init()
         let notificationProcessorHandler = NotificationProcessorHandler(applicationContextHolder: applicationContextHolder, sessionContextHolder: sessionContextHolder, httpService: httpService, entitySerializerService: entitySerializerService)
         entitySerializerService.givenSerializeReturns(callWith: TestUtils.anyDictionary(), expect: "serialized_event")
@@ -41,7 +41,7 @@ class NotificationProcessorHandlerTest: XCTestCase {
         let sessionContextHolder = FakeSessionContextHolder().withExtraParameters(["utm_source": "xennio"])
         let applicationContextHolder = FakeApplicationContextHolder(userDefaults: InitializedUserDefaults(), sdkKey: "SDK-KEY")
 
-        let httpService = FakeHttpService(collectorUrl: "collector-url")
+        let httpService = FakeHttpService(collectorUrl: "collector-url", session: FakeUrlSession())
         let entitySerializerService = CapturingEntitySerializerService.init()
         let notificationProcessorHandler = NotificationProcessorHandler(applicationContextHolder: applicationContextHolder, sessionContextHolder: sessionContextHolder, httpService: httpService, entitySerializerService: entitySerializerService)
         entitySerializerService.givenSerializeReturns(callWith: TestUtils.anyDictionary(), expect: "serialized_event")
@@ -69,7 +69,7 @@ class NotificationProcessorHandlerTest: XCTestCase {
         let sessionContextHolder = FakeSessionContextHolder().withExtraParameters(["utm_source": "xennio"])
         let applicationContextHolder = FakeApplicationContextHolder(userDefaults: InitializedUserDefaults(), sdkKey: "SDK-KEY")
 
-        let httpService = FakeHttpService(collectorUrl: "collector-url")
+        let httpService = FakeHttpService(collectorUrl: "collector-url", session: FakeUrlSession())
         let entitySerializerService = CapturingEntitySerializerService.init()
         let notificationProcessorHandler = NotificationProcessorHandler(applicationContextHolder: applicationContextHolder, sessionContextHolder: sessionContextHolder, httpService: httpService, entitySerializerService: entitySerializerService)
         entitySerializerService.givenSerializeReturns(callWith: TestUtils.anyDictionary(), expect: "serialized_event")

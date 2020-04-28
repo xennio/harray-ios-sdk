@@ -11,7 +11,7 @@ class SDKEventProcessorHandlerTest: XCTestCase {
         let sessionContextHolder = FakeSessionContextHolder().withExtraParameters(["utm_medium": "xennio"])
         let applicationContextHolder = FakeApplicationContextHolder(userDefaults: InitializedUserDefaults(), sdkKey: "SDK-KEY")
 
-        let httpService = FakeHttpService(collectorUrl: "collector-url")
+        let httpService = FakeHttpService(collectorUrl: "collector-url", session: FakeUrlSession())
         let entitySerializerService = CapturingEntitySerializerService.init()
         let fakeDeviceService = FakeDeviceService()
         let sdkEventProcessorHandler = SDKEventProcessorHandler(applicationContextHolder: applicationContextHolder, sessionContextHolder: sessionContextHolder,
@@ -49,7 +49,7 @@ class SDKEventProcessorHandlerTest: XCTestCase {
         let sessionContextHolder = FakeSessionContextHolder().withExtraParameters(["utm_medium": "xennio"])
         let applicationContextHolder = FakeApplicationContextHolder(userDefaults: InitializedUserDefaults(), sdkKey: "SDK-KEY")
 
-        let httpService = FakeHttpService(collectorUrl: "collector-url")
+        let httpService = FakeHttpService(collectorUrl: "collector-url", session: FakeUrlSession())
         let entitySerializerService = CapturingEntitySerializerService.init()
 
         let fakeDeviceService = FakeDeviceService()
@@ -70,7 +70,7 @@ class SDKEventProcessorHandlerTest: XCTestCase {
         let sessionContextHolder = FakeSessionContextHolder().withExtraParameters(["utm_medium": "xennio"]).withLastActivityTime(1584558770000)
         let applicationContextHolder = FakeApplicationContextHolder(userDefaults: InitializedUserDefaults(), sdkKey: "SDK-KEY")
 
-        let httpService = FakeHttpService(collectorUrl: "collector-url")
+        let httpService = FakeHttpService(collectorUrl: "collector-url", session: FakeUrlSession())
         let entitySerializerService = CapturingEntitySerializerService.init()
         let fakeDeviceService = FakeDeviceService()
         let sdkEventProcessorHandler = SDKEventProcessorHandler(applicationContextHolder: applicationContextHolder, sessionContextHolder: sessionContextHolder,
@@ -102,7 +102,7 @@ class SDKEventProcessorHandlerTest: XCTestCase {
         let sessionContextHolder = FakeSessionContextHolder().withExtraParameters(["utm_medium": "xennio"]).withLastActivityTime(1587237260000)
         let applicationContextHolder = FakeApplicationContextHolder(userDefaults: InitializedUserDefaults(), sdkKey: "SDK-KEY")
 
-        let httpService = FakeHttpService(collectorUrl: "collector-url")
+        let httpService = FakeHttpService(collectorUrl: "collector-url", session: FakeUrlSession())
         let entitySerializerService = CapturingEntitySerializerService.init()
         let fakeDeviceService = FakeDeviceService()
         let sdkEventProcessorHandler = SDKEventProcessorHandler(applicationContextHolder: applicationContextHolder, sessionContextHolder: sessionContextHolder,
@@ -122,7 +122,7 @@ class SDKEventProcessorHandlerTest: XCTestCase {
         let sessionContextHolder = FakeSessionContextHolder().withExtraParameters(["utm_medium": "xennio"]).withLastActivityTime(1584558770000)
         let applicationContextHolder = FakeApplicationContextHolder(userDefaults: InitializedUserDefaults(), sdkKey: "SDK-KEY")
 
-        let httpService = FakeHttpService(collectorUrl: "collector-url")
+        let httpService = FakeHttpService(collectorUrl: "collector-url", session: FakeUrlSession())
         let entitySerializerService = CapturingEntitySerializerService.init()
 
         let fakeDeviceService = FakeDeviceService()

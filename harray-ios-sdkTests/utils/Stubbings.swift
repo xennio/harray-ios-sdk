@@ -51,6 +51,55 @@ class FakeDeviceService: DeviceService {
     }
 }
 
+class FakeUrlSession: URLSession {
+    typealias CompletionHandler = (Data?, URLResponse?, Error?) -> Void
+    var data: Data?
+    var error: Error?
+
+    override func dataTask(
+            with url: URL,
+            completionHandler: @escaping CompletionHandler
+    ) -> URLSessionDataTask {
+        let data = self.data
+        let error = self.error
+
+        return URLSessionDataTaskMock {
+            completionHandler(data, nil, error)
+        }
+    }
+}
+
+class MockUrlSession: HttpSession {
+
+    let httpResult: HttpResult
+
+    init(httpResult: HttpResult) {
+        self.httpResult = httpResult
+    }
+
+    func doRequest(from urlRequest: URLRequest, completionHandler: @escaping (HttpResult) -> Void) {
+        completionHandler(httpResult)
+    }
+
+    func downloadTask(with endpoint: String?, completionHandler: @escaping (HttpDownloadableResult?) -> Void) {
+        completionHandler(nil)
+    }
+}
+
+class URLSessionDataTaskMock: URLSessionDataTask {
+    private let closure: () -> Void
+
+    init(closure: @escaping () -> Void) {
+        self.closure = closure
+    }
+
+    // We override the 'resume' method and simply call our closure
+    // instead of actually resuming any task.
+    override func resume() {
+        closure()
+    }
+}
+
 class FakeHttpService: HttpService {
 
     var expectedPayload: String!

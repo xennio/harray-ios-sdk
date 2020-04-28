@@ -61,9 +61,10 @@ public class NotificationProcessorHandler {
                 sessionContextHolder.updateExternalParameters(data: request.content.userInfo)
                 pushMessageReceived()
                 let imageUrl = request.content.userInfo[Constants.PUSH_PAYLOAD_IMAGE_URL.rawValue] as? String
-                httpService.downloadImage(endpoint: imageUrl) { attachment in
-                    if attachment != nil {
-                        bestAttemptContent.attachments = [attachment!]
+                httpService.downloadContent(endpoint: imageUrl) { response in
+                    if response != nil {
+                        let imageAttachment = UNNotificationAttachment(identifier: RandomValueUtils.randomUUID(), url: response!.getPath())
+                        bestAttemptContent.attachments = [imageAttachment]
                     }
                 }
             }
