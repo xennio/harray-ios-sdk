@@ -14,5 +14,7 @@ enum Constants: String {
     case PUSH_PAYLOAD_IMAGE_URL = "image_url"
     case PUSH_PAYLOAD_SOURCE = "source"
     case PUSH_ID_KEY = "pushId"
+    case CAMPAIGN_ID_KEY = "campaignId"
+    case CAMPAIGN_DATE_KEY = "campaignDate"
 
 }

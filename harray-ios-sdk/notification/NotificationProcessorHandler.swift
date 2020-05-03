@@ -11,28 +11,34 @@ public class NotificationProcessorHandler {
     private let httpService: HttpService
     private let entitySerializerService: EntitySerializerService
 
-    init( httpService: HttpService, entitySerializerService: EntitySerializerService) {
+    init(httpService: HttpService, entitySerializerService: EntitySerializerService) {
         self.httpService = httpService
         self.entitySerializerService = entitySerializerService
     }
 
-    func pushMessageReceived(pushContent: Dictionary<AnyHashable, Any>) {
+    func pushMessageDelivered(pushContent: Dictionary<AnyHashable, Any>) {
         let pushId = getContentItem(key: Constants.PUSH_ID_KEY.rawValue, pushContent: pushContent)
-        let pageViewEvent = XennEvent.create(name: "Feedback")
-                .addBody(key: "type", value: "pushReceived")
-                .addBody(key: "id", value: pushId)
+        let campaignId = getContentItem(key: Constants.CAMPAIGN_ID_KEY.rawValue, pushContent: pushContent)
+        let campaignDate = getContentItem(key: Constants.CAMPAIGN_DATE_KEY.rawValue, pushContent: pushContent)
+        let pushReceivedEvent = FeedbackEvent.create(name: "d")
+                .addParameter(key: "ci", value: campaignId!)
+                .addParameter(key: "pi", value: pushId!)
+                .addParameter(key: "cd", value: campaignDate!)
                 .toMap()
-        let serializedEvent = entitySerializerService.serialize(event: pageViewEvent)
+        let serializedEvent = entitySerializerService.serialize(event: pushReceivedEvent)
         httpService.postFormUrlEncoded(payload: serializedEvent)
     }
 
     public func pushMessageOpened(pushContent: Dictionary<AnyHashable, Any>) {
         let pushId = getContentItem(key: Constants.PUSH_ID_KEY.rawValue, pushContent: pushContent)
-        let pageViewEvent = XennEvent.create(name: "Feedback")
-                .addBody(key: "type", value: "pushOpened")
-                .addBody(key: "id", value: pushId)
+        let campaignId = getContentItem(key: Constants.CAMPAIGN_ID_KEY.rawValue, pushContent: pushContent)
+        let campaignDate = getContentItem(key: Constants.CAMPAIGN_DATE_KEY.rawValue, pushContent: pushContent)
+        let pushOpenedEvent = FeedbackEvent.create(name: "o")
+                .addParameter(key: "ci", value: campaignId!)
+                .addParameter(key: "pi", value: pushId!)
+                .addParameter(key: "cd", value: campaignDate!)
                 .toMap()
-        let serializedEvent = entitySerializerService.serialize(event: pageViewEvent)
+        let serializedEvent = entitySerializerService.serialize(event: pushOpenedEvent)
         httpService.postFormUrlEncoded(payload: serializedEvent)
     }
 
@@ -44,7 +50,7 @@ public class NotificationProcessorHandler {
         if source != nil {
             let pushChannelId = source as? String
             if Constants.PUSH_CHANNEL_ID.rawValue == pushChannelId! {
-                pushMessageReceived(pushContent: request.content.userInfo)
+                pushMessageDelivered(pushContent: request.content.userInfo)
                 let imageUrl = request.content.userInfo[Constants.PUSH_PAYLOAD_IMAGE_URL.rawValue] as? String
                 if imageUrl != nil {
                     httpService.downloadContent(endpoint: imageUrl) { response in
@@ -68,6 +74,5 @@ public class NotificationProcessorHandler {
 
     private func getContentItem(key: String, pushContent: Dictionary<AnyHashable, Any>) -> String? {
         return pushContent[key] as? String
-
     }
 }

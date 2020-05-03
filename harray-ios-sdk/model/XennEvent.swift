@@ -21,12 +21,6 @@ class XennEvent{
         return xennEvent
     }
 
-    class func create(name:String) -> XennEvent {
-        let xennEvent = XennEvent()
-        xennEvent.h["n"] = name
-        return xennEvent
-    }
-    
     func addHeader(key:String, value: Any) -> XennEvent {
         h[key] = value
         return self

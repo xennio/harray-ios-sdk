@@ -15,18 +15,16 @@ class NotificationProcessorHandlerTest: XCTestCase {
         entitySerializerService.givenSerializeReturns(callWith: TestUtils.anyDictionary(), expect: "serialized_event")
         httpService.givenPostWithPayload(callWith: "serialized_event")
 
-        notificationProcessorHandler.pushMessageReceived(pushContent: ["pushId": "123123", "campaingId": "campaign"])
+        notificationProcessorHandler.pushMessageDelivered(pushContent: ["pushId": "123123", "campaignId": "campaign", "campaignDate": "campaignDate"])
 
         let captured = entitySerializerService.getCapturedEvent()
 
         XCTAssertFalse(httpService.hasError)
 
-        let header = captured["h"] as! Dictionary<String, Any>
-        let body = captured["b"] as! Dictionary<String, Any>
-
-        XCTAssertTrue("Feedback" == header["n"] as! String)
-        XCTAssertTrue("pushReceived" == body["type"] as! String)
-        XCTAssertTrue("123123" == body["id"] as! String)
+        XCTAssertTrue("d" == captured["n"] as! String)
+        XCTAssertTrue("campaign" == captured["ci"] as! String)
+        XCTAssertTrue("123123" == captured["pi"] as! String)
+        XCTAssertTrue("campaignDate" == captured["cd"] as! String)
     }
 
     func test_it_should_construct_push_opened_event_and_make_api_call() {
@@ -36,17 +34,15 @@ class NotificationProcessorHandlerTest: XCTestCase {
         entitySerializerService.givenSerializeReturns(callWith: TestUtils.anyDictionary(), expect: "serialized_event")
         httpService.givenPostWithPayload(callWith: "serialized_event")
 
-        notificationProcessorHandler.pushMessageOpened(pushContent: ["pushId": "123123", "campaingId": "campaign"])
+        notificationProcessorHandler.pushMessageOpened(pushContent: ["pushId": "123123", "campaignId": "campaign", "campaignDate": "campaignDate"])
 
         let captured = entitySerializerService.getCapturedEvent()
 
         XCTAssertFalse(httpService.hasError)
 
-        let header = captured["h"] as! Dictionary<String, Any>
-        let body = captured["b"] as! Dictionary<String, Any>
-
-        XCTAssertTrue("Feedback" == header["n"] as! String)
-        XCTAssertTrue("pushOpened" == body["type"] as! String)
-        XCTAssertTrue("123123" == body["id"] as! String)
+        XCTAssertTrue("o" == captured["n"] as! String?)
+        XCTAssertTrue("campaign" == captured["ci"] as! String?)
+        XCTAssertTrue("123123" == captured["pi"] as! String?)
+        XCTAssertTrue("campaignDate" == captured["cd"] as! String?)
     }
 }

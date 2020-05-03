@@ -64,6 +64,8 @@
 		75F79E511915046F48D0FB2E /* HttpTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F79CE78FABE7F3A95D9FAA /* HttpTask.swift */; };
 		75F79F68E5A695270A8E308A /* NotificationProcessorHandlerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F79C386130ECC4CD1638D9 /* NotificationProcessorHandlerTest.swift */; };
 		75F79FA7035C1DC7514F8D88 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F79280AAAAAA4ACB84F71E /* Errors.swift */; };
+		D3A8FAC96F4EBA60E90FE57B /* FeedbackEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A8F03219DAFBBDCDB18479 /* FeedbackEvent.swift */; };
+		D3A8FCE4CE647E4C7853EF2B /* FeedbackEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A8F03219DAFBBDCDB18479 /* FeedbackEvent.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -117,6 +119,7 @@
 		75F79C386130ECC4CD1638D9 /* NotificationProcessorHandlerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationProcessorHandlerTest.swift; sourceTree = "<group>"; };
 		75F79CE78FABE7F3A95D9FAA /* HttpTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpTask.swift; sourceTree = "<group>"; };
 		75F79E2D8FC019EEC9D0E3FB /* HttpServiceTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpServiceTest.swift; sourceTree = "<group>"; };
+		D3A8F03219DAFBBDCDB18479 /* FeedbackEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackEvent.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -244,6 +247,7 @@
 			isa = PBXGroup;
 			children = (
 				1D6C7F47245037C6001FE80C /* XennEvent.swift */,
+				D3A8F03219DAFBBDCDB18479 /* FeedbackEvent.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -459,6 +463,7 @@
 				75F79FA7035C1DC7514F8D88 /* Errors.swift in Sources */,
 				75F79E02D73FE1F75CD7B894 /* PostFormUrlEncodedRequest.swift in Sources */,
 				75F79E511915046F48D0FB2E /* HttpTask.swift in Sources */,
+				D3A8FAC96F4EBA60E90FE57B /* FeedbackEvent.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -501,6 +506,7 @@
 				75F7974DE59D3DE84EB166E9 /* PostFormUrlEncodedRequest.swift in Sources */,
 				75F792287F3DC850963A0BEE /* HttpTask.swift in Sources */,
 				75F79A1CCEC0CF0706B6F4B7 /* PostFormUrlEncodedRequestTest.swift in Sources */,
+				D3A8FCE4CE647E4C7853EF2B /* FeedbackEvent.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
