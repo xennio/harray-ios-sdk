@@ -52,27 +52,34 @@ public class NotificationProcessorHandler {
         httpService.postFormUrlEncoded(payload: serializedEvent)
     }
 
-    public func handlePushNotification(request: UNNotificationRequest, bestAttemptContent: UNMutableNotificationContent) {
+    public func handlePushNotification(request: UNNotificationRequest,
+                                       bestAttemptContent: UNMutableNotificationContent,
+                                       withContentHandler contentHandler: @escaping (UNNotificationContent) -> Void) {
 
         let source = request.content.userInfo[Constants.PUSH_PAYLOAD_SOURCE.rawValue]
         if source != nil {
             let pushChannelId = source as? String
-            if Constants.PUSH_CHANNEL_ID.rawValue == pushChannelId {
+            if Constants.PUSH_CHANNEL_ID.rawValue == pushChannelId! {
                 sessionContextHolder.updateExternalParameters(data: request.content.userInfo)
                 pushMessageReceived()
                 let imageUrl = request.content.userInfo[Constants.PUSH_PAYLOAD_IMAGE_URL.rawValue] as? String
-                httpService.downloadContent(endpoint: imageUrl) { response in
-                    if response != nil {
-                        do {
-                            let imageAttachment = try UNNotificationAttachment(identifier: RandomValueUtils.randomUUID(), url: response!.getPath())
-                            bestAttemptContent.attachments = [imageAttachment]
-                        } catch {
-                            XennioLogger.log(message: "unable to handle push notification image")
+                if imageUrl != nil {
+                    httpService.downloadContent(endpoint: imageUrl) { response in
+                        if response != nil {
+                            do {
+                                let imageAttachment = try UNNotificationAttachment(identifier: "picture", url: response!.getPath(), options:nil)
+                                bestAttemptContent.attachments = [imageAttachment]
+                                contentHandler(bestAttemptContent)
+                            } catch {
+                                contentHandler(bestAttemptContent)
+                                XennioLogger.log(message: "unable to handle push notification image")
+                            }
                         }
                     }
+                }else{
+                    contentHandler(bestAttemptContent)
                 }
             }
         }
     }
-
 }
