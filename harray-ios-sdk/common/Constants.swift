@@ -16,5 +16,6 @@ enum Constants: String {
     case PUSH_ID_KEY = "pushId"
     case CAMPAIGN_ID_KEY = "campaignId"
     case CAMPAIGN_DATE_KEY = "campaignDate"
+    case PUSH_FEED_BACK_PATH = "feedback"
 
 }
