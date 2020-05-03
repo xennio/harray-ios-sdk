@@ -19,6 +19,18 @@ class HttpServiceTest: XCTestCase {
         XCTAssertTrue(result!.isSuccess())
     }
 
+    func test_it_should_post_to_end_point_with_json_parameters() {
+        let fakeUrlSession = MockUrlSession(httpResult: HttpResult(statusCode: 201, hasError: false))
+        let httpService = HttpService(sdkKey: "sdk-key", session: fakeUrlSession)
+
+        var result: HttpResult?
+        httpService.postJsonEncoded(payload: "payload", path: "feedback") {
+            result = $0
+        }
+        XCTAssertEqual(201, result!.getStatusCode())
+        XCTAssertTrue(result!.isSuccess())
+    }
+
     func test_it_should_respond_with_client_error_when_payload_is_nill() {
         let fakeUrlSession = MockUrlSession(httpResult: HttpResult.clientError())
         let httpService = HttpService(sdkKey: "sdk-key", session: fakeUrlSession)
@@ -55,6 +67,12 @@ class HttpServiceTest: XCTestCase {
         let fakeUrlSession = MockUrlSession(httpDownloadableResult: HttpDownloadableResult(path: URL(string: "http://www.xenn.io")!))
         let httpService = HttpService(sdkKey: "sdk-key", session: fakeUrlSession)
         XCTAssertEqual("https://c.xenn.io/sdk-key", httpService.getCollectorUrl())
+    }
+
+    func test_it_should_add_path_to_collector_url() {
+        let fakeUrlSession = MockUrlSession(httpDownloadableResult: HttpDownloadableResult(path: URL(string: "http://www.xenn.io")!))
+        let httpService = HttpService(sdkKey: "sdk-key", session: fakeUrlSession)
+        XCTAssertEqual("https://c.xenn.io/path", httpService.getCollectorUrl(path: "path"))
     }
 
 }

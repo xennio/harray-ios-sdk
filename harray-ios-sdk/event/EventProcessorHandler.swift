@@ -33,7 +33,7 @@ public class EventProcessorHandler {
                 .appendExtra(params: params)
                 .appendExtra(params: sessionContextHolder.getExternalParameters())
                 .toMap()
-        let serializedEvent = entitySerializerService.serialize(event: pageViewEvent)
+        let serializedEvent = entitySerializerService.serializeToBase64(event: pageViewEvent)
         httpService.postFormUrlEncoded(payload: serializedEvent)
     }
 
@@ -47,7 +47,7 @@ public class EventProcessorHandler {
                 .memberId(memberId: sessionContextHolder.getMemberId())
                 .appendExtra(params: params)
                 .toMap()
-        let serializedEvent = entitySerializerService.serialize(event: pageViewEvent)
+        let serializedEvent = entitySerializerService.serializeToBase64(event: pageViewEvent)
         httpService.postFormUrlEncoded(payload: serializedEvent)
     }
 
@@ -61,7 +61,7 @@ public class EventProcessorHandler {
                 .memberId(memberId: sessionContextHolder.getMemberId())
                 .appendExtra(params: params)
                 .toMap()
-        let serializedEvent = entitySerializerService.serialize(event: pageViewEvent)
+        let serializedEvent = entitySerializerService.serializeToBase64(event: pageViewEvent)
         httpService.postFormUrlEncoded(payload: serializedEvent)
     }
 
@@ -70,7 +70,7 @@ public class EventProcessorHandler {
                 .memberId(memberId: sessionContextHolder.getMemberId())
                 .appendExtra(params: params)
                 .toMap()
-        let serializedEvent = entitySerializerService.serialize(event: pageViewEvent)
+        let serializedEvent = entitySerializerService.serializeToBase64(event: pageViewEvent)
         httpService.postFormUrlEncoded(payload: serializedEvent)
     }
 
@@ -82,7 +82,7 @@ public class EventProcessorHandler {
                 .addBody(key: "appType", value: "iosAppPush")
                 .addBody(key: "deviceToken", value: deviceToken)
                 .toMap()
-        let serializedEvent = entitySerializerService.serialize(event: pageViewEvent)
+        let serializedEvent = entitySerializerService.serializeToBase64(event: pageViewEvent)
         httpService.postFormUrlEncoded(payload: serializedEvent)
     }
 }

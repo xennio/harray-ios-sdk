@@ -9,18 +9,16 @@
 import Foundation
 
 class EntitySerializerService {
-    
+
     private let encodingService: EncodingService
     private let jsonSerializerService: JsonSerializerService
-    
-    init(encodingService: EncodingService, jsonSerializerService: JsonSerializerService){
+
+    init(encodingService: EncodingService, jsonSerializerService: JsonSerializerService) {
         self.encodingService = encodingService
         self.jsonSerializerService = jsonSerializerService
     }
-    
-    
-    func serialize(event: Dictionary<String,Any>) -> String? {
-        
+
+    func serializeToBase64(event: Dictionary<String, Any>) -> String? {
         let jsonValue = jsonSerializerService.serialize(value: event)
         if jsonValue != nil {
             let urlEncodedString = encodingService.getUrlEncodedString(value: jsonValue!)
@@ -30,6 +28,8 @@ class EntitySerializerService {
         }
         return nil
     }
-    
-    
+
+    func serializeToJson(event: Dictionary<String, Any>) -> String? {
+        return jsonSerializerService.serialize(value: event)
+    }
 }

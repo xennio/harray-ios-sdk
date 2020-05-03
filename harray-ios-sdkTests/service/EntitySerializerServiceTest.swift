@@ -21,7 +21,7 @@ class EntitySerializerServiceTest: XCTestCase {
         encodingService.givenUrlEncodedStringReturns(callWith: "JSONVALUE", expect: "URLENCODEDVALUE")
         encodingService.givenBase64EncodedStringReturns(callWith:"URLENCODEDVALUE", expect:"BASE64STRINGVALUE")
        
-        let serializedEntity = entitySerializerService.serialize(event:event)
+        let serializedEntity = entitySerializerService.serializeToBase64(event:event)
         
         XCTAssertEqual("BASE64STRINGVALUE", serializedEntity!)
     }
@@ -36,7 +36,7 @@ class EntitySerializerServiceTest: XCTestCase {
         jsonSerializerService.givenSerializeReturns(callWith: event, expect: nil)
     
        
-        let serializedEntity = entitySerializerService.serialize(event:event)
+        let serializedEntity = entitySerializerService.serializeToBase64(event:event)
         
         XCTAssertNil(serializedEntity)
     }
@@ -52,7 +52,7 @@ class EntitySerializerServiceTest: XCTestCase {
                encodingService.givenUrlEncodedStringReturns(callWith: "JSONVALUE", expect: nil)
     
        
-        let serializedEntity = entitySerializerService.serialize(event:event)
+        let serializedEntity = entitySerializerService.serializeToBase64(event:event)
         
         XCTAssertNil(serializedEntity)
     }

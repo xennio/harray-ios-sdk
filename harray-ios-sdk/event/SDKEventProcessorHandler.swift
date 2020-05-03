@@ -41,7 +41,7 @@ class SDKEventProcessorHandler {
                 .addBody(key: "zn", value: applicationContextHolder.getTimezone())
                 .appendExtra(params: sessionContextHolder.getExternalParameters())
                 .toMap()
-        let serializedEvent = entitySerializerService.serialize(event: pageViewEvent)
+        let serializedEvent = entitySerializerService.serializeToBase64(event: pageViewEvent)
         httpService.postFormUrlEncoded(payload: serializedEvent)
     }
 
@@ -50,7 +50,7 @@ class SDKEventProcessorHandler {
             let pageViewEvent = XennEvent.create(name: "HB", persistentId: applicationContextHolder.getPersistentId(), sessionId: sessionContextHolder.getSessionId())
                     .memberId(memberId: sessionContextHolder.getMemberId())
                     .toMap()
-            let serializedEvent = entitySerializerService.serialize(event: pageViewEvent)
+            let serializedEvent = entitySerializerService.serializeToBase64(event: pageViewEvent)
             httpService.postFormUrlEncoded(payload: serializedEvent)
         }
     }

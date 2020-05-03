@@ -132,7 +132,7 @@ class CapturingEntitySerializerService: EntitySerializerService {
         super.init(encodingService: FakeEncodingService(), jsonSerializerService: FakeJsonSerializerService())
     }
 
-    override func serialize(event: Dictionary<String, Any>) -> String? {
+    override func serializeToBase64(event: Dictionary<String, Any>) -> String? {
         self.captured = event
         return expected
     }

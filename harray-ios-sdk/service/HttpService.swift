@@ -29,9 +29,32 @@ class HttpService {
         }
     }
 
+    func postJsonEncoded(payload: String?, path: String) {
+        postJsonEncoded(payload: payload, path: path) { httpResult in
+            if httpResult.isSuccess() {
+                XennioLogger.log(message: "Xenn path returned \(httpResult.getStatusCode())")
+            } else {
+                // TO-DO: Retry logic and more error handling
+            }
+        }
+    }
+
     func postFormUrlEncoded(payload: String?, completionHandler: @escaping (HttpResult) -> Void) {
         if payload != nil {
             let postFromUrlEncodedRequest = PostFormUrlEncodedRequest(payload: payload!, endpoint: getCollectorUrl())
+            let request = postFromUrlEncodedRequest.getUrlRequest()
+            session.doRequest(from: request) { httpResult in
+                completionHandler(httpResult)
+            }
+        } else {
+            completionHandler(HttpResult.clientError())
+        }
+
+    }
+
+    func postJsonEncoded(payload: String?, path: String, completionHandler: @escaping (HttpResult) -> Void) {
+        if payload != nil {
+            let postFromUrlEncodedRequest = PostJsonEncodedRequest(payload: payload!, endpoint: getCollectorUrl(path: path))
             let request = postFromUrlEncodedRequest.getUrlRequest()
             session.doRequest(from: request) { httpResult in
                 completionHandler(httpResult)
@@ -54,6 +77,10 @@ class HttpService {
 
     func getCollectorUrl() -> String {
         return collectorUrl + "/" + self.sdkKey
+    }
+
+    func getCollectorUrl(path: String) -> String {
+        return collectorUrl + "/" + path
     }
 
 }

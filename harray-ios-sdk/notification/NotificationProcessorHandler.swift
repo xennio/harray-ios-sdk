@@ -25,8 +25,8 @@ public class NotificationProcessorHandler {
                 .addParameter(key: "pi", value: pushId!)
                 .addParameter(key: "cd", value: campaignDate!)
                 .toMap()
-        let serializedEvent = entitySerializerService.serialize(event: pushReceivedEvent)
-        httpService.postFormUrlEncoded(payload: serializedEvent)
+        let serializedEvent = entitySerializerService.serializeToJson(event: pushReceivedEvent)
+        httpService.postJsonEncoded(payload: serializedEvent, path: "feedback")
     }
 
     public func pushMessageOpened(pushContent: Dictionary<AnyHashable, Any>) {
@@ -38,8 +38,8 @@ public class NotificationProcessorHandler {
                 .addParameter(key: "pi", value: pushId!)
                 .addParameter(key: "cd", value: campaignDate!)
                 .toMap()
-        let serializedEvent = entitySerializerService.serialize(event: pushOpenedEvent)
-        httpService.postFormUrlEncoded(payload: serializedEvent)
+        let serializedEvent = entitySerializerService.serializeToJson(event: pushOpenedEvent)
+        httpService.postJsonEncoded(payload: serializedEvent, path: "feedback")
     }
 
     public func handlePushNotification(request: UNNotificationRequest,
