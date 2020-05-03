@@ -66,6 +66,7 @@
 		75F79FA7035C1DC7514F8D88 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F79280AAAAAA4ACB84F71E /* Errors.swift */; };
 		D3A8FAC96F4EBA60E90FE57B /* FeedbackEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A8F03219DAFBBDCDB18479 /* FeedbackEvent.swift */; };
 		D3A8FCE4CE647E4C7853EF2B /* FeedbackEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A8F03219DAFBBDCDB18479 /* FeedbackEvent.swift */; };
+		D3A8FCEE9365EFCF2872B5A7 /* FeedbackEventTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A8FD795BC84C16138F76BB /* FeedbackEventTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -120,6 +121,7 @@
 		75F79CE78FABE7F3A95D9FAA /* HttpTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpTask.swift; sourceTree = "<group>"; };
 		75F79E2D8FC019EEC9D0E3FB /* HttpServiceTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpServiceTest.swift; sourceTree = "<group>"; };
 		D3A8F03219DAFBBDCDB18479 /* FeedbackEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackEvent.swift; sourceTree = "<group>"; };
+		D3A8FD795BC84C16138F76BB /* FeedbackEventTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackEventTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -295,6 +297,7 @@
 			isa = PBXGroup;
 			children = (
 				75F799FEC7295DCD9574A776 /* XennEventTest.swift */,
+				D3A8FD795BC84C16138F76BB /* FeedbackEventTest.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -507,6 +510,7 @@
 				75F792287F3DC850963A0BEE /* HttpTask.swift in Sources */,
 				75F79A1CCEC0CF0706B6F4B7 /* PostFormUrlEncodedRequestTest.swift in Sources */,
 				D3A8FCE4CE647E4C7853EF2B /* FeedbackEvent.swift in Sources */,
+				D3A8FCEE9365EFCF2872B5A7 /* FeedbackEventTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
