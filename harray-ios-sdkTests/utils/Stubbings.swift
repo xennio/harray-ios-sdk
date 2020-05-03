@@ -117,6 +117,12 @@ class FakeHttpService: HttpService {
         }
     }
 
+    override func postJsonEncoded(payload: String?, path: String) {
+        if payloadCallWith != payload {
+            self.hasError = true
+        }
+    }
+
     func givenPostWithPayload(callWith: String) {
         self.payloadCallWith = callWith
     }
@@ -133,6 +139,11 @@ class CapturingEntitySerializerService: EntitySerializerService {
     }
 
     override func serializeToBase64(event: Dictionary<String, Any>) -> String? {
+        self.captured = event
+        return expected
+    }
+
+    override func serializeToJson(event: Dictionary<String, Any>) -> String? {
         self.captured = event
         return expected
     }

@@ -7,7 +7,6 @@ import XCTest
 
 class NotificationProcessorHandlerTest: XCTestCase {
 
-
     func test_it_should_construct_push_receive_event_and_make_api_call() {
         let httpService = FakeHttpService(sdkKey: "sdk-key", session: FakeUrlSession())
         let entitySerializerService = CapturingEntitySerializerService.init()
