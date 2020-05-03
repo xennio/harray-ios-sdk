@@ -10,12 +10,13 @@ import Foundation
 
 class HttpService {
 
-    private let collectorUrl: String
+    private let collectorUrl = "https://c.xenn.io"
+    private let sdkKey: String
     private let session: HttpSession
 
-    init(collectorUrl: String, session: HttpSession) {
-        self.collectorUrl = collectorUrl
+    init(sdkKey: String, session: HttpSession) {
         self.session = session
+        self.sdkKey = sdkKey
     }
 
     func postFormUrlEncoded(payload: String?) {
@@ -30,7 +31,7 @@ class HttpService {
 
     func postFormUrlEncoded(payload: String?, completionHandler: @escaping (HttpResult) -> Void) {
         if payload != nil {
-            let postFromUrlEncodedRequest = PostFormUrlEncodedRequest(payload: payload!, endpoint: collectorUrl)
+            let postFromUrlEncodedRequest = PostFormUrlEncodedRequest(payload: payload!, endpoint: getCollectorUrl())
             let request = postFromUrlEncodedRequest.getUrlRequest()
             session.doRequest(from: request) { httpResult in
                 completionHandler(httpResult)
@@ -49,6 +50,10 @@ class HttpService {
                 completionHandler(nil)
             }
         }
+    }
+
+    func getCollectorUrl() -> String {
+        return collectorUrl + "/" + self.sdkKey
     }
 
 }

@@ -13,5 +13,6 @@ enum Constants: String {
     case PUSH_CHANNEL_ID = "xennio"
     case PUSH_PAYLOAD_IMAGE_URL = "image_url"
     case PUSH_PAYLOAD_SOURCE = "source"
+    case PUSH_ID_KEY = "pushId"
 
 }

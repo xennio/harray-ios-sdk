@@ -14,6 +14,8 @@ public class Xennio: Equatable {
     static var instance: Xennio?
 
     let sessionContextHolder: SessionContextHolder
+    private static let collectorUrl = "https://c.xenn.io"
+    private let sdkKey: String
     private let applicationContextHolder: ApplicationContextHolder
     private let eventProcessorHandler: EventProcessorHandler
     private let sdkEventProcessorHandler: SDKEventProcessorHandler
@@ -31,18 +33,19 @@ public class Xennio: Equatable {
         self.eventProcessorHandler = eventProcessorHandler
         self.sdkEventProcessorHandler = sdkEventProcessorHandler
         self.notificationProcessorHandler = notificationProcessorHandler
+        self.sdkKey = sdkKey
     }
 
     public class func configure(sdkKey: String) {
         let sessionContextHolder = SessionContextHolder()
-        let applicationContextHolder = ApplicationContextHolder(userDefaults: UserDefaults.standard, sdkKey: sdkKey)
-        let httpService = HttpService(collectorUrl: applicationContextHolder.getCollectorUrl(), session: URLSession.shared)
+        let applicationContextHolder = ApplicationContextHolder(userDefaults: UserDefaults.standard)
+        let httpService = HttpService(sdkKey: sdkKey, session: URLSession.shared)
         let entitySerializerService = EntitySerializerService(encodingService: EncodingService(), jsonSerializerService: JsonSerializerService())
         let deviceService = DeviceService(bundle: Bundle.main, uiDevice: UIDevice.current)
 
         let eventProcessorHandler = EventProcessorHandler(applicationContextHolder: applicationContextHolder, sessionContextHolder: sessionContextHolder, httpService: httpService, entitySerializerService: entitySerializerService)
         let sdkEventProcessorHandler = SDKEventProcessorHandler(applicationContextHolder: applicationContextHolder, sessionContextHolder: sessionContextHolder, httpService: httpService, entitySerializerService: entitySerializerService, deviceService: deviceService)
-        let notificationProcessorHandler = NotificationProcessorHandler(applicationContextHolder: applicationContextHolder, sessionContextHolder: sessionContextHolder, httpService: httpService, entitySerializerService: entitySerializerService)
+        let notificationProcessorHandler = NotificationProcessorHandler(httpService: httpService, entitySerializerService: entitySerializerService)
 
         instance = Xennio(sdkKey: sdkKey,
                 sessionContextHolder: sessionContextHolder,
@@ -68,7 +71,9 @@ public class Xennio: Equatable {
     }
 
     public class func notifications() -> NotificationProcessorHandler {
-        return getInstance().notificationProcessorHandler
+        let entitySerializerService = EntitySerializerService(encodingService: EncodingService(), jsonSerializerService: JsonSerializerService())
+        let httpService = HttpService(sdkKey: "feedback", session: URLSession.shared)
+        return NotificationProcessorHandler(httpService: httpService, entitySerializerService: entitySerializerService)
     }
 
     public class func login(memberId: String) {

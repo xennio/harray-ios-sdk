@@ -73,4 +73,16 @@ public class EventProcessorHandler {
         let serializedEvent = entitySerializerService.serialize(event: pageViewEvent)
         httpService.postFormUrlEncoded(payload: serializedEvent)
     }
+
+    public func savePushToken(deviceToken: String) {
+        let pageViewEvent = XennEvent.create(name: "Collection", persistentId: applicationContextHolder.getPersistentId(), sessionId: sessionContextHolder.getSessionId())
+                .memberId(memberId: sessionContextHolder.getMemberId())
+                .addBody(key: "name", value: "pushToken")
+                .addBody(key: "type", value: "iosToken")
+                .addBody(key: "appType", value: "iosAppPush")
+                .addBody(key: "deviceToken", value: deviceToken)
+                .toMap()
+        let serializedEvent = entitySerializerService.serialize(event: pageViewEvent)
+        httpService.postFormUrlEncoded(payload: serializedEvent)
+    }
 }

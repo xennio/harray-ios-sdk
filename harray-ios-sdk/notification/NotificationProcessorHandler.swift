@@ -8,45 +8,29 @@ import UserNotifications
 
 public class NotificationProcessorHandler {
 
-    private let applicationContextHolder: ApplicationContextHolder
-    private let sessionContextHolder: SessionContextHolder
     private let httpService: HttpService
     private let entitySerializerService: EntitySerializerService
 
-    init(applicationContextHolder: ApplicationContextHolder, sessionContextHolder: SessionContextHolder, httpService: HttpService, entitySerializerService: EntitySerializerService) {
-        self.applicationContextHolder = applicationContextHolder
-        self.sessionContextHolder = sessionContextHolder
+    init( httpService: HttpService, entitySerializerService: EntitySerializerService) {
         self.httpService = httpService
         self.entitySerializerService = entitySerializerService
     }
 
-    public func savePushToken(deviceToken: String) {
-        let pageViewEvent = XennEvent.create(name: "Collection", persistentId: applicationContextHolder.getPersistentId(), sessionId: sessionContextHolder.getSessionId())
-                .memberId(memberId: sessionContextHolder.getMemberId())
-                .addBody(key: "name", value: "pushToken")
-                .addBody(key: "type", value: "iosToken")
-                .addBody(key: "appType", value: "iosAppPush")
-                .addBody(key: "deviceToken", value: deviceToken)
-                .toMap()
-        let serializedEvent = entitySerializerService.serialize(event: pageViewEvent)
-        httpService.postFormUrlEncoded(payload: serializedEvent)
-    }
-
-    public func pushMessageReceived() {
-        let pageViewEvent = XennEvent.create(name: "Feedback", persistentId: applicationContextHolder.getPersistentId(), sessionId: sessionContextHolder.getSessionId())
-                .memberId(memberId: sessionContextHolder.getMemberId())
+    func pushMessageReceived(pushContent: Dictionary<AnyHashable, Any>) {
+        let pushId = getContentItem(key: Constants.PUSH_ID_KEY.rawValue, pushContent: pushContent)
+        let pageViewEvent = XennEvent.create(name: "Feedback")
                 .addBody(key: "type", value: "pushReceived")
-                .appendExtra(params: sessionContextHolder.getExternalParameters())
+                .addBody(key: "id", value: pushId)
                 .toMap()
         let serializedEvent = entitySerializerService.serialize(event: pageViewEvent)
         httpService.postFormUrlEncoded(payload: serializedEvent)
     }
 
-    public func pushMessageOpened() {
-        let pageViewEvent = XennEvent.create(name: "Feedback", persistentId: applicationContextHolder.getPersistentId(), sessionId: sessionContextHolder.getSessionId())
-                .memberId(memberId: sessionContextHolder.getMemberId())
+    public func pushMessageOpened(pushContent: Dictionary<AnyHashable, Any>) {
+        let pushId = getContentItem(key: Constants.PUSH_ID_KEY.rawValue, pushContent: pushContent)
+        let pageViewEvent = XennEvent.create(name: "Feedback")
                 .addBody(key: "type", value: "pushOpened")
-                .appendExtra(params: sessionContextHolder.getExternalParameters())
+                .addBody(key: "id", value: pushId)
                 .toMap()
         let serializedEvent = entitySerializerService.serialize(event: pageViewEvent)
         httpService.postFormUrlEncoded(payload: serializedEvent)
@@ -60,14 +44,13 @@ public class NotificationProcessorHandler {
         if source != nil {
             let pushChannelId = source as? String
             if Constants.PUSH_CHANNEL_ID.rawValue == pushChannelId! {
-                sessionContextHolder.updateExternalParameters(data: request.content.userInfo)
-                pushMessageReceived()
+                pushMessageReceived(pushContent: request.content.userInfo)
                 let imageUrl = request.content.userInfo[Constants.PUSH_PAYLOAD_IMAGE_URL.rawValue] as? String
                 if imageUrl != nil {
                     httpService.downloadContent(endpoint: imageUrl) { response in
                         if response != nil {
                             do {
-                                let imageAttachment = try UNNotificationAttachment(identifier: "picture", url: response!.getPath(), options:nil)
+                                let imageAttachment = try UNNotificationAttachment(identifier: "picture", url: response!.getPath(), options: nil)
                                 bestAttemptContent.attachments = [imageAttachment]
                                 contentHandler(bestAttemptContent)
                             } catch {
@@ -76,10 +59,15 @@ public class NotificationProcessorHandler {
                             }
                         }
                     }
-                }else{
+                } else {
                     contentHandler(bestAttemptContent)
                 }
             }
         }
+    }
+
+    private func getContentItem(key: String, pushContent: Dictionary<AnyHashable, Any>) -> String? {
+        return pushContent[key] as? String
+
     }
 }
