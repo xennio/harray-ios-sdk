@@ -80,6 +80,10 @@ public class Xennio: Equatable {
         getInstance().sessionContextHolder.login(memberId: memberId)
     }
 
+    public class func savePushToken(deviceToken: String) {
+        getInstance().eventProcessorHandler.savePushToken(deviceToken: deviceToken)
+    }
+
     public class func logout() {
         getInstance().sessionContextHolder.logout()
     }

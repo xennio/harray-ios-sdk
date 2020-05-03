@@ -74,7 +74,7 @@ public class EventProcessorHandler {
         httpService.postFormUrlEncoded(payload: serializedEvent)
     }
 
-    public func savePushToken(deviceToken: String) {
+    func savePushToken(deviceToken: String) {
         let pageViewEvent = XennEvent.create(name: "Collection", persistentId: applicationContextHolder.getPersistentId(), sessionId: sessionContextHolder.getSessionId())
                 .memberId(memberId: sessionContextHolder.getMemberId())
                 .addBody(key: "name", value: "pushToken")

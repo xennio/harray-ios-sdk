@@ -10,7 +10,7 @@ import Foundation
 
 class ApplicationContextHolder {
     private let persistentId: String
-    private let sdkVersion = "1.7"
+    private let sdkVersion = "1.8"
 
     init(userDefaults: UserDefaults) {
         var value = userDefaults.string(forKey: Constants.SDK_PERSISTENT_ID_KEY.rawValue)
