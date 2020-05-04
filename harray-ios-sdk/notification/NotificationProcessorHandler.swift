@@ -6,7 +6,7 @@
 import Foundation
 import UserNotifications
 
-public class NotificationProcessorHandler {
+@objc public class NotificationProcessorHandler: NSObject {
 
     private let httpService: HttpService
     private let entitySerializerService: EntitySerializerService
@@ -16,7 +16,7 @@ public class NotificationProcessorHandler {
         self.entitySerializerService = entitySerializerService
     }
 
-    func pushMessageDelivered(pushContent: Dictionary<AnyHashable, Any>) {
+    @objc func pushMessageDelivered(pushContent: Dictionary<AnyHashable, Any>) {
         let pushId = getContentItem(key: Constants.PUSH_ID_KEY.rawValue, pushContent: pushContent)
         let campaignId = getContentItem(key: Constants.CAMPAIGN_ID_KEY.rawValue, pushContent: pushContent)
         let campaignDate = getContentItem(key: Constants.CAMPAIGN_DATE_KEY.rawValue, pushContent: pushContent)
@@ -29,7 +29,7 @@ public class NotificationProcessorHandler {
         httpService.postJsonEncoded(payload: serializedEvent, path: Constants.PUSH_FEED_BACK_PATH.rawValue)
     }
 
-    public func pushMessageOpened(pushContent: Dictionary<AnyHashable, Any>) {
+    @objc public func pushMessageOpened(pushContent: Dictionary<AnyHashable, Any>) {
         let source = pushContent[Constants.PUSH_PAYLOAD_SOURCE.rawValue]
         if source != nil {
             let pushChannelId = source as? String
@@ -48,9 +48,9 @@ public class NotificationProcessorHandler {
         }
     }
 
-    public func handlePushNotification(request: UNNotificationRequest,
-                                       bestAttemptContent: UNMutableNotificationContent,
-                                       withContentHandler contentHandler: @escaping (UNNotificationContent) -> Void) {
+    @objc public func handlePushNotification(request: UNNotificationRequest,
+                                             bestAttemptContent: UNMutableNotificationContent,
+                                             withContentHandler contentHandler: @escaping (UNNotificationContent) -> Void) {
 
         let source = request.content.userInfo[Constants.PUSH_PAYLOAD_SOURCE.rawValue]
         if source != nil {

@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-public class Xennio: Equatable {
+@objc public final class Xennio: NSObject {
 
     static var instance: Xennio?
 
@@ -20,7 +20,6 @@ public class Xennio: Equatable {
     private let eventProcessorHandler: EventProcessorHandler
     private let sdkEventProcessorHandler: SDKEventProcessorHandler
     private let notificationProcessorHandler: NotificationProcessorHandler
-    private let hashValue: String = RandomValueUtils.randomUUID()
 
     private init(sdkKey: String,
                  sessionContextHolder: SessionContextHolder,
@@ -36,7 +35,7 @@ public class Xennio: Equatable {
         self.sdkKey = sdkKey
     }
 
-    public class func configure(sdkKey: String) {
+    @objc public class func configure(sdkKey: String) {
         let sessionContextHolder = SessionContextHolder()
         let applicationContextHolder = ApplicationContextHolder(userDefaults: UserDefaults.standard)
         let httpService = HttpService(sdkKey: sdkKey, session: URLSession.shared)
@@ -60,7 +59,7 @@ public class Xennio: Equatable {
         return instance!
     }
 
-    public class func eventing() -> EventProcessorHandler {
+    @objc public class func eventing() -> EventProcessorHandler {
         let xennioInstance = getInstance()
         let sessionContextHolder = xennioInstance.sessionContextHolder
         if (sessionContextHolder.getSessionState() != SessionState.SESSION_STARTED) {
@@ -70,25 +69,22 @@ public class Xennio: Equatable {
         return xennioInstance.eventProcessorHandler
     }
 
-    public class func notifications() -> NotificationProcessorHandler {
+    @objc public class func notifications() -> NotificationProcessorHandler {
         let entitySerializerService = EntitySerializerService(encodingService: EncodingService(), jsonSerializerService: JsonSerializerService())
         let httpService = HttpService(sdkKey: "feedback", session: URLSession.shared)
         return NotificationProcessorHandler(httpService: httpService, entitySerializerService: entitySerializerService)
     }
 
-    public class func login(memberId: String) {
+    @objc public class func login(memberId: String) {
         getInstance().sessionContextHolder.login(memberId: memberId)
     }
 
-    public class func savePushToken(deviceToken: String) {
+    @objc public class func savePushToken(deviceToken: String) {
         getInstance().eventProcessorHandler.savePushToken(deviceToken: deviceToken)
     }
 
-    public class func logout() {
+    @objc public class func logout() {
         getInstance().sessionContextHolder.logout()
     }
 
-    public static func ==(lhs: Xennio, rhs: Xennio) -> Bool {
-        return lhs.hashValue == rhs.hashValue
-    }
 }

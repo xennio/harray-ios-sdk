@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class EventProcessorHandler {
+@objc public class EventProcessorHandler: NSObject {
 
     private let applicationContextHolder: ApplicationContextHolder
     private let sessionContextHolder: SessionContextHolder
@@ -22,11 +22,11 @@ public class EventProcessorHandler {
         self.entitySerializerService = entitySerializerService
     }
 
-    public func pageView(pageType: String) {
+    @objc public func pageView(pageType: String) {
         pageView(pageType: pageType, params: Dictionary<String, Any>())
     }
 
-    public func pageView(pageType: String, params: Dictionary<String, Any>) {
+    @objc public func pageView(pageType: String, params: Dictionary<String, Any>) {
         let pageViewEvent = XennEvent.create(name: "PV", persistentId: applicationContextHolder.getPersistentId(), sessionId: sessionContextHolder.getSessionId())
                 .addBody(key: "pageType", value: pageType)
                 .memberId(memberId: sessionContextHolder.getMemberId())
@@ -37,11 +37,11 @@ public class EventProcessorHandler {
         httpService.postFormUrlEncoded(payload: serializedEvent)
     }
 
-    public func actionResult(type: String) {
+    @objc public func actionResult(type: String) {
         actionResult(type: type, params: Dictionary<String, Any>())
     }
 
-    public func actionResult(type: String, params: Dictionary<String, Any>) {
+    @objc public func actionResult(type: String, params: Dictionary<String, Any>) {
         let pageViewEvent = XennEvent.create(name: "AR", persistentId: applicationContextHolder.getPersistentId(), sessionId: sessionContextHolder.getSessionId())
                 .addBody(key: "type", value: type)
                 .memberId(memberId: sessionContextHolder.getMemberId())
@@ -51,11 +51,11 @@ public class EventProcessorHandler {
         httpService.postFormUrlEncoded(payload: serializedEvent)
     }
 
-    public func impression(pageType: String) {
+    @objc public func impression(pageType: String) {
         impression(pageType: pageType, params: Dictionary<String, Any>())
     }
 
-    public func impression(pageType: String, params: Dictionary<String, Any>) {
+    @objc public func impression(pageType: String, params: Dictionary<String, Any>) {
         let pageViewEvent = XennEvent.create(name: "IM", persistentId: applicationContextHolder.getPersistentId(), sessionId: sessionContextHolder.getSessionId())
                 .addBody(key: "pageType", value: pageType)
                 .memberId(memberId: sessionContextHolder.getMemberId())
@@ -65,7 +65,7 @@ public class EventProcessorHandler {
         httpService.postFormUrlEncoded(payload: serializedEvent)
     }
 
-    public func custom(eventName: String, params: Dictionary<String, Any>) {
+    @objc public func custom(eventName: String, params: Dictionary<String, Any>) {
         let pageViewEvent = XennEvent.create(name: eventName, persistentId: applicationContextHolder.getPersistentId(), sessionId: sessionContextHolder.getSessionId())
                 .memberId(memberId: sessionContextHolder.getMemberId())
                 .appendExtra(params: params)
@@ -74,7 +74,7 @@ public class EventProcessorHandler {
         httpService.postFormUrlEncoded(payload: serializedEvent)
     }
 
-    func savePushToken(deviceToken: String) {
+    @objc func savePushToken(deviceToken: String) {
         let pageViewEvent = XennEvent.create(name: "Collection", persistentId: applicationContextHolder.getPersistentId(), sessionId: sessionContextHolder.getSessionId())
                 .memberId(memberId: sessionContextHolder.getMemberId())
                 .addBody(key: "name", value: "pushToken")
