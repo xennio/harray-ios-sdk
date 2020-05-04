@@ -30,16 +30,22 @@ public class NotificationProcessorHandler {
     }
 
     public func pushMessageOpened(pushContent: Dictionary<AnyHashable, Any>) {
-        let pushId = getContentItem(key: Constants.PUSH_ID_KEY.rawValue, pushContent: pushContent)
-        let campaignId = getContentItem(key: Constants.CAMPAIGN_ID_KEY.rawValue, pushContent: pushContent)
-        let campaignDate = getContentItem(key: Constants.CAMPAIGN_DATE_KEY.rawValue, pushContent: pushContent)
-        let pushOpenedEvent = FeedbackEvent.create(name: "o")
-                .addParameter(key: "ci", value: campaignId!)
-                .addParameter(key: "pi", value: pushId!)
-                .addParameter(key: "cd", value: campaignDate!)
-                .toMap()
-        let serializedEvent = entitySerializerService.serializeToJson(event: pushOpenedEvent)
-        httpService.postJsonEncoded(payload: serializedEvent, path: Constants.PUSH_FEED_BACK_PATH.rawValue)
+        let source = pushContent[Constants.PUSH_PAYLOAD_SOURCE.rawValue]
+        if source != nil {
+            let pushChannelId = source as? String
+            if Constants.PUSH_CHANNEL_ID.rawValue == pushChannelId! {
+                let pushId = getContentItem(key: Constants.PUSH_ID_KEY.rawValue, pushContent: pushContent)
+                let campaignId = getContentItem(key: Constants.CAMPAIGN_ID_KEY.rawValue, pushContent: pushContent)
+                let campaignDate = getContentItem(key: Constants.CAMPAIGN_DATE_KEY.rawValue, pushContent: pushContent)
+                let pushOpenedEvent = FeedbackEvent.create(name: "o")
+                        .addParameter(key: "ci", value: campaignId!)
+                        .addParameter(key: "pi", value: pushId!)
+                        .addParameter(key: "cd", value: campaignDate!)
+                        .toMap()
+                let serializedEvent = entitySerializerService.serializeToJson(event: pushOpenedEvent)
+                httpService.postJsonEncoded(payload: serializedEvent, path: Constants.PUSH_FEED_BACK_PATH.rawValue)
+            }
+        }
     }
 
     public func handlePushNotification(request: UNNotificationRequest,
