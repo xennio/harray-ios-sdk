@@ -75,7 +75,9 @@ import UIKit
     }
 
     @objc public class func login(memberId: String) {
-        getInstance().sessionContextHolder.login(memberId: memberId)
+        if "" != memberId {
+            getInstance().sessionContextHolder.login(memberId: memberId)
+        }
     }
 
     @objc public class func savePushToken(deviceToken: String) {
