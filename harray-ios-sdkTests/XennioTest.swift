@@ -28,6 +28,12 @@ class XennioTest: XCTestCase {
         XCTAssertEqual("memberId", Xennio.instance!.sessionContextHolder.getMemberId())
     }
 
+    func test_it_should_not_try_to_log_in_with_member_id_when_string_is_empty() {
+        Xennio.configure(sdkKey: "SDK_KEY")
+        Xennio.login(memberId: "")
+        XCTAssertNil(Xennio.instance!.sessionContextHolder.getMemberId())
+    }
+
     func test_it_should_log_out_with_memberId() {
         Xennio.configure(sdkKey: "SDK_KEY")
         Xennio.login(memberId: "memberId")
