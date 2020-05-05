@@ -14,7 +14,6 @@ import UIKit
     static var instance: Xennio?
 
     let sessionContextHolder: SessionContextHolder
-    private static let collectorUrl = "https://c.xenn.io"
     private let sdkKey: String
     private let applicationContextHolder: ApplicationContextHolder
     private let eventProcessorHandler: EventProcessorHandler
