@@ -90,7 +90,7 @@ import UIKit
     }
 
     @objc public func register() {
-        UNUserNotificationCenter.current().requestAuthorization(options: [.sound, .alert, .badge, .providesAppNotificationSettings]) { (granted, error) in
+        UNUserNotificationCenter.current().requestAuthorization(options: [.sound, .alert, .badge]) { (granted, error) in
             if error != nil {
                 DispatchQueue.main.async {
                     UIApplication.shared.registerForRemoteNotifications()
