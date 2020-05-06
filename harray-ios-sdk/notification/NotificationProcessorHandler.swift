@@ -16,7 +16,7 @@ import UIKit
         self.entitySerializerService = entitySerializerService
     }
 
-    @objc func pushMessageDelivered(pushContent: Dictionary<AnyHashable, Any>) {
+    @objc public func pushMessageDelivered(pushContent: Dictionary<AnyHashable, Any>) {
         let pushId = getContentItem(key: Constants.PUSH_ID_KEY.rawValue, pushContent: pushContent)
         let campaignId = getContentItem(key: Constants.CAMPAIGN_ID_KEY.rawValue, pushContent: pushContent)
         let campaignDate = getContentItem(key: Constants.CAMPAIGN_DATE_KEY.rawValue, pushContent: pushContent)
