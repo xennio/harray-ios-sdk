@@ -54,7 +54,6 @@ import UIKit
             let pushChannelId = source as? String
             if Constants.PUSH_CHANNEL_ID.rawValue == pushChannelId! {
                 pushMessageDelivered(pushContent: userInfo)
-                UIApplication.shared.applicationIconBadgeNumber = 0
             }
         }
     }
@@ -64,6 +63,7 @@ import UIKit
         let settings = UIUserNotificationSettings(types: notificationTypes, categories: nil)
         uiApplication.registerUserNotificationSettings(settings)
         uiApplication.registerForRemoteNotifications()
+        uiApplication.applicationIconBadgeNumber = 0
     }
 
     private func getContentItem(key: String, pushContent: Dictionary<AnyHashable, Any>) -> String? {
