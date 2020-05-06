@@ -16,7 +16,7 @@ class SessionContextHolder {
     private var lastActivityTime: Int
     private var sessionState: SessionState = SessionState.SESSION_INITIALIZED
     private var externalParameters: Dictionary<String, Any> = Dictionary<String, Any>()
-    private let externalParameterKeys: Array<String> = ["campaignId", "campaignDate", "pushId", "url", "utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content"]
+    private let externalParameterKeys: Array<String> = ["campaignId", "campaignDate", "pushId", "url", "gclid", "utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content"]
 
     init() {
         let now = ClockUtils.getTime()

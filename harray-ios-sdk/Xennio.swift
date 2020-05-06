@@ -88,4 +88,8 @@ import UIKit
         getInstance().sessionContextHolder.logout()
     }
 
+    @objc public class func synchronizeWith(externalParameters: Dictionary<String, Any>) {
+        getInstance().sessionContextHolder.updateExternalParameters(data: externalParameters)
+    }
+
 }
