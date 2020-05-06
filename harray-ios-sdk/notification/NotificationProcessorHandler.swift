@@ -5,6 +5,7 @@
 
 import Foundation
 import UserNotifications
+import UIKit
 
 @objc public class NotificationProcessorHandler: NSObject {
 
@@ -48,6 +49,16 @@ import UserNotifications
         }
     }
 
+    @objc public func handlePushNotification(userInfo: Dictionary<AnyHashable, Any>) {
+        let source = userInfo[Constants.PUSH_PAYLOAD_SOURCE.rawValue]
+        if source != nil {
+            let pushChannelId = source as? String
+            if Constants.PUSH_CHANNEL_ID.rawValue == pushChannelId! {
+                pushMessageDelivered(pushContent: userInfo)
+            }
+        }
+    }
+
     @objc public func handlePushNotification(request: UNNotificationRequest,
                                              bestAttemptContent: UNMutableNotificationContent,
                                              withContentHandler contentHandler: @escaping (UNNotificationContent) -> Void) {
@@ -73,6 +84,16 @@ import UserNotifications
                     }
                 } else {
                     contentHandler(bestAttemptContent)
+                }
+            }
+        }
+    }
+
+    @objc public func register() {
+        UNUserNotificationCenter.current().requestAuthorization(options: [.sound, .alert, .badge, .providesAppNotificationSettings]) { (granted, error) in
+            if error != nil {
+                DispatchQueue.main.async {
+                    UIApplication.shared.registerForRemoteNotifications()
                 }
             }
         }
