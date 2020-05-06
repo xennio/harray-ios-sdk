@@ -10,6 +10,6 @@ Pod::Spec.new do |spec|
   spec.homepage      = "https://github.com/xennio/harray-ios-sdk"
   spec.license       = { :type => "MIT", :file => "LICENSE" }
   spec.author        = { "Xennio Development Team" => "developer@xenn.io" }
-  spec.source        = { :git => "https://github.com/xennio/harray-ios-sdk.git",:branch =>"" , :tag => "#{spec.version}" }
+  spec.source        = { :git => "https://github.com/xennio/harray-ios-sdk.git", :branch =>"feature/old_version_push_support" , :tag => "#{spec.version}" }
   spec.source_files  = "harray-ios-sdk/**/*.{h,m,swift}"
 end
