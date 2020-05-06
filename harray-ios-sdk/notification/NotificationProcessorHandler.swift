@@ -59,11 +59,11 @@ import UIKit
         }
     }
 
-    @objc public func register() {
+    @objc public func register(uiApplication: UIApplication) {
         let notificationTypes: UIUserNotificationType = [.alert, .badge, .sound]
         let settings = UIUserNotificationSettings(types: notificationTypes, categories: nil)
-        UIApplication.shared.registerUserNotificationSettings(settings)
-        UIApplication.shared.registerForRemoteNotifications()
+        uiApplication.registerUserNotificationSettings(settings)
+        uiApplication.registerForRemoteNotifications()
     }
 
     private func getContentItem(key: String, pushContent: Dictionary<AnyHashable, Any>) -> String? {
