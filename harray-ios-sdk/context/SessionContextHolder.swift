@@ -9,11 +9,11 @@
 import Foundation
 
 class SessionContextHolder {
-    private let sessionDuration: Int = 30 * 60 * 1000
+    private let sessionDuration: Int64 = 30 * 60 * 1000
     private var sessionId: String
     private var memberId: String?
-    private var sessionStartTime: Int
-    private var lastActivityTime: Int
+    private var sessionStartTime: Int64
+    private var lastActivityTime: Int64
     private var sessionState: SessionState = SessionState.SESSION_INITIALIZED
     private var externalParameters: Dictionary<String, Any> = Dictionary<String, Any>()
     private let externalParameterKeys: Array<String> = ["campaignId", "campaignDate", "pushId", "url", "gclid", "utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content"]
@@ -69,11 +69,11 @@ class SessionContextHolder {
         return self.sessionId
     }
 
-    func getSessionStartTime() -> Int {
+    func getSessionStartTime() -> Int64 {
         return self.sessionStartTime
     }
 
-    func getLastActivityTime() -> Int {
+    func getLastActivityTime() -> Int64 {
         return self.sessionStartTime
     }
 

@@ -11,25 +11,25 @@ import Foundation
 class ClockUtils {
 
     private static var isFrozen: Bool = false
-    private static var currentTime: Int!
+    private static var currentTime: Int64!
 
     private init() {
 
     }
 
-    class func getTime() -> Int {
+    class func getTime() -> Int64 {
         if isFrozen {
             return currentTime
         }
-        return Int(Date().timeIntervalSince1970) * 1000
+        return Int64(Date().timeIntervalSince1970) * 1000
     }
 
     class func freeze() {
         isFrozen = true
-        currentTime = Int(Date().timeIntervalSince1970) * 1000
+        currentTime = Int64(Date().timeIntervalSince1970) * 1000
     }
 
-    class func freeze(expectedTime: Int) {
+    class func freeze(expectedTime: Int64) {
         isFrozen = true
         currentTime = expectedTime
     }

@@ -222,9 +222,9 @@ class FakeApplicationContextHolder: ApplicationContextHolder {
 
 class FakeSessionContextHolder: SessionContextHolder {
 
-    private var lastActivityTime: Int?
+    private var lastActivityTime: Int64?
 
-    func withLastActivityTime(_ expectedTime: Int) -> FakeSessionContextHolder {
+    func withLastActivityTime(_ expectedTime: Int64) -> FakeSessionContextHolder {
         lastActivityTime = expectedTime
         return self
     }
@@ -242,7 +242,7 @@ class FakeSessionContextHolder: SessionContextHolder {
         return self
     }
 
-    override func getLastActivityTime() -> Int {
+    override func getLastActivityTime() -> Int64 {
         return lastActivityTime!
     }
 }

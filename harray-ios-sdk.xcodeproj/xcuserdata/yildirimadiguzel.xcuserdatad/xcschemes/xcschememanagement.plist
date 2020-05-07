@@ -16,35 +16,35 @@
 			<key>orderHint</key>
 			<integer>1</integer>
 		</dict>
-		<key>PostFormUrlEncodedRequestTest.test_it_should_construct_post_url_encoded_request.xcscheme</key>
+		<key>NotificationProcessorHandlerTest.test_it_should_construct_push_opened_event_and_make_api_call.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false />
 			<key>orderHint</key>
 			<integer>2</integer>
 		</dict>
-		<key>NotificationProcessorHandlerTest.test_it_should_construct_push_opened_event_and_make_api_call.xcscheme</key>
+		<key>NotificationProcessorHandlerTest.test_it_should_not_construct_push_opened_event_and_make_api_call_when_source_is_not_defined.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false />
 			<key>orderHint</key>
 			<integer>3</integer>
 		</dict>
-		<key>NotificationProcessorHandlerTest.test_it_should_not_construct_push_opened_event_and_make_api_call_when_source_is_not_defined.xcscheme</key>
+		<key>NotificationProcessorHandlerTest.test_it_should_not_construct_push_opened_event_and_make_api_call_when_source_is_defined_other_than_xennio.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false />
 			<key>orderHint</key>
 			<integer>4</integer>
 		</dict>
-		<key>NotificationProcessorHandlerTest.test_it_should_not_construct_push_opened_event_and_make_api_call_when_source_is_defined_other_than_xennio.xcscheme</key>
+		<key>NotificationProcessorHandlerTest.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false />
 			<key>orderHint</key>
 			<integer>5</integer>
 		</dict>
-		<key>NotificationProcessorHandlerTest.xcscheme</key>
+		<key>ClockUtilsTest.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false />

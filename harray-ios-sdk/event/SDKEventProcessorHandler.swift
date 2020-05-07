@@ -10,7 +10,7 @@ import Foundation
 
 class SDKEventProcessorHandler {
 
-    private let HEART_BEAT_INTERVAL = 55000
+    private let HEART_BEAT_INTERVAL: Int64 = 55000
     private let applicationContextHolder: ApplicationContextHolder
     private let sessionContextHolder: SessionContextHolder
     private let httpService: HttpService
