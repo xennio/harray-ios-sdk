@@ -23,7 +23,7 @@ class TestUtils {
 class FakeDeviceService: DeviceService {
 
     init() {
-        super.init(bundle: Bundle.main, uiDevice: UIDevice.current)
+        super.init(bundle: Bundle.main, uiDevice: UIDevice.current, uiScreen: UIScreen.main)
     }
 
     override func getModel() -> String {
@@ -38,7 +38,7 @@ class FakeDeviceService: DeviceService {
         return "uiDevice.systemVersion"
     }
 
-    override func getAppVersion() -> String? {
+    override func getAppVersion() -> String {
         return "CFBundleShortVersionString"
     }
 
@@ -47,6 +47,18 @@ class FakeDeviceService: DeviceService {
     }
 
     override func getBrand() -> String {
+        return "Apple"
+    }
+    
+    override func getScreenWidth() -> CGFloat {
+        return CGFloat(100)
+    }
+    
+    override func getScreenHeight() -> CGFloat {
+        return CGFloat(250)
+    }
+    
+    override func getAppName() -> String {
         return "Apple"
     }
 }
