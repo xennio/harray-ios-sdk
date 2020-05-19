@@ -39,7 +39,7 @@ import UIKit
         let applicationContextHolder = ApplicationContextHolder(userDefaults: UserDefaults.standard)
         let httpService = HttpService(sdkKey: sdkKey, session: URLSession.shared)
         let entitySerializerService = EntitySerializerService(encodingService: EncodingService(), jsonSerializerService: JsonSerializerService())
-        let deviceService = DeviceService(bundle: Bundle.main, uiDevice: UIDevice.current)
+        let deviceService = DeviceService(bundle: Bundle.main, uiDevice: UIDevice.current, uiScreen: UIScreen.main)
 
         let eventProcessorHandler = EventProcessorHandler(applicationContextHolder: applicationContextHolder, sessionContextHolder: sessionContextHolder, httpService: httpService, entitySerializerService: entitySerializerService)
         let sdkEventProcessorHandler = SDKEventProcessorHandler(applicationContextHolder: applicationContextHolder, sessionContextHolder: sessionContextHolder, httpService: httpService, entitySerializerService: entitySerializerService, deviceService: deviceService)
@@ -87,5 +87,10 @@ import UIKit
     @objc public class func logout() {
         getInstance().sessionContextHolder.logout()
     }
+
+    @objc public class func synchronizeWith(externalParameters: Dictionary<String, Any>) {
+        getInstance().sessionContextHolder.updateExternalParameters(data: externalParameters)
+    }
+
 
 }

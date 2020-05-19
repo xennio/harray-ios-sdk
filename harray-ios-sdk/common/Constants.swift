@@ -17,5 +17,8 @@ enum Constants: String {
     case CAMPAIGN_ID_KEY = "campaignId"
     case CAMPAIGN_DATE_KEY = "campaignDate"
     case PUSH_FEED_BACK_PATH = "feedback"
+    case UNKNOWN_PROPERTY_VALUE = "UNKNOWN"
+    case IOS = "IOS"
+    case APPLE = "Apple"
 
 }

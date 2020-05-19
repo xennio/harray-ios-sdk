@@ -8,15 +8,18 @@
 
 import Foundation
 import UIKit
+import CoreTelephony
 
 class DeviceService {
 
     let uiDevice: UIDevice
     let bundle: Bundle
+    let uiScreen: UIScreen
 
-    init(bundle: Bundle, uiDevice: UIDevice) {
+    init(bundle: Bundle, uiDevice: UIDevice, uiScreen: UIScreen) {
         self.uiDevice = uiDevice
         self.bundle = bundle
+        self.uiScreen = uiScreen
     }
 
     func getModel() -> String {
@@ -24,22 +27,36 @@ class DeviceService {
     }
 
     func getManufacturer() -> String {
-        return "Apple"
+        return Constants.APPLE.rawValue
     }
 
     func getOsVersion() -> String {
         return uiDevice.systemVersion
     }
 
-    func getAppVersion() ->String? {
-        return bundle.infoDictionary?["CFBundleShortVersionString"] as? String
+    func getAppVersion() -> String {
+        return bundle.infoDictionary?["CFBundleShortVersionString"] as? String ?? Constants.UNKNOWN_PROPERTY_VALUE.rawValue
     }
 
-    func getCarrier() ->String {
-        return ""
+    func getAppName() -> String {
+        return bundle.infoDictionary?["CFBundleName"] as? String ?? Constants.UNKNOWN_PROPERTY_VALUE.rawValue
+    }
+    
+    func getScreenWidth() -> CGFloat {
+        return uiScreen.bounds.size.width
+    }
+    
+    func getScreenHeight() -> CGFloat {
+        return uiScreen.bounds.size.height
+    }
+
+    func getCarrier() -> String {
+        let info = CTTelephonyNetworkInfo()
+        let carrier = info.subscriberCellularProvider
+        return carrier?.carrierName ?? Constants.UNKNOWN_PROPERTY_VALUE.rawValue
     }
 
     func getBrand() -> String {
-        return "Apple"
+        return Constants.APPLE.rawValue
     }
 }

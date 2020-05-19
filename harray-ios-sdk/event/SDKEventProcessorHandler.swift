@@ -10,7 +10,7 @@ import Foundation
 
 class SDKEventProcessorHandler {
 
-    private let HEART_BEAT_INTERVAL = 55000
+    private let HEART_BEAT_INTERVAL: Int64 = 55000
     private let applicationContextHolder: ApplicationContextHolder
     private let sessionContextHolder: SessionContextHolder
     private let httpService: HttpService
@@ -32,13 +32,16 @@ class SDKEventProcessorHandler {
         let pageViewEvent = XennEvent.create(name: "SS", persistentId: applicationContextHolder.getPersistentId(), sessionId: sessionContextHolder.getSessionId())
                 .addHeader(key: "sv", value: applicationContextHolder.getSdkVersion())
                 .memberId(memberId: sessionContextHolder.getMemberId())
-                .addBody(key: "os", value: "IOS \(deviceService.getOsVersion())")
+                .addBody(key: "os", value: Constants.IOS.rawValue)
+                .addBody(key: "osv", value: deviceService.getOsVersion())
                 .addBody(key: "mn", value: deviceService.getManufacturer())
-                .addBody(key: "md", value: deviceService.getModel())
                 .addBody(key: "br", value: deviceService.getBrand())
+                .addBody(key: "md", value: deviceService.getModel())
                 .addBody(key: "op", value: deviceService.getCarrier())
-                .addBody(key: "av", value: deviceService.getAppVersion() ?? "")
+                .addBody(key: "av", value: deviceService.getAppVersion())
                 .addBody(key: "zn", value: applicationContextHolder.getTimezone())
+                .addBody(key: "sw", value: deviceService.getScreenWidth())
+                .addBody(key: "sh", value: deviceService.getScreenHeight())
                 .appendExtra(params: sessionContextHolder.getExternalParameters())
                 .toMap()
         let serializedEvent = entitySerializerService.serializeToBase64(event: pageViewEvent)
