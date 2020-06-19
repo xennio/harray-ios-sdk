@@ -36,7 +36,7 @@ class SDKEventProcessorHandler {
                 .addBody(key: "osv", value: deviceService.getOsVersion())
                 .addBody(key: "mn", value: deviceService.getManufacturer())
                 .addBody(key: "br", value: deviceService.getBrand())
-                .addBody(key: "md", value: deviceService.getModel())
+                .addBody(key: "md", value: deviceService.getDeviceModel())
                 .addBody(key: "op", value: deviceService.getCarrier())
                 .addBody(key: "av", value: deviceService.getAppVersion())
                 .addBody(key: "zn", value: applicationContextHolder.getTimezone())

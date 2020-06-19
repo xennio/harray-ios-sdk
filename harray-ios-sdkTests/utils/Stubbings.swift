@@ -61,6 +61,10 @@ class FakeDeviceService: DeviceService {
     override func getAppName() -> String {
         return "Apple"
     }
+
+    override func getDeviceModel() -> String {
+        return "Iphone 8"
+    }
 }
 
 class FakeUrlSession: URLSession {
