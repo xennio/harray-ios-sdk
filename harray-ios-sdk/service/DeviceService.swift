@@ -41,11 +41,11 @@ class DeviceService {
     func getAppName() -> String {
         return bundle.infoDictionary?["CFBundleName"] as? String ?? Constants.UNKNOWN_PROPERTY_VALUE.rawValue
     }
-    
+
     func getScreenWidth() -> CGFloat {
         return uiScreen.bounds.size.width
     }
-    
+
     func getScreenHeight() -> CGFloat {
         return uiScreen.bounds.size.height
     }
@@ -64,9 +64,10 @@ class DeviceService {
         var systemInfo = utsname()
         uname(&systemInfo)
         let machineMirror = Mirror(reflecting: systemInfo.machine)
-        return machineMirror.children.reduce("") { identifier, element in
+        let identifier = machineMirror.children.reduce("") { identifier, element in
             guard let value = element.value as? Int8, value != 0 else { return identifier }
             return identifier + String(UnicodeScalar(UInt8(value)))
         }
+        return identifier
     }
 }
