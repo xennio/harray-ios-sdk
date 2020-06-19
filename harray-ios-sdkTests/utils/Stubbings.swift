@@ -29,6 +29,10 @@ class FakeDeviceService: DeviceService {
     override func getModel() -> String {
         return "model"
     }
+    
+    override func getDeviceModel() -> String {
+        return "Iphone 8"
+    }
 
     override func getManufacturer() -> String {
         return "Apple"

@@ -39,7 +39,7 @@ class SDKEventProcessorHandlerTest: XCTestCase {
         XCTAssertTrue(fakeDeviceService.getOsVersion() == body["osv"] as! String)
         XCTAssertTrue(fakeDeviceService.getManufacturer() == body["mn"] as! String)
         XCTAssertTrue(fakeDeviceService.getBrand() == body["br"] as! String)
-        XCTAssertTrue(fakeDeviceService.getModel() == body["md"] as! String)
+        XCTAssertTrue(fakeDeviceService.getDeviceModel() == body["md"] as! String)
         XCTAssertTrue(fakeDeviceService.getCarrier() == body["op"] as! String)
         XCTAssertTrue(fakeDeviceService.getAppVersion() == body["av"] as! String)
         XCTAssertTrue(fakeDeviceService.getScreenWidth() == body["sw"] as! CGFloat)
