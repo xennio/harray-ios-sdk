@@ -15,7 +15,7 @@ import UIKit
 
     let sessionContextHolder: SessionContextHolder
     private let sdkKey: String
-    private var pushNotificationToken: String
+    private var pushNotificationToken: String = ""
     private let applicationContextHolder: ApplicationContextHolder
     private let eventProcessorHandler: EventProcessorHandler
     private let sdkEventProcessorHandler: SDKEventProcessorHandler
@@ -78,6 +78,9 @@ import UIKit
     @objc public class func login(memberId: String) {
         if "" != memberId {
             getInstance().sessionContextHolder.login(memberId: memberId)
+            if "" != getInstance().pushNotificationToken {
+                getInstance().eventProcessorHandler.savePushToken(deviceToken: getInstance().pushNotificationToken)
+            }
         }
     }
 
@@ -86,11 +89,6 @@ import UIKit
         getInstance().eventProcessorHandler.savePushToken(deviceToken: deviceToken)
     }
     
-    @objc public class func associatePushTokenWithMemberId(memberId: String) {
-        login(memberId: memberId)
-        getInstance().eventProcessorHandler.savePushToken(deviceToken: getInstance().pushNotificationToken)
-    }
-
     @objc public class func logout() {
         getInstance().sessionContextHolder.logout()
     }
