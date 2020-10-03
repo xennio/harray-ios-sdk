@@ -47,6 +47,14 @@ class SDKEventProcessorHandler {
         let serializedEvent = entitySerializerService.serializeToBase64(event: pageViewEvent)
         httpService.postFormUrlEncoded(payload: serializedEvent)
     }
+    
+    func newInstallation() {
+        let pageViewEvent = XennEvent.create(name: "NI", persistentId: applicationContextHolder.getPersistentId(), sessionId: sessionContextHolder.getSessionId())
+                .memberId(memberId: sessionContextHolder.getMemberId())
+                .toMap()
+        let serializedEvent = entitySerializerService.serializeToBase64(event: pageViewEvent)
+        httpService.postFormUrlEncoded(payload: serializedEvent)
+    }
 
     func heatBeat() {
         if (sessionContextHolder.getLastActivityTime() < ClockUtils.getTime() - HEART_BEAT_INTERVAL) {

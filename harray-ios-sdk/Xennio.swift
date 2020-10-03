@@ -65,6 +65,10 @@ import UIKit
         if (sessionContextHolder.getSessionState() != SessionState.SESSION_STARTED) {
             xennioInstance.sdkEventProcessorHandler.sessionStart()
             sessionContextHolder.startSession()
+            if (xennioInstance.applicationContextHolder.isNewInstallation()){
+                xennioInstance.sdkEventProcessorHandler.newInstallation()
+                xennioInstance.applicationContextHolder.setInstallationCompleted()
+            }
         }
         return xennioInstance.eventProcessorHandler
     }
@@ -90,6 +94,8 @@ import UIKit
     }
     
     @objc public class func logout() {
+        getInstance().eventProcessorHandler.removeTokenAssociation(deviceToken: getInstance().pushNotificationToken);
+        getInstance().pushNotificationToken = ""
         getInstance().sessionContextHolder.logout()
     }
 

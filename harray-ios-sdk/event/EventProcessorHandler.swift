@@ -85,4 +85,16 @@ import Foundation
         let serializedEvent = entitySerializerService.serializeToBase64(event: pageViewEvent)
         httpService.postFormUrlEncoded(payload: serializedEvent)
     }
+    
+    func removeTokenAssociation(deviceToken: String) {
+        let pageViewEvent = XennEvent.create(name: "TR", persistentId: applicationContextHolder.getPersistentId(), sessionId: sessionContextHolder.getSessionId())
+                .memberId(memberId: sessionContextHolder.getMemberId())
+                .addBody(key: "name", value: "pushToken")
+                .addBody(key: "type", value: "iosToken")
+                .addBody(key: "appType", value: "iosAppPush")
+                .addBody(key: "deviceToken", value: deviceToken)
+                .toMap()
+        let serializedEvent = entitySerializerService.serializeToBase64(event: pageViewEvent)
+        httpService.postFormUrlEncoded(payload: serializedEvent)
+    }
 }
