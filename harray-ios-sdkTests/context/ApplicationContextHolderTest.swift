@@ -19,8 +19,9 @@ class ApplicationContextHolderTest: XCTestCase {
         XCTAssertEqual(persistentId, userDefaults.value as? String)
         XCTAssertEqual(Constants.SDK_PERSISTENT_ID_KEY.rawValue, userDefaults.keyValue)
         XCTAssertEqual(persistentId, applicationContextHolder.getPersistentId())
-        RandomValueUtils.unFreeze()
+        XCTAssertTrue(applicationContextHolder.isNewInstallation())
         
+        RandomValueUtils.unFreeze()
     }
     
     func test_it_should_return_persistent_id_when_persistent_id_is_present_in_shared_preferences() {
@@ -36,5 +37,15 @@ class ApplicationContextHolderTest: XCTestCase {
              
         let applicationContextHolder = ApplicationContextHolder(userDefaults: userDefaults)
         XCTAssertEqual("0", applicationContextHolder.getTimezone())
+    }
+    
+    func test_it_should_set_installation_completed_when_invoked(){
+        let userDefaults = InitializedUserDefaults()
+      
+        let applicationContextHolder = ApplicationContextHolder(userDefaults: userDefaults)
+        applicationContextHolder.setInstallationCompleted()
+        
+        XCTAssertFalse(applicationContextHolder.isNewInstallation())
+        
     }
 }

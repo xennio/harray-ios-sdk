@@ -10,13 +10,15 @@ import Foundation
 
 class ApplicationContextHolder {
     private let persistentId: String
-    private let sdkVersion = "2.3.1"
+    private let sdkVersion = "2.3.2"
+    private var newInstallation = false
 
     init(userDefaults: UserDefaults) {
         var value = userDefaults.string(forKey: Constants.SDK_PERSISTENT_ID_KEY.rawValue)
         if value == nil {
             value = RandomValueUtils.randomUUID()
             userDefaults.set(value, forKey: Constants.SDK_PERSISTENT_ID_KEY.rawValue)
+            newInstallation = true
         }
         self.persistentId = value!
     }
@@ -31,5 +33,13 @@ class ApplicationContextHolder {
 
     func getSdkVersion() -> String {
         return self.sdkVersion
+    }
+    
+    func isNewInstallation() -> Bool {
+        return self.newInstallation
+    }
+    
+    func setInstallationCompleted() {
+        self.newInstallation = false
     }
 }
