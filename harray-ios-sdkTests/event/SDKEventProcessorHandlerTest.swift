@@ -138,4 +138,34 @@ class SDKEventProcessorHandlerTest: XCTestCase {
 
         ClockUtils.unFreeze()
     }
+    
+    func test_it_should_construct_new_installation_event_and_make_api_call() {
+        let sessionContextHolder = FakeSessionContextHolder()
+        let applicationContextHolder = FakeApplicationContextHolder(userDefaults: InitializedUserDefaults())
+
+        let httpService = FakeHttpService(sdkKey: "sdk-key", session: FakeUrlSession())
+        let entitySerializerService = CapturingEntitySerializerService.init()
+        let fakeDeviceService = FakeDeviceService()
+        let sdkEventProcessorHandler = SDKEventProcessorHandler(applicationContextHolder: applicationContextHolder, sessionContextHolder: sessionContextHolder,
+                httpService: httpService, entitySerializerService: entitySerializerService,
+                deviceService: fakeDeviceService)
+
+        entitySerializerService.givenSerializeReturns(callWith: TestUtils.anyDictionary(), expect: "serialized_event")
+        httpService.givenPostWithPayload(callWith: "serialized_event")
+
+        sdkEventProcessorHandler.newInstallation()
+
+        let captured = entitySerializerService.getCapturedEvent()
+
+        XCTAssertFalse(httpService.hasError)
+
+        let header = captured["h"] as! Dictionary<String, Any>
+        let body = captured["b"] as! Dictionary<String, Any>
+
+        XCTAssertTrue("NI" == header["n"] as! String)
+        XCTAssertTrue(applicationContextHolder.getPersistentId() == header["p"] as! String)
+        XCTAssertTrue(sessionContextHolder.getSessionId() == header["s"] as! String)
+        XCTAssertTrue(sessionContextHolder.getMemberId() == body["memberId"] as! String)
+
+    }
 }

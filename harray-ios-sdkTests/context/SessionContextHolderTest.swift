@@ -168,4 +168,5 @@ class SessionContextHolderTest: XCTestCase {
         XCTAssertTrue("utm_term" == boundedExternalParameters["utm_term"] as! String)
         XCTAssertTrue("utm_content" == boundedExternalParameters["utm_content"] as! String)
     }
+    
 }
