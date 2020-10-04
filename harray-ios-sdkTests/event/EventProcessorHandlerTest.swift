@@ -301,7 +301,7 @@ class EventProcessorHandlerTest: XCTestCase {
         entitySerializerService.givenSerializeReturns(callWith: TestUtils.anyDictionary(), expect: "serialized_event")
         httpService.givenPostWithPayload(callWith: "serialized_event")
 
-        eventProcessorHandler.savePushToken(deviceToken: "token")
+        eventProcessorHandler.removeTokenAssociation(deviceToken: "token")
 
         let captured = entitySerializerService.getCapturedEvent()
 
