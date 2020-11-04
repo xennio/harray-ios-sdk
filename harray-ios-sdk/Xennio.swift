@@ -20,18 +20,22 @@ import UIKit
     private let eventProcessorHandler: EventProcessorHandler
     private let sdkEventProcessorHandler: SDKEventProcessorHandler
     private let notificationProcessorHandler: NotificationProcessorHandler
+    private let ecommerceEventProcessorHandler: EcommerceEventProcessorHandler
 
     private init(sdkKey: String,
                  sessionContextHolder: SessionContextHolder,
                  applicationContextHolder: ApplicationContextHolder,
                  eventProcessorHandler: EventProcessorHandler,
                  sdkEventProcessorHandler: SDKEventProcessorHandler,
-                 notificationProcessorHandler: NotificationProcessorHandler) {
+                 notificationProcessorHandler: NotificationProcessorHandler,
+                 ecommerceEventProcessorHandler: EcommerceEventProcessorHandler
+                 ) {
         self.sessionContextHolder = sessionContextHolder
         self.applicationContextHolder = applicationContextHolder
         self.eventProcessorHandler = eventProcessorHandler
         self.sdkEventProcessorHandler = sdkEventProcessorHandler
         self.notificationProcessorHandler = notificationProcessorHandler
+        self.ecommerceEventProcessorHandler = ecommerceEventProcessorHandler
         self.sdkKey = sdkKey
     }
 
@@ -45,13 +49,15 @@ import UIKit
         let eventProcessorHandler = EventProcessorHandler(applicationContextHolder: applicationContextHolder, sessionContextHolder: sessionContextHolder, httpService: httpService, entitySerializerService: entitySerializerService)
         let sdkEventProcessorHandler = SDKEventProcessorHandler(applicationContextHolder: applicationContextHolder, sessionContextHolder: sessionContextHolder, httpService: httpService, entitySerializerService: entitySerializerService, deviceService: deviceService)
         let notificationProcessorHandler = NotificationProcessorHandler(httpService: httpService, entitySerializerService: entitySerializerService)
+        let ecommerceEventProcessorHandler = EcommerceEventProcessorHandler(eventProcessorHandler: eventProcessorHandler)
 
         instance = Xennio(sdkKey: sdkKey,
                 sessionContextHolder: sessionContextHolder,
                 applicationContextHolder: applicationContextHolder,
                 eventProcessorHandler: eventProcessorHandler,
                 sdkEventProcessorHandler: sdkEventProcessorHandler,
-                notificationProcessorHandler: notificationProcessorHandler
+                notificationProcessorHandler: notificationProcessorHandler,
+                ecommerceEventProcessorHandler: ecommerceEventProcessorHandler
         )
     }
 
@@ -103,5 +109,7 @@ import UIKit
         getInstance().sessionContextHolder.updateExternalParameters(data: externalParameters)
     }
 
-
+    @objc public class func ecommerce(){
+        getInstance().ecommerceEventProcessorHandler
+    }
 }

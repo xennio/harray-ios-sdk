@@ -49,15 +49,15 @@ class FakeDeviceService: DeviceService {
     override func getBrand() -> String {
         return "Apple"
     }
-    
+
     override func getScreenWidth() -> CGFloat {
         return CGFloat(100)
     }
-    
+
     override func getScreenHeight() -> CGFloat {
         return CGFloat(250)
     }
-    
+
     override func getAppName() -> String {
         return "Apple"
     }
@@ -285,5 +285,31 @@ class InitializedUserDefaults: UserDefaults {
 
     override func string(forKey defaultName: String) -> String? {
         return "stored-persistent-id"
+    }
+}
+
+class CapturingEventProcessorHandler: EventProcessorHandler {
+
+    var pageType: String?
+    var actionType: String?
+    var capturedParams: [Dictionary<String, Any>] = [Dictionary<String, Any>]()
+    var actionResultInvokeCount: Int = 0
+    var pageViewInvokeCount: Int = 0
+    init(){
+        super.init(applicationContextHolder: FakeApplicationContextHolder(userDefaults: NotInitializedUserDefaults()),
+                sessionContextHolder: FakeSessionContextHolder(), httpService: FakeHttpService("", FakeUrlSession()),
+                entitySerializerService: CapturingEntitySerializerService())
+    }
+
+    override func pageView(pageType: String, params: Dictionary<String, Any>) {
+        self.pageType = pageType
+        self.capturedParams.append(params)
+        self.pageViewInvokeCount = self.pageViewInvokeCount + 1
+    }
+
+    override func actionResult(type: String, params: Dictionary<String, Any>) {
+        self.actionType = type
+        self.capturedParams.append(params)
+        self.actionResultInvokeCount = self.actionResultInvokeCount + 1
     }
 }

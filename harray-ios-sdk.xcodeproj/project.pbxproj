@@ -47,6 +47,11 @@
 		1D6C7F7724503876001FE80C /* Xennio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6C7F51245037CF001FE80C /* Xennio.swift */; };
 		1D6C7F7924505DE5001FE80C /* SDKEventProcessorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6C7F7824505DE5001FE80C /* SDKEventProcessorHandler.swift */; };
 		1D6C7F7B24505EF3001FE80C /* DeviceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6C7F7A24505EF3001FE80C /* DeviceService.swift */; };
+		354119D4254F2D3600FC0219 /* OrderTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354119D3254F2D3600FC0219 /* OrderTest.swift */; };
+		354119D9254F2D5700FC0219 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354119D8254F2D5700FC0219 /* Order.swift */; };
+		354119DA254F2D5700FC0219 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354119D8254F2D5700FC0219 /* Order.swift */; };
+		354119E0254F2F0800FC0219 /* OrderItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354119DF254F2F0800FC0219 /* OrderItem.swift */; };
+		354119E1254F2F0800FC0219 /* OrderItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354119DF254F2F0800FC0219 /* OrderItem.swift */; };
 		75F792287F3DC850963A0BEE /* HttpTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F79CE78FABE7F3A95D9FAA /* HttpTask.swift */; };
 		75F7936590788B5E2B4D582A /* DeviceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6C7F7A24505EF3001FE80C /* DeviceService.swift */; };
 		75F794E5C382C753E6924F0F /* HttpServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F79E2D8FC019EEC9D0E3FB /* HttpServiceTest.swift */; };
@@ -67,6 +72,9 @@
 		D3A8F470ECDD24C3F748B3DA /* PostJsonEncodedRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A8FF478F58033193386CAC /* PostJsonEncodedRequest.swift */; };
 		D3A8FAAFE5131F29783596E2 /* PostJsonEncodedRequestTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A8FFC1F8B279C1328FA628 /* PostJsonEncodedRequestTest.swift */; };
 		D3A8FAC96F4EBA60E90FE57B /* FeedbackEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A8F03219DAFBBDCDB18479 /* FeedbackEvent.swift */; };
+		D3A8FB41601748D1AC228340 /* EcommerceEventProcessorHandlerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A8FA015BA0F9D7A89FD17F /* EcommerceEventProcessorHandlerTest.swift */; };
+		D3A8FBA54C50A304CF02AEA1 /* EcommerceEventProcessorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A8FFD867CD2725033E487D /* EcommerceEventProcessorHandler.swift */; };
+		D3A8FBEE9FBC3C0C5E78106E /* EcommerceEventProcessorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A8FFD867CD2725033E487D /* EcommerceEventProcessorHandler.swift */; };
 		D3A8FC241756BFC390B30613 /* PostJsonEncodedRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A8FF478F58033193386CAC /* PostJsonEncodedRequest.swift */; };
 		D3A8FCE4CE647E4C7853EF2B /* FeedbackEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A8F03219DAFBBDCDB18479 /* FeedbackEvent.swift */; };
 		D3A8FCEE9365EFCF2872B5A7 /* FeedbackEventTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A8FD795BC84C16138F76BB /* FeedbackEventTest.swift */; };
@@ -112,6 +120,9 @@
 		1D6C7F60245037E4001FE80C /* EncodingServiceTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EncodingServiceTest.swift; sourceTree = "<group>"; };
 		1D6C7F7824505DE5001FE80C /* SDKEventProcessorHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SDKEventProcessorHandler.swift; sourceTree = "<group>"; };
 		1D6C7F7A24505EF3001FE80C /* DeviceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceService.swift; sourceTree = "<group>"; };
+		354119D3254F2D3600FC0219 /* OrderTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderTest.swift; sourceTree = "<group>"; };
+		354119D8254F2D5700FC0219 /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
+		354119DF254F2F0800FC0219 /* OrderItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderItem.swift; sourceTree = "<group>"; };
 		75F79280AAAAAA4ACB84F71E /* Errors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		75F7937C8E4A3DE0197BA508 /* NotificationProcessorHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationProcessorHandler.swift; sourceTree = "<group>"; };
 		75F793896A549ED373F17825 /* SDKEventProcessorHandlerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SDKEventProcessorHandlerTest.swift; sourceTree = "<group>"; };
@@ -124,9 +135,11 @@
 		75F79CE78FABE7F3A95D9FAA /* HttpTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpTask.swift; sourceTree = "<group>"; };
 		75F79E2D8FC019EEC9D0E3FB /* HttpServiceTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpServiceTest.swift; sourceTree = "<group>"; };
 		D3A8F03219DAFBBDCDB18479 /* FeedbackEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackEvent.swift; sourceTree = "<group>"; };
+		D3A8FA015BA0F9D7A89FD17F /* EcommerceEventProcessorHandlerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EcommerceEventProcessorHandlerTest.swift; sourceTree = "<group>"; };
 		D3A8FD795BC84C16138F76BB /* FeedbackEventTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackEventTest.swift; sourceTree = "<group>"; };
 		D3A8FF478F58033193386CAC /* PostJsonEncodedRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostJsonEncodedRequest.swift; sourceTree = "<group>"; };
 		D3A8FFC1F8B279C1328FA628 /* PostJsonEncodedRequestTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostJsonEncodedRequestTest.swift; sourceTree = "<group>"; };
+		D3A8FFD867CD2725033E487D /* EcommerceEventProcessorHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EcommerceEventProcessorHandler.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -224,6 +237,7 @@
 			children = (
 				1D6C7F3C245037C6001FE80C /* EventProcessorHandler.swift */,
 				1D6C7F7824505DE5001FE80C /* SDKEventProcessorHandler.swift */,
+				D3A8FFD867CD2725033E487D /* EcommerceEventProcessorHandler.swift */,
 			);
 			path = event;
 			sourceTree = "<group>";
@@ -253,6 +267,7 @@
 		1D6C7F46245037C6001FE80C /* model */ = {
 			isa = PBXGroup;
 			children = (
+				354119D7254F2D4700FC0219 /* ecommerce */,
 				1D6C7F47245037C6001FE80C /* XennEvent.swift */,
 				D3A8F03219DAFBBDCDB18479 /* FeedbackEvent.swift */,
 			);
@@ -274,6 +289,7 @@
 			children = (
 				1D6C7F58245037E4001FE80C /* EventProcessorHandlerTest.swift */,
 				75F793896A549ED373F17825 /* SDKEventProcessorHandlerTest.swift */,
+				D3A8FA015BA0F9D7A89FD17F /* EcommerceEventProcessorHandlerTest.swift */,
 			);
 			path = event;
 			sourceTree = "<group>";
@@ -298,9 +314,27 @@
 			path = service;
 			sourceTree = "<group>";
 		};
+		354119D2254F2CFC00FC0219 /* ecommerce */ = {
+			isa = PBXGroup;
+			children = (
+				354119D3254F2D3600FC0219 /* OrderTest.swift */,
+			);
+			path = ecommerce;
+			sourceTree = "<group>";
+		};
+		354119D7254F2D4700FC0219 /* ecommerce */ = {
+			isa = PBXGroup;
+			children = (
+				354119D8254F2D5700FC0219 /* Order.swift */,
+				354119DF254F2F0800FC0219 /* OrderItem.swift */,
+			);
+			path = ecommerce;
+			sourceTree = "<group>";
+		};
 		75F7901B9AAF866F3E9630BF /* model */ = {
 			isa = PBXGroup;
 			children = (
+				354119D2254F2CFC00FC0219 /* ecommerce */,
 				75F799FEC7295DCD9574A776 /* XennEventTest.swift */,
 				D3A8FD795BC84C16138F76BB /* FeedbackEventTest.swift */,
 			);
@@ -458,6 +492,7 @@
 				1D6C7F7924505DE5001FE80C /* SDKEventProcessorHandler.swift in Sources */,
 				1D6C7F4A245037C6001FE80C /* XennioLogger.swift in Sources */,
 				1D6C7F48245037C6001FE80C /* EventProcessorHandler.swift in Sources */,
+				354119E0254F2F0800FC0219 /* OrderItem.swift in Sources */,
 				1D6C7F4C245037C6001FE80C /* EncodingService.swift in Sources */,
 				1D6C7F4F245037C6001FE80C /* HttpService.swift in Sources */,
 				1D6C7F49245037C6001FE80C /* ClockUtils.swift in Sources */,
@@ -473,8 +508,10 @@
 				75F79FA7035C1DC7514F8D88 /* Errors.swift in Sources */,
 				75F79E02D73FE1F75CD7B894 /* PostFormUrlEncodedRequest.swift in Sources */,
 				75F79E511915046F48D0FB2E /* HttpTask.swift in Sources */,
+				354119D9254F2D5700FC0219 /* Order.swift in Sources */,
 				D3A8FAC96F4EBA60E90FE57B /* FeedbackEvent.swift in Sources */,
 				D3A8FC241756BFC390B30613 /* PostJsonEncodedRequest.swift in Sources */,
+				D3A8FBA54C50A304CF02AEA1 /* EcommerceEventProcessorHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -496,6 +533,7 @@
 				1D6C7F67245037E4001FE80C /* ApplicationContextHolderTest.swift in Sources */,
 				1D6C7F64245037E4001FE80C /* EventProcessorHandlerTest.swift in Sources */,
 				1D6C7F68245037E4001FE80C /* EntitySerializerServiceTest.swift in Sources */,
+				354119D4254F2D3600FC0219 /* OrderTest.swift in Sources */,
 				1D6C7F6E2450385C001FE80C /* EntitySerializerService.swift in Sources */,
 				1D6C7F7724503876001FE80C /* Xennio.swift in Sources */,
 				1D6C7F7124503863001FE80C /* XennioLogger.swift in Sources */,
@@ -504,6 +542,7 @@
 				1D6C7F6D24503859001FE80C /* JsonSerializerService.swift in Sources */,
 				1D6C7F6F2450385E001FE80C /* HttpService.swift in Sources */,
 				1D6C7F66245037E4001FE80C /* SessionContextHolderTest.swift in Sources */,
+				354119E1254F2F0800FC0219 /* OrderItem.swift in Sources */,
 				75F7936590788B5E2B4D582A /* DeviceService.swift in Sources */,
 				75F796CFB20ACD51266EDC35 /* NotificationProcessorHandler.swift in Sources */,
 				75F796494FDB1AD75C5B9729 /* SDKEventProcessorHandlerTest.swift in Sources */,
@@ -517,10 +556,13 @@
 				75F7974DE59D3DE84EB166E9 /* PostFormUrlEncodedRequest.swift in Sources */,
 				75F792287F3DC850963A0BEE /* HttpTask.swift in Sources */,
 				75F79A1CCEC0CF0706B6F4B7 /* PostFormUrlEncodedRequestTest.swift in Sources */,
+				354119DA254F2D5700FC0219 /* Order.swift in Sources */,
 				D3A8FCE4CE647E4C7853EF2B /* FeedbackEvent.swift in Sources */,
 				D3A8FCEE9365EFCF2872B5A7 /* FeedbackEventTest.swift in Sources */,
 				D3A8F470ECDD24C3F748B3DA /* PostJsonEncodedRequest.swift in Sources */,
 				D3A8FAAFE5131F29783596E2 /* PostJsonEncodedRequestTest.swift in Sources */,
+				D3A8FBEE9FBC3C0C5E78106E /* EcommerceEventProcessorHandler.swift in Sources */,
+				D3A8FB41601748D1AC228340 /* EcommerceEventProcessorHandlerTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
