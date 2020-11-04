@@ -28,30 +28,30 @@ import Foundation
     }
 
     func getProductId() -> String {
-        self.productId
+        return self.productId
     }
 
     func getVariantId() -> Any? {
-        self.variant
+        return self.variant
     }
 
     func getPrice() -> Double {
-        self.price
+        return self.price
     }
 
     func getDiscountedPrice() -> Any? {
-        self.discountedPrice
+        return self.discountedPrice
     }
 
     func getQuantity() -> Int64 {
-        self.quantity
+        return self.quantity
     }
 
     func getCurrency() -> String {
-        self.currency
+        return self.currency
     }
 
     func getSupplierId() -> Any? {
-        self.supplierId
+        return self.supplierId
     }
 }

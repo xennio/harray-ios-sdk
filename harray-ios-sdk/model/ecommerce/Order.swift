@@ -23,7 +23,7 @@ import Foundation
     }
 
     @objc public class func create(orderId: String) -> Order {
-        Order(orderId: orderId)
+        return Order(orderId: orderId)
     }
 
     @objc func addItem(productId: String, variantId: Any?, quantity: Int64, price: Double, discountedPrice: Any?, currency: String, supplierId: Any?) -> Order {
@@ -62,34 +62,34 @@ import Foundation
     }
 
     @objc func getOrderId() -> String {
-        self.orderId
+        return self.orderId
     }
 
     @objc func getTotalAmount() -> Any? {
-        self.totalAmount
+        return self.totalAmount
     }
 
     @objc func getDiscountAmount() -> Any? {
-        self.discountedAmount
+        return self.discountedAmount
     }
 
     @objc func getDiscountName() -> Any? {
-        self.discountName
+        return self.discountName
     }
 
     @objc func getCouponName() -> Any? {
-        self.couponName
+        return self.couponName
     }
 
     @objc func getPromotionName() -> Any? {
-        self.promotionName
+        return self.promotionName
     }
 
     @objc func getPaymentMethod() -> Any? {
-        self.paymentMethod
+        return self.paymentMethod
     }
 
     func getOrderItems() -> [OrderItem] {
-        self.orderItems
+        return self.orderItems
     }
 }

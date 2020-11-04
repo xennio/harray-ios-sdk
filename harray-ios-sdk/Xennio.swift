@@ -109,7 +109,7 @@ import UIKit
         getInstance().sessionContextHolder.updateExternalParameters(data: externalParameters)
     }
 
-    @objc public class func ecommerce(){
-        getInstance().ecommerceEventProcessorHandler
+    @objc public class func ecommerce() -> EcommerceEventProcessorHandler {
+        return getInstance().ecommerceEventProcessorHandler
     }
 }
