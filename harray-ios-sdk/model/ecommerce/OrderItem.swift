@@ -10,16 +10,16 @@ import Foundation
 
 @objc public class OrderItem: NSObject {
     private let productId: String
-    private let variantId: String?
+    private let variant: Any?
     private let quantity: Int64
     private let price: Double
-    private let discountedPrice: Double?
+    private let discountedPrice: Any?
     private let currency: String
-    private let supplierId: String?
+    private let supplierId: Any?
 
-    init(productId: String, variantId: String?, quantity: Int64, price: Double, discountedPrice: Double?, currency: String, supplierId: String?) {
+    init(productId: String, variant: Any?, quantity: Int64, price: Double, discountedPrice: Any?, currency: String, supplierId: Any?) {
         self.productId = productId
-        self.variantId = variantId
+        self.variant = variant
         self.quantity = quantity
         self.price = price
         self.discountedPrice = discountedPrice
@@ -31,15 +31,15 @@ import Foundation
         self.productId
     }
 
-    func getVariantId() -> String? {
-        self.variantId
+    func getVariantId() -> Any? {
+        self.variant
     }
 
     func getPrice() -> Double {
         self.price
     }
 
-    func getDiscountedPrice() -> Double? {
+    func getDiscountedPrice() -> Any? {
         self.discountedPrice
     }
 
@@ -51,7 +51,7 @@ import Foundation
         self.currency
     }
 
-    func getSupplierId() -> String? {
+    func getSupplierId() -> Any? {
         self.supplierId
     }
 }

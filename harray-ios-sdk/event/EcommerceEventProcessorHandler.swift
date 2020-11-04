@@ -22,7 +22,7 @@ import Foundation
         params["currency"] = currency
         params["supplierId"] = supplierId
         params["path"] = path
-        self.eventProcessorHandler.pageView(pageType: "productView", params: params)
+        self.eventProcessorHandler.pageView(pageType: "productDetail", params: params)
     }
 
     @objc public func categoryView(categoryId: String, path: String? = nil) {

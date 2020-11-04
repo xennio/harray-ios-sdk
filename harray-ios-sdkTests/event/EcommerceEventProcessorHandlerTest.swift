@@ -20,8 +20,8 @@ class EcommerceEventProcessorHandlerTest: XCTestCase {
         XCTAssertEqual("products", params["entity"] as! String)
         XCTAssertEqual("productId", params["id"] as! String)
         XCTAssertEqual("small", params["variant"] as! String)
-        XCTAssertEqual(400, params["price"] as! Double)
-        XCTAssertEqual(300, params["discountedPrice"] as! Double)
+        XCTAssertEqual(300, params["price"] as! Double)
+        XCTAssertNil(params["discountedPrice"])
         XCTAssertEqual("USD", params["currency"] as! String)
         XCTAssertEqual("supplier1", params["supplierId"] as! String)
         XCTAssertNil(params["path"])
@@ -61,7 +61,7 @@ class EcommerceEventProcessorHandlerTest: XCTestCase {
         let capturingEventProcessorHandler = CapturingEventProcessorHandler()
         let ecommerceEventProcessorHandler = EcommerceEventProcessorHandler(eventProcessorHandler: capturingEventProcessorHandler)
 
-        ecommerceEventProcessorHandler.addToCart(productId: "productId", variant: "small", quantity: 3, price: 300, discountedPrice: 200, currency: "USD", origin: "detailPage", basketId: "basket1", supplierId: "supplier1")
+        ecommerceEventProcessorHandler.addToCart(productId: "productId", variant: "small", quantity: 3, price: 300, discountedPrice: Double.init(200), currency: "USD", origin: "detailPage", basketId: "basket1", supplierId: "supplier1")
 
         let params = capturingEventProcessorHandler.capturedParams[0]
         let actionType = capturingEventProcessorHandler.actionType!
@@ -127,12 +127,12 @@ class EcommerceEventProcessorHandlerTest: XCTestCase {
         let ecommerceEventProcessorHandler = EcommerceEventProcessorHandler(eventProcessorHandler: capturingEventProcessorHandler)
 
         let order = Order.create(orderId: "orderId")
-                .addItem(productId: "product1", variantId: "variant1", quantity: 3, price: 300, discountedPrice: 200, currency: "USD", supplierId: "supplier1")
-                .addItem(productId: "product2", variantId: "variant2", quantity: 1, price: 100, discountedPrice: 76, currency: "USD", supplierId: "supplier2")
-                .addItem(productId: "product3", variantId: "variant2", quantity: 4, price: 1300, discountedPrice: 1200, currency: "USD", supplierId: "supplier3")
+                .addItem(productId: "product1", variantId: "variant1", quantity: 3, price: 300, discountedPrice: Double.init(200), currency: "USD", supplierId: "supplier1")
+                .addItem(productId: "product2", variantId: "variant2", quantity: 1, price: 100, discountedPrice: Double.init(76), currency: "USD", supplierId: "supplier2")
+                .addItem(productId: "product3", variantId: "variant2", quantity: 4, price: 1300, discountedPrice: Double.init(1200), currency: "USD", supplierId: "supplier3")
                 .paidWith(paymentMethod: "creditCard")
                 .totalAmount(totalAmount: 3220)
-                .discountedAmount(discountedAmount: 2000)
+            .discountedAmount(discountedAmount: Double.init(2000))
                 .withPromotion(promotionName: "promotionName")
                 .withDiscount(discountName: "discountName")
                 .withCoupon(couponName: "couponName")
@@ -150,9 +150,10 @@ class EcommerceEventProcessorHandlerTest: XCTestCase {
         XCTAssertEqual("discountName", pageViewParams["discountName"] as! String)
         XCTAssertEqual("couponName", pageViewParams["couponName"] as! String)
         XCTAssertEqual("promotionName", pageViewParams["promotionName"] as! String)
-        XCTAssertEqual("paymentMethod", pageViewParams["paymentMethod"] as! String)
+        XCTAssertEqual("creditCard", pageViewParams["paymentMethod"] as! String)
 
         let actionType = capturingEventProcessorHandler.actionType!
+        XCTAssertEqual("conversion", actionType)
         let actionResultInvokeCount = capturingEventProcessorHandler.actionResultInvokeCount
         XCTAssertEqual(3, actionResultInvokeCount)
 

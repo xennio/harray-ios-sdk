@@ -11,12 +11,12 @@ import Foundation
 @objc public class Order: NSObject {
     private let orderId: String
     private var orderItems: [OrderItem] = [OrderItem]()
-    private var promotionName: String?
-    private var totalAmount: Double
-    private var discountedAmount: Double?
-    private var paymentMethod: String
-    private var discountName: String?
-    private var couponName: String?
+    private var promotionName: Any?
+    private var totalAmount: Any?
+    private var discountedAmount: Any?
+    private var paymentMethod: Any?
+    private var discountName: Any?
+    private var couponName: Any?
 
     init(orderId: String) {
         self.orderId = orderId
@@ -26,66 +26,66 @@ import Foundation
         Order(orderId: orderId)
     }
 
-    @objc func addItem(productId: String, variantId: String?, quantity: Int64, price: Double, discountedPrice: Double?, currency: String, supplierId: String?) -> Order {
-        orderItems.append(OrderItem(productId: productId, variantId: variantId, quantity: quantity, price: price, discountedPrice: discountedPrice, currency: currency, supplierId: supplierId))
+    @objc func addItem(productId: String, variantId: Any?, quantity: Int64, price: Double, discountedPrice: Any?, currency: String, supplierId: Any?) -> Order {
+        orderItems.append(OrderItem(productId: productId, variant: variantId, quantity: quantity, price: price, discountedPrice: discountedPrice, currency: currency, supplierId: supplierId))
         return self
     }
 
     @objc func paidWith(paymentMethod: String) -> Order {
         self.paymentMethod = paymentMethod
-        self
+        return self
     }
 
     @objc func withPromotion(promotionName: String?) -> Order {
         self.promotionName = promotionName
-        self
+        return self
     }
 
     @objc func withDiscount(discountName: String?) -> Order {
         self.discountName = discountName
-        self
+        return self
     }
 
     @objc func withCoupon(couponName: String?) -> Order {
         self.couponName = couponName
-        self
+        return self
     }
 
     @objc func totalAmount(totalAmount: Double) -> Order {
         self.totalAmount = totalAmount
-        self
+        return self
     }
 
-    @objc func discountedAmount(discountedAmount: Double?) -> Order {
+    @objc func discountedAmount(discountedAmount: Any?) -> Order {
         self.discountedAmount = discountedAmount
-        self
+        return self
     }
 
     @objc func getOrderId() -> String {
         self.orderId
     }
 
-    @objc func getTotalAmount() -> Double {
+    @objc func getTotalAmount() -> Any? {
         self.totalAmount
     }
 
-    @objc func getDiscountAmount() -> Double? {
+    @objc func getDiscountAmount() -> Any? {
         self.discountedAmount
     }
 
-    @objc func getDiscountName() -> String? {
+    @objc func getDiscountName() -> Any? {
         self.discountName
     }
 
-    @objc func getCouponName() -> String? {
+    @objc func getCouponName() -> Any? {
         self.couponName
     }
 
-    @objc func getPromotionName() -> String? {
+    @objc func getPromotionName() -> Any? {
         self.promotionName
     }
 
-    @objc func getPaymentMethod() -> String {
+    @objc func getPaymentMethod() -> Any? {
         self.paymentMethod
     }
 

@@ -297,7 +297,7 @@ class CapturingEventProcessorHandler: EventProcessorHandler {
     var pageViewInvokeCount: Int = 0
     init(){
         super.init(applicationContextHolder: FakeApplicationContextHolder(userDefaults: NotInitializedUserDefaults()),
-                sessionContextHolder: FakeSessionContextHolder(), httpService: FakeHttpService("", FakeUrlSession()),
+                   sessionContextHolder: FakeSessionContextHolder(), httpService: FakeHttpService(sdkKey: "", session: FakeUrlSession()),
                 entitySerializerService: CapturingEntitySerializerService())
     }
 
