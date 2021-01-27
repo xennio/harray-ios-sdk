@@ -69,6 +69,13 @@
 		75F79E511915046F48D0FB2E /* HttpTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F79CE78FABE7F3A95D9FAA /* HttpTask.swift */; };
 		75F79F68E5A695270A8E308A /* NotificationProcessorHandlerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F79C386130ECC4CD1638D9 /* NotificationProcessorHandlerTest.swift */; };
 		75F79FA7035C1DC7514F8D88 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F79280AAAAAA4ACB84F71E /* Errors.swift */; };
+		C285B35E25C20A5400E1E88A /* RecommendationProcessorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C296EE4C25C1535400EA7E73 /* RecommendationProcessorHandler.swift */; };
+		C296EE2725C05B4C00EA7E73 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = C296EE2625C05B4C00EA7E73 /* main.swift */; };
+		C296EE4D25C1535400EA7E73 /* RecommendationProcessorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C296EE4C25C1535400EA7E73 /* RecommendationProcessorHandler.swift */; };
+		C296EE4F25C15A8600EA7E73 /* ResultConsumer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C296EE4E25C15A8600EA7E73 /* ResultConsumer.swift */; };
+		C296EE5125C15ACD00EA7E73 /* ResponseBodyHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C296EE5025C15ACD00EA7E73 /* ResponseBodyHandler.swift */; };
+		C296EE5325C18B4400EA7E73 /* ApiGetJsonRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C296EE5225C18B4400EA7E73 /* ApiGetJsonRequest.swift */; };
+		C29B911325C1DD990010C13C /* JsonDeserializerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29B911225C1DD990010C13C /* JsonDeserializerService.swift */; };
 		D3A8F470ECDD24C3F748B3DA /* PostJsonEncodedRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A8FF478F58033193386CAC /* PostJsonEncodedRequest.swift */; };
 		D3A8FAAFE5131F29783596E2 /* PostJsonEncodedRequestTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A8FFC1F8B279C1328FA628 /* PostJsonEncodedRequestTest.swift */; };
 		D3A8FAC96F4EBA60E90FE57B /* FeedbackEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A8F03219DAFBBDCDB18479 /* FeedbackEvent.swift */; };
@@ -134,6 +141,12 @@
 		75F79C386130ECC4CD1638D9 /* NotificationProcessorHandlerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationProcessorHandlerTest.swift; sourceTree = "<group>"; };
 		75F79CE78FABE7F3A95D9FAA /* HttpTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpTask.swift; sourceTree = "<group>"; };
 		75F79E2D8FC019EEC9D0E3FB /* HttpServiceTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpServiceTest.swift; sourceTree = "<group>"; };
+		C296EE2625C05B4C00EA7E73 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		C296EE4C25C1535400EA7E73 /* RecommendationProcessorHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendationProcessorHandler.swift; sourceTree = "<group>"; };
+		C296EE4E25C15A8600EA7E73 /* ResultConsumer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultConsumer.swift; sourceTree = "<group>"; };
+		C296EE5025C15ACD00EA7E73 /* ResponseBodyHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseBodyHandler.swift; sourceTree = "<group>"; };
+		C296EE5225C18B4400EA7E73 /* ApiGetJsonRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiGetJsonRequest.swift; sourceTree = "<group>"; };
+		C29B911225C1DD990010C13C /* JsonDeserializerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonDeserializerService.swift; sourceTree = "<group>"; };
 		D3A8F03219DAFBBDCDB18479 /* FeedbackEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackEvent.swift; sourceTree = "<group>"; };
 		D3A8FA015BA0F9D7A89FD17F /* EcommerceEventProcessorHandlerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EcommerceEventProcessorHandlerTest.swift; sourceTree = "<group>"; };
 		D3A8FD795BC84C16138F76BB /* FeedbackEventTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackEventTest.swift; sourceTree = "<group>"; };
@@ -183,6 +196,7 @@
 			isa = PBXGroup;
 			children = (
 				1D6C7F51245037CF001FE80C /* Xennio.swift */,
+				C296EE2625C05B4C00EA7E73 /* main.swift */,
 				1D6C7F3B245037C6001FE80C /* event */,
 				1D6C7F46245037C6001FE80C /* model */,
 				1D6C7F41245037C6001FE80C /* service */,
@@ -218,6 +232,8 @@
 			children = (
 				1D6C7F3224503782001FE80C /* Constants.swift */,
 				75F79280AAAAAA4ACB84F71E /* Errors.swift */,
+				C296EE4E25C15A8600EA7E73 /* ResultConsumer.swift */,
+				C296EE5025C15ACD00EA7E73 /* ResponseBodyHandler.swift */,
 			);
 			path = common;
 			sourceTree = "<group>";
@@ -238,6 +254,7 @@
 				1D6C7F3C245037C6001FE80C /* EventProcessorHandler.swift */,
 				1D6C7F7824505DE5001FE80C /* SDKEventProcessorHandler.swift */,
 				D3A8FFD867CD2725033E487D /* EcommerceEventProcessorHandler.swift */,
+				C296EE4C25C1535400EA7E73 /* RecommendationProcessorHandler.swift */,
 			);
 			path = event;
 			sourceTree = "<group>";
@@ -260,6 +277,7 @@
 				1D6C7F44245037C6001FE80C /* EntitySerializerService.swift */,
 				1D6C7F45245037C6001FE80C /* HttpService.swift */,
 				1D6C7F7A24505EF3001FE80C /* DeviceService.swift */,
+				C29B911225C1DD990010C13C /* JsonDeserializerService.swift */,
 			);
 			path = service;
 			sourceTree = "<group>";
@@ -372,6 +390,7 @@
 				75F7938E63E5AEAB886437E4 /* PostFormUrlEncodedRequest.swift */,
 				75F79CE78FABE7F3A95D9FAA /* HttpTask.swift */,
 				D3A8FF478F58033193386CAC /* PostJsonEncodedRequest.swift */,
+				C296EE5225C18B4400EA7E73 /* ApiGetJsonRequest.swift */,
 			);
 			path = http;
 			sourceTree = "<group>";
@@ -489,6 +508,7 @@
 			files = (
 				1D6C7F4B245037C6001FE80C /* RandomValueUtils.swift in Sources */,
 				1D6C7F38245037BC001FE80C /* SessionContextHolder.swift in Sources */,
+				C296EE4F25C15A8600EA7E73 /* ResultConsumer.swift in Sources */,
 				1D6C7F7924505DE5001FE80C /* SDKEventProcessorHandler.swift in Sources */,
 				1D6C7F4A245037C6001FE80C /* XennioLogger.swift in Sources */,
 				1D6C7F48245037C6001FE80C /* EventProcessorHandler.swift in Sources */,
@@ -496,6 +516,7 @@
 				1D6C7F4C245037C6001FE80C /* EncodingService.swift in Sources */,
 				1D6C7F4F245037C6001FE80C /* HttpService.swift in Sources */,
 				1D6C7F49245037C6001FE80C /* ClockUtils.swift in Sources */,
+				C296EE4D25C1535400EA7E73 /* RecommendationProcessorHandler.swift in Sources */,
 				1D6C7F39245037BC001FE80C /* ApplicationContextHolder.swift in Sources */,
 				1D6C7F3A245037BC001FE80C /* SessionState.swift in Sources */,
 				1D6C7F3324503782001FE80C /* Constants.swift in Sources */,
@@ -510,7 +531,11 @@
 				75F79E511915046F48D0FB2E /* HttpTask.swift in Sources */,
 				354119D9254F2D5700FC0219 /* Order.swift in Sources */,
 				D3A8FAC96F4EBA60E90FE57B /* FeedbackEvent.swift in Sources */,
+				C296EE2725C05B4C00EA7E73 /* main.swift in Sources */,
+				C296EE5325C18B4400EA7E73 /* ApiGetJsonRequest.swift in Sources */,
+				C29B911325C1DD990010C13C /* JsonDeserializerService.swift in Sources */,
 				D3A8FC241756BFC390B30613 /* PostJsonEncodedRequest.swift in Sources */,
+				C296EE5125C15ACD00EA7E73 /* ResponseBodyHandler.swift in Sources */,
 				D3A8FBA54C50A304CF02AEA1 /* EcommerceEventProcessorHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -519,6 +544,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C285B35E25C20A5400E1E88A /* RecommendationProcessorHandler.swift in Sources */,
 				1D6C7F7324503869001FE80C /* SessionContextHolder.swift in Sources */,
 				1D6C7F742450386B001FE80C /* ApplicationContextHolder.swift in Sources */,
 				1D6C7F63245037E4001FE80C /* RandomValueUtilsTest.swift in Sources */,

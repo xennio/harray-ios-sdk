@@ -11,12 +11,28 @@ import Foundation
 class HttpService {
 
     private let collectorUrl = "https://c.xenn.io"
+    private let apiUrl = "https://api.xenn.io"
     private let sdkKey: String
     private let session: HttpSession
 
     init(sdkKey: String, session: HttpSession) {
         self.session = session
         self.sdkKey = sdkKey
+    }
+    
+    func getApiRequest(path: String,
+                       params: Dictionary<String, String>,
+                       responseHandler: @escaping (HttpResult) -> [[String: String]]?,
+                       completionHandler: @escaping ([[String: String]]?) -> Void) {
+        let endpoint = getApiUrl(path: path, params: params)
+        let request = ApiGetJsonRequest(endpoint: endpoint)
+        session.doRequest(from: request.getUrlRequest()) { httpResult in
+            if httpResult.isSuccess() {
+                completionHandler(responseHandler(httpResult))
+            } else {
+                XennioLogger.log(message: "getApiRequest error. Detail: \(httpResult.toString())")
+            }
+        }
     }
 
     func postFormUrlEncoded(payload: String?) {
@@ -83,4 +99,13 @@ class HttpService {
         return collectorUrl + "/" + path
     }
 
+    func getApiUrl(path: String, params: [String: String]) -> String {
+        var components = URLComponents(string: self.apiUrl)!
+        components.path = path.starts(with: "/") ? path : "/\(path)"
+        let queryItems = params.map { (paramKey, paramValue) in
+            URLQueryItem(name: paramKey, value: paramValue)
+        }
+        components.queryItems = queryItems
+        return components.url!.absoluteString
+    }
 }

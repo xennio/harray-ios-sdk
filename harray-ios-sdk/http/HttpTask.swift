@@ -31,12 +31,15 @@ class HttpDownloadableResult {
 }
 
 class HttpResult {
+    
     private let statusCode: Int
     private let hasError: Bool
-
-    init(statusCode: Int, hasError: Bool) {
+    private let body: String?
+    
+    init(statusCode: Int, hasError: Bool, body: String?) {
         self.statusCode = statusCode
         self.hasError = hasError
+        self.body = body
     }
 
     func isSuccess() -> Bool {
@@ -46,9 +49,17 @@ class HttpResult {
     func getStatusCode() -> Int {
         return statusCode
     }
-
+    
+    func getBody() -> String? {
+        return body
+    }
+    
+    func toString() -> String {
+        return "statusCode:\(statusCode);body:\(body ?? "<empty>")"
+    }
+    
     class func clientError() -> HttpResult {
-        return HttpResult(statusCode: 0, hasError: true)
+        return HttpResult(statusCode: 0, hasError: true, body: nil)
     }
 }
 
@@ -96,9 +107,13 @@ extension URLSession: HttpSession {
                    completionHandler: @escaping (HttpResult) -> Void) {
         let task = dataTask(with: urlRequest) { (data, response, error) in
             if let httpResponse = response as? HTTPURLResponse {
-                completionHandler(HttpResult(statusCode: httpResponse.statusCode, hasError: false))
+                if let body = data {
+                    completionHandler(HttpResult(statusCode: httpResponse.statusCode, hasError: false, body: String(data: body, encoding: .utf8)))
+                } else {
+                    completionHandler(HttpResult(statusCode: httpResponse.statusCode, hasError: false, body: nil))
+                }
             } else {
-                completionHandler(HttpResult(statusCode: 0, hasError: true))
+                completionHandler(HttpResult(statusCode: 0, hasError: true, body: nil))
             }
         }
         task.resume()
