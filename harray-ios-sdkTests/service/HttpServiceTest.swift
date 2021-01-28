@@ -8,7 +8,7 @@ import XCTest
 class HttpServiceTest: XCTestCase {
 
     func test_it_should_post_to_end_point_with_add_post_parameters() {
-        let fakeUrlSession = MockUrlSession(httpResult: HttpResult(statusCode: 201, hasError: false))
+        let fakeUrlSession = MockUrlSession(httpResult: HttpResult(statusCode: 201, hasError: false, body: nil))
         let httpService = HttpService(sdkKey: "sdk-key", session: fakeUrlSession)
 
         var result: HttpResult?
@@ -20,7 +20,7 @@ class HttpServiceTest: XCTestCase {
     }
 
     func test_it_should_post_to_end_point_with_json_parameters() {
-        let fakeUrlSession = MockUrlSession(httpResult: HttpResult(statusCode: 201, hasError: false))
+        let fakeUrlSession = MockUrlSession(httpResult: HttpResult(statusCode: 201, hasError: false, body: nil))
         let httpService = HttpService(sdkKey: "sdk-key", session: fakeUrlSession)
 
         var result: HttpResult?
