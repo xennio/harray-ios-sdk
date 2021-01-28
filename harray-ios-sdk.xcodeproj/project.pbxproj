@@ -73,6 +73,8 @@
 		C296EE4D25C1535400EA7E73 /* RecommendationProcessorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C296EE4C25C1535400EA7E73 /* RecommendationProcessorHandler.swift */; };
 		C296EE5325C18B4400EA7E73 /* ApiGetJsonRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C296EE5225C18B4400EA7E73 /* ApiGetJsonRequest.swift */; };
 		C29B911325C1DD990010C13C /* JsonDeserializerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29B911225C1DD990010C13C /* JsonDeserializerService.swift */; };
+		C2CFA29925C2863D001B61BE /* JsonDeserializerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29B911225C1DD990010C13C /* JsonDeserializerService.swift */; };
+		C2CFA29A25C2864E001B61BE /* ApiGetJsonRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C296EE5225C18B4400EA7E73 /* ApiGetJsonRequest.swift */; };
 		D3A8F470ECDD24C3F748B3DA /* PostJsonEncodedRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A8FF478F58033193386CAC /* PostJsonEncodedRequest.swift */; };
 		D3A8FAAFE5131F29783596E2 /* PostJsonEncodedRequestTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A8FFC1F8B279C1328FA628 /* PostJsonEncodedRequestTest.swift */; };
 		D3A8FAC96F4EBA60E90FE57B /* FeedbackEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A8F03219DAFBBDCDB18479 /* FeedbackEvent.swift */; };
@@ -543,6 +545,7 @@
 				1D6C7F6C24503855001FE80C /* EncodingService.swift in Sources */,
 				1D6C7F7224503866001FE80C /* RandomValueUtils.swift in Sources */,
 				1D6C7F7624503870001FE80C /* Constants.swift in Sources */,
+				C2CFA29A25C2864E001B61BE /* ApiGetJsonRequest.swift in Sources */,
 				1D6C7F62245037E4001FE80C /* ClockUtilsTest.swift in Sources */,
 				1D6C7F61245037E4001FE80C /* Stubbings.swift in Sources */,
 				1D6C7F6A2450384E001FE80C /* EventProcessorHandler.swift in Sources */,
@@ -552,6 +555,7 @@
 				1D6C7F64245037E4001FE80C /* EventProcessorHandlerTest.swift in Sources */,
 				1D6C7F68245037E4001FE80C /* EntitySerializerServiceTest.swift in Sources */,
 				354119D4254F2D3600FC0219 /* OrderTest.swift in Sources */,
+				C2CFA29925C2863D001B61BE /* JsonDeserializerService.swift in Sources */,
 				1D6C7F6E2450385C001FE80C /* EntitySerializerService.swift in Sources */,
 				1D6C7F7724503876001FE80C /* Xennio.swift in Sources */,
 				1D6C7F7124503863001FE80C /* XennioLogger.swift in Sources */,
