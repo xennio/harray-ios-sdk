@@ -22,8 +22,8 @@ class HttpService {
     
     func getApiRequest(path: String,
                        params: Dictionary<String, String>,
-                       responseHandler: @escaping (HttpResult) -> [[String: String]]?,
-                       completionHandler: @escaping ([[String: String]]?) -> Void) {
+                       responseHandler: @escaping (HttpResult) -> Array<Dictionary<String, String>>?,
+                       completionHandler: @escaping (Array<Dictionary<String, String>>?) -> Void) {
         let endpoint = getApiUrl(path: path, params: params)
         let request = ApiGetJsonRequest(endpoint: endpoint)
         session.doRequest(from: request.getUrlRequest()) { httpResult in

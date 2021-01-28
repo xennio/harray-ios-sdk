@@ -32,7 +32,7 @@ import Foundation
     public func getRecommendations(boxId: String,
                                    entityId: String?,
                                    size: Int8,
-                                   callback: @escaping ([[String: String]]?) -> Void) -> Void {
+                                   callback: @escaping (Array<Dictionary<String, String>>?) -> Void) -> Void {
         var params = Dictionary<String, String>()
         params["sdkKey"] = sdkKey
         params["pid"] = applicationContextHolder.getPersistentId()
@@ -44,7 +44,7 @@ import Foundation
             params["entityId"] = entityId
         }
         params["size"] = String(size)
-        let responseHandler: (HttpResult) -> [[String: String]]? = { hr in
+        let responseHandler: (HttpResult) -> Array<Dictionary<String, String>>? = { hr in
             if let body = hr.getBody() {
                 return self.jsonDeserializerService.deserializeToDictArray(jsonString: body)
             } else {

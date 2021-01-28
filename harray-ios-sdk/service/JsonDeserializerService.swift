@@ -25,9 +25,9 @@ class JsonDeserializerService {
         }
     }
     
-    func deserializeToDictArray(jsonString: String) -> [[String: String]]? {
+    func deserializeToDictArray(jsonString: String) -> Array<Dictionary<String, String>>? {
         do {
-            let rawArrDict = try JSONSerialization.jsonObject(with: jsonData) as! [[String: Any]]
+            let rawArrDict = try JSONSerialization.jsonObject(with: jsonString.data(using: .utf8)!) as! [[String: Any]]
             return rawArrDict.map { m in m.mapValues { "\($0)" } }
         } catch {
             XennioLogger.log(message: "Json deserialize error for jsonString: \(jsonString)")
