@@ -1,5 +1,5 @@
 //
-//  GetJsonRequest.swift
+//  ApiGetJsonRequest.swift
 //  harray-ios-sdk
 //
 //  Created by Bay Batu on 27.01.2021.

@@ -140,9 +140,7 @@
 		75F79C386130ECC4CD1638D9 /* NotificationProcessorHandlerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationProcessorHandlerTest.swift; sourceTree = "<group>"; };
 		75F79CE78FABE7F3A95D9FAA /* HttpTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpTask.swift; sourceTree = "<group>"; };
 		75F79E2D8FC019EEC9D0E3FB /* HttpServiceTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpServiceTest.swift; sourceTree = "<group>"; };
-		C296EE2625C05B4C00EA7E73 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		C296EE4C25C1535400EA7E73 /* RecommendationProcessorHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendationProcessorHandler.swift; sourceTree = "<group>"; };
-		C296EE4E25C15A8600EA7E73 /* ResultConsumer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultConsumer.swift; sourceTree = "<group>"; };
 		C296EE5225C18B4400EA7E73 /* ApiGetJsonRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiGetJsonRequest.swift; sourceTree = "<group>"; };
 		C29B911225C1DD990010C13C /* JsonDeserializerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonDeserializerService.swift; sourceTree = "<group>"; };
 		D3A8F03219DAFBBDCDB18479 /* FeedbackEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackEvent.swift; sourceTree = "<group>"; };
@@ -194,7 +192,6 @@
 			isa = PBXGroup;
 			children = (
 				1D6C7F51245037CF001FE80C /* Xennio.swift */,
-				C296EE2625C05B4C00EA7E73 /* main.swift */,
 				1D6C7F3B245037C6001FE80C /* event */,
 				1D6C7F46245037C6001FE80C /* model */,
 				1D6C7F41245037C6001FE80C /* service */,
@@ -230,7 +227,6 @@
 			children = (
 				1D6C7F3224503782001FE80C /* Constants.swift */,
 				75F79280AAAAAA4ACB84F71E /* Errors.swift */,
-				C296EE4E25C15A8600EA7E73 /* ResultConsumer.swift */,
 			);
 			path = common;
 			sourceTree = "<group>";
