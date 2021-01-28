@@ -20,10 +20,10 @@ class HttpService {
         self.sdkKey = sdkKey
     }
     
-    func getApiRequest(path: String,
+    func getApiRequest<T>(path: String,
                        params: Dictionary<String, String>,
-                       responseHandler: @escaping (HttpResult) -> Array<Dictionary<String, String>>?,
-                       completionHandler: @escaping (Array<Dictionary<String, String>>?) -> Void) {
+                       responseHandler: @escaping (HttpResult) -> T?,
+                       completionHandler: @escaping (T?) -> Void) {
         let endpoint = getApiUrl(path: path, params: params)
         let request = ApiGetJsonRequest(endpoint: endpoint)
         session.doRequest(from: request.getUrlRequest()) { httpResult in
