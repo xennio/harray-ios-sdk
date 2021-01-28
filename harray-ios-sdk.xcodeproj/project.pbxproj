@@ -70,9 +70,7 @@
 		75F79F68E5A695270A8E308A /* NotificationProcessorHandlerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F79C386130ECC4CD1638D9 /* NotificationProcessorHandlerTest.swift */; };
 		75F79FA7035C1DC7514F8D88 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F79280AAAAAA4ACB84F71E /* Errors.swift */; };
 		C285B35E25C20A5400E1E88A /* RecommendationProcessorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C296EE4C25C1535400EA7E73 /* RecommendationProcessorHandler.swift */; };
-		C296EE2725C05B4C00EA7E73 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = C296EE2625C05B4C00EA7E73 /* main.swift */; };
 		C296EE4D25C1535400EA7E73 /* RecommendationProcessorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C296EE4C25C1535400EA7E73 /* RecommendationProcessorHandler.swift */; };
-		C296EE4F25C15A8600EA7E73 /* ResultConsumer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C296EE4E25C15A8600EA7E73 /* ResultConsumer.swift */; };
 		C296EE5325C18B4400EA7E73 /* ApiGetJsonRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C296EE5225C18B4400EA7E73 /* ApiGetJsonRequest.swift */; };
 		C29B911325C1DD990010C13C /* JsonDeserializerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29B911225C1DD990010C13C /* JsonDeserializerService.swift */; };
 		D3A8F470ECDD24C3F748B3DA /* PostJsonEncodedRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A8FF478F58033193386CAC /* PostJsonEncodedRequest.swift */; };
@@ -505,7 +503,6 @@
 			files = (
 				1D6C7F4B245037C6001FE80C /* RandomValueUtils.swift in Sources */,
 				1D6C7F38245037BC001FE80C /* SessionContextHolder.swift in Sources */,
-				C296EE4F25C15A8600EA7E73 /* ResultConsumer.swift in Sources */,
 				1D6C7F7924505DE5001FE80C /* SDKEventProcessorHandler.swift in Sources */,
 				1D6C7F4A245037C6001FE80C /* XennioLogger.swift in Sources */,
 				1D6C7F48245037C6001FE80C /* EventProcessorHandler.swift in Sources */,
@@ -528,7 +525,6 @@
 				75F79E511915046F48D0FB2E /* HttpTask.swift in Sources */,
 				354119D9254F2D5700FC0219 /* Order.swift in Sources */,
 				D3A8FAC96F4EBA60E90FE57B /* FeedbackEvent.swift in Sources */,
-				C296EE2725C05B4C00EA7E73 /* main.swift in Sources */,
 				C296EE5325C18B4400EA7E73 /* ApiGetJsonRequest.swift in Sources */,
 				C29B911325C1DD990010C13C /* JsonDeserializerService.swift in Sources */,
 				D3A8FC241756BFC390B30613 /* PostJsonEncodedRequest.swift in Sources */,
