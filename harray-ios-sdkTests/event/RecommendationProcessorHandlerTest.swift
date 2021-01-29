@@ -55,6 +55,38 @@ class RecommendationProcessorHandlerTest: XCTestCase {
         XCTAssertEqual(actualRecoResult?[1]["name"], "name2")
     }
     
+    func test_it_should_make_reco_request_and_process_nil_body_when_response_has_no_body() {
+        
+        var actualRecoResult: Array<Dictionary<String, String>>?
+        
+        let httpService = FakeHttpService(sdkKey: "sdkKey", session: FakeUrlSession())
+        httpService.givenGetApiRequest(
+            path: "/recommendation",
+            params: [
+                "sdkKey": "sdkKey",
+                "pid": "fake-persistent-id",
+                "memberId": "fake-member-id",
+                "size": "4",
+                "entityId": "entityId",
+                "boxId": "boxId"
+            ],
+            httpResult: HttpResult(statusCode: 200, hasError: false, body: nil)
+        )
+        
+        let recoHandler = RecommendationProcessorHandler(
+            applicationContextHolder: FakeApplicationContextHolder(userDefaults: InitializedUserDefaults()),
+            sessionContextHolder: FakeSessionContextHolder(),
+            httpService: httpService,
+            sdkKey: "sdkKey",
+            jsonDeserializerService: FakeJsonDeserializerService())
+        
+        recoHandler.getRecommendations(boxId: "boxId", entityId: "entityId", size: 4) { (recoResult) in
+            actualRecoResult = recoResult
+        }
+        
+        XCTAssertNil(actualRecoResult)
+    }
+    
     func test_it_should_construct_reco_request_without_entity_and_make_api_get_call() {
         
         var actualRecoResult: Array<Dictionary<String, String>>?

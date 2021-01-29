@@ -48,7 +48,6 @@ import Foundation
             if let body = hr.getBody() {
                 return self.jsonDeserializerService.deserializeToDictArray(jsonString: body)
             } else {
-                XennioLogger.log(message: "Empty recommendation json response")
                 return nil
             }
         }

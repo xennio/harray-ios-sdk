@@ -41,4 +41,10 @@ class XennioTest: XCTestCase {
         Xennio.logout()
         XCTAssertNil(Xennio.instance!.sessionContextHolder.getMemberId())
     }
+    
+    func test_it_should_get_recommendations_handler() {
+        Xennio.configure(sdkKey: "SDK_KEY")
+        let reco = Xennio.recommendations()
+        XCTAssertEqual(String(describing: type(of: reco)), "RecommendationProcessorHandler")
+    }
 }
