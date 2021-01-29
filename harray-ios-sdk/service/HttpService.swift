@@ -91,11 +91,11 @@ class HttpService {
         }
     }
 
-    private func getCollectorUrl() -> String {
+    func getCollectorUrl() -> String {
         return collectorUrl + "/" + self.sdkKey
     }
 
-    private func getCollectorUrl(path: String) -> String {
+    func getCollectorUrl(path: String) -> String {
         return collectorUrl + "/" + path
     }
 

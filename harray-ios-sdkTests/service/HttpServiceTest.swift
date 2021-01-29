@@ -7,6 +7,27 @@ import XCTest
 
 class HttpServiceTest: XCTestCase {
 
+    func test_it_should_get_from_api() {
+        let fakeUrlSession = MockUrlSession(httpResult: HttpResult(statusCode: 200, hasError: false, body: "get-result"))
+        let httpService = HttpService(sdkKey: "sdk-key", session: fakeUrlSession)
+        
+        var httpResult: HttpResult?
+        var responseBody: String?
+        
+        httpService.getApiRequest(
+            path: "/path",
+            params: ["param1": "value1", "param2": "value2"],
+            responseHandler: { (hr) in
+                httpResult = hr
+                return hr.getBody()
+            },
+            completionHandler: { (data) in
+                responseBody = data
+            })
+        XCTAssertEqual(200, httpResult!.getStatusCode())
+        XCTAssertEqual("get-result", responseBody)
+    }
+    
     func test_it_should_post_to_end_point_with_add_post_parameters() {
         let fakeUrlSession = MockUrlSession(httpResult: HttpResult(statusCode: 201, hasError: false, body: nil))
         let httpService = HttpService(sdkKey: "sdk-key", session: fakeUrlSession)
