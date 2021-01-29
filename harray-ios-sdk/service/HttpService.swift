@@ -91,15 +91,15 @@ class HttpService {
         }
     }
 
-    func getCollectorUrl() -> String {
+    private func getCollectorUrl() -> String {
         return collectorUrl + "/" + self.sdkKey
     }
 
-    func getCollectorUrl(path: String) -> String {
+    private func getCollectorUrl(path: String) -> String {
         return collectorUrl + "/" + path
     }
 
-    func getApiUrl(path: String, params: [String: String]) -> String {
+    private func getApiUrl(path: String, params: [String: String]) -> String {
         var components = URLComponents(string: self.apiUrl)!
         components.path = path.starts(with: "/") ? path : "/\(path)"
         let queryItems = params.map { (paramKey, paramValue) in
