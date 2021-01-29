@@ -71,6 +71,7 @@
 		75F79FA7035C1DC7514F8D88 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F79280AAAAAA4ACB84F71E /* Errors.swift */; };
 		C256F80B25C3EFFE00240F79 /* RecommendationProcessorHandlerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C256F80A25C3EFFE00240F79 /* RecommendationProcessorHandlerTest.swift */; };
 		C256F80D25C4259B00240F79 /* JsonDeserializerServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C256F80C25C4259B00240F79 /* JsonDeserializerServiceTest.swift */; };
+		C256F80F25C42BDC00240F79 /* ApiGetJsonRequestTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C256F80E25C42BDC00240F79 /* ApiGetJsonRequestTest.swift */; };
 		C285B35E25C20A5400E1E88A /* RecommendationProcessorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C296EE4C25C1535400EA7E73 /* RecommendationProcessorHandler.swift */; };
 		C296EE4D25C1535400EA7E73 /* RecommendationProcessorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C296EE4C25C1535400EA7E73 /* RecommendationProcessorHandler.swift */; };
 		C296EE5325C18B4400EA7E73 /* ApiGetJsonRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C296EE5225C18B4400EA7E73 /* ApiGetJsonRequest.swift */; };
@@ -144,6 +145,7 @@
 		75F79E2D8FC019EEC9D0E3FB /* HttpServiceTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpServiceTest.swift; sourceTree = "<group>"; };
 		C256F80A25C3EFFE00240F79 /* RecommendationProcessorHandlerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendationProcessorHandlerTest.swift; sourceTree = "<group>"; };
 		C256F80C25C4259B00240F79 /* JsonDeserializerServiceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonDeserializerServiceTest.swift; sourceTree = "<group>"; };
+		C256F80E25C42BDC00240F79 /* ApiGetJsonRequestTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiGetJsonRequestTest.swift; sourceTree = "<group>"; };
 		C296EE4C25C1535400EA7E73 /* RecommendationProcessorHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendationProcessorHandler.swift; sourceTree = "<group>"; };
 		C296EE5225C18B4400EA7E73 /* ApiGetJsonRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiGetJsonRequest.swift; sourceTree = "<group>"; };
 		C29B911225C1DD990010C13C /* JsonDeserializerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonDeserializerService.swift; sourceTree = "<group>"; };
@@ -379,6 +381,7 @@
 			children = (
 				75F794D0005C9D65925B8D41 /* PostFormUrlEncodedRequestTest.swift */,
 				D3A8FFC1F8B279C1328FA628 /* PostJsonEncodedRequestTest.swift */,
+				C256F80E25C42BDC00240F79 /* ApiGetJsonRequestTest.swift */,
 			);
 			path = http;
 			sourceTree = "<group>";
@@ -575,6 +578,7 @@
 				75F79D0F2AF89319D341C0B3 /* Errors.swift in Sources */,
 				75F79538A038695F8306DA6D /* XennioTest.swift in Sources */,
 				75F795E919E1F03BF1032952 /* JsonSerializerServiceTest.swift in Sources */,
+				C256F80F25C42BDC00240F79 /* ApiGetJsonRequestTest.swift in Sources */,
 				75F79A2864363C2E049B9E77 /* XennEventTest.swift in Sources */,
 				75F79F68E5A695270A8E308A /* NotificationProcessorHandlerTest.swift in Sources */,
 				75F794E5C382C753E6924F0F /* HttpServiceTest.swift in Sources */,
