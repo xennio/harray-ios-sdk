@@ -16,7 +16,7 @@ class JsonDeserializerService {
         self.jsonDecoder = JSONDecoder()
     }
     
-    func deserialize<T: Decodable>(type: T, jsonString: String) -> T? {
+    func deserialize<T: Decodable>(jsonString: String) -> T? {
         do {
             return try jsonDecoder.decode(T.self, from: jsonString.data(using: .utf8)!)
         } catch {
