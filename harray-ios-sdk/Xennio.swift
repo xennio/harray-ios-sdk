@@ -21,6 +21,7 @@ import UIKit
     private let sdkEventProcessorHandler: SDKEventProcessorHandler
     private let notificationProcessorHandler: NotificationProcessorHandler
     private let ecommerceEventProcessorHandler: EcommerceEventProcessorHandler
+    private let recommendationProcessorHandler: RecommendationProcessorHandler
 
     private init(sdkKey: String,
                  sessionContextHolder: SessionContextHolder,
@@ -28,7 +29,8 @@ import UIKit
                  eventProcessorHandler: EventProcessorHandler,
                  sdkEventProcessorHandler: SDKEventProcessorHandler,
                  notificationProcessorHandler: NotificationProcessorHandler,
-                 ecommerceEventProcessorHandler: EcommerceEventProcessorHandler
+                 ecommerceEventProcessorHandler: EcommerceEventProcessorHandler,
+                 recommendationProcessorHandler: RecommendationProcessorHandler
                  ) {
         self.sessionContextHolder = sessionContextHolder
         self.applicationContextHolder = applicationContextHolder
@@ -37,6 +39,7 @@ import UIKit
         self.notificationProcessorHandler = notificationProcessorHandler
         self.ecommerceEventProcessorHandler = ecommerceEventProcessorHandler
         self.sdkKey = sdkKey
+        self.recommendationProcessorHandler = recommendationProcessorHandler
     }
 
     @objc public class func configure(sdkKey: String) {
@@ -50,6 +53,7 @@ import UIKit
         let sdkEventProcessorHandler = SDKEventProcessorHandler(applicationContextHolder: applicationContextHolder, sessionContextHolder: sessionContextHolder, httpService: httpService, entitySerializerService: entitySerializerService, deviceService: deviceService)
         let notificationProcessorHandler = NotificationProcessorHandler(httpService: httpService, entitySerializerService: entitySerializerService)
         let ecommerceEventProcessorHandler = EcommerceEventProcessorHandler(eventProcessorHandler: eventProcessorHandler)
+        let recommendationProcessorHandler = RecommendationProcessorHandler(applicationContextHolder: applicationContextHolder, sessionContextHolder: sessionContextHolder,httpService: httpService, sdkKey: sdkKey, jsonDeserializerService: JsonDeserializerService())
 
         instance = Xennio(sdkKey: sdkKey,
                 sessionContextHolder: sessionContextHolder,
@@ -57,7 +61,8 @@ import UIKit
                 eventProcessorHandler: eventProcessorHandler,
                 sdkEventProcessorHandler: sdkEventProcessorHandler,
                 notificationProcessorHandler: notificationProcessorHandler,
-                ecommerceEventProcessorHandler: ecommerceEventProcessorHandler
+                ecommerceEventProcessorHandler: ecommerceEventProcessorHandler,
+                recommendationProcessorHandler: recommendationProcessorHandler
         )
     }
 
@@ -111,5 +116,9 @@ import UIKit
 
     @objc public class func ecommerce() -> EcommerceEventProcessorHandler {
         return getInstance().ecommerceEventProcessorHandler
+    }
+    
+    @objc public class func recommendations() -> RecommendationProcessorHandler {
+        return getInstance().recommendationProcessorHandler
     }
 }

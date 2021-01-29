@@ -41,4 +41,16 @@ class XennioTest: XCTestCase {
         Xennio.logout()
         XCTAssertNil(Xennio.instance!.sessionContextHolder.getMemberId())
     }
+    
+    func test_it_should_get_ecommerce_handler() {
+        Xennio.configure(sdkKey: "SDK_KEY")
+        let handler = Xennio.ecommerce()
+        XCTAssertEqual(String(describing: type(of: handler)), "EcommerceEventProcessorHandler")
+    }
+    
+    func test_it_should_get_recommendations_handler() {
+        Xennio.configure(sdkKey: "SDK_KEY")
+        let handler = Xennio.recommendations()
+        XCTAssertEqual(String(describing: type(of: handler)), "RecommendationProcessorHandler")
+    }
 }
