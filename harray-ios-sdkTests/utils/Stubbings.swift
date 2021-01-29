@@ -126,6 +126,9 @@ class FakeHttpService: HttpService {
     var expectedPayload: String!
     var payloadCallWith: String = ""
     var hasError: Bool = false
+    var path: String?
+    var params: Dictionary<String, String>?
+    var httpResult: HttpResult?
 
     override func postFormUrlEncoded(payload: String!) {
         if payloadCallWith != payload {
@@ -138,11 +141,22 @@ class FakeHttpService: HttpService {
             self.hasError = true
         }
     }
+    
+    override func getApiRequest<T>(path: String, params: Dictionary<String, String>, responseHandler: @escaping (HttpResult) -> T?, completionHandler: @escaping (T?) -> Void) {
+        if (self.path == path && self.params == params) {
+            completionHandler(responseHandler(self.httpResult!))
+        }
+    }
 
     func givenPostWithPayload(callWith: String) {
         self.payloadCallWith = callWith
     }
-
+    
+    func givenGetApiRequest(path: String, params: Dictionary<String, String>, httpResult: HttpResult) -> Void {
+        self.path = path
+        self.params = params
+        self.httpResult = httpResult
+    }
 }
 
 class CapturingEntitySerializerService: EntitySerializerService {
@@ -193,6 +207,24 @@ class FakeJsonSerializerService: JsonSerializerService {
     }
 }
 
+class FakeJsonDeserializerService: JsonDeserializerService {
+    
+    var expectedValue: Any?
+    var callWith: String?
+    
+    override func deserializeToDictArray(jsonString: String) -> Array<Dictionary<String, String>>? {
+        if self.callWith! != jsonString {
+            return nil
+        }
+        return expectedValue as! Array<Dictionary<String, String>>?
+    }
+    
+    func givenDeserializeReturnsToDictArray(callWith: String, expect: Array<Dictionary<String, String>>?) {
+        self.callWith = callWith
+        self.expectedValue = expect
+    }
+}
+
 class FakeEncodingService: EncodingService {
 
     var expectedUrlEncodedValue: String? = "fake-encoded-value"
@@ -239,6 +271,7 @@ class FakeApplicationContextHolder: ApplicationContextHolder {
 class FakeSessionContextHolder: SessionContextHolder {
 
     private var lastActivityTime: Int64?
+    private var memberId: String? = "fake-member-id"
 
     func withLastActivityTime(_ expectedTime: Int64) -> FakeSessionContextHolder {
         lastActivityTime = expectedTime
@@ -249,10 +282,14 @@ class FakeSessionContextHolder: SessionContextHolder {
         return "fake-session-id"
     }
 
-    override func getMemberId() -> String {
-        return "fake-member-id"
+    override func getMemberId() -> String? {
+        return memberId
     }
 
+    func setMemberId(memberId: String?) -> Void {
+        self.memberId = memberId
+    }
+    
     func withExtraParameters(_ params: Dictionary<String, Any>) -> FakeSessionContextHolder {
         super.updateExternalParameters(data: params)
         return self

@@ -69,6 +69,7 @@
 		75F79E511915046F48D0FB2E /* HttpTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F79CE78FABE7F3A95D9FAA /* HttpTask.swift */; };
 		75F79F68E5A695270A8E308A /* NotificationProcessorHandlerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F79C386130ECC4CD1638D9 /* NotificationProcessorHandlerTest.swift */; };
 		75F79FA7035C1DC7514F8D88 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F79280AAAAAA4ACB84F71E /* Errors.swift */; };
+		C256F80B25C3EFFE00240F79 /* RecommendationProcessorHandlerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C256F80A25C3EFFE00240F79 /* RecommendationProcessorHandlerTest.swift */; };
 		C285B35E25C20A5400E1E88A /* RecommendationProcessorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C296EE4C25C1535400EA7E73 /* RecommendationProcessorHandler.swift */; };
 		C296EE4D25C1535400EA7E73 /* RecommendationProcessorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C296EE4C25C1535400EA7E73 /* RecommendationProcessorHandler.swift */; };
 		C296EE5325C18B4400EA7E73 /* ApiGetJsonRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C296EE5225C18B4400EA7E73 /* ApiGetJsonRequest.swift */; };
@@ -140,6 +141,7 @@
 		75F79C386130ECC4CD1638D9 /* NotificationProcessorHandlerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationProcessorHandlerTest.swift; sourceTree = "<group>"; };
 		75F79CE78FABE7F3A95D9FAA /* HttpTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpTask.swift; sourceTree = "<group>"; };
 		75F79E2D8FC019EEC9D0E3FB /* HttpServiceTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpServiceTest.swift; sourceTree = "<group>"; };
+		C256F80A25C3EFFE00240F79 /* RecommendationProcessorHandlerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendationProcessorHandlerTest.swift; sourceTree = "<group>"; };
 		C296EE4C25C1535400EA7E73 /* RecommendationProcessorHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendationProcessorHandler.swift; sourceTree = "<group>"; };
 		C296EE5225C18B4400EA7E73 /* ApiGetJsonRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiGetJsonRequest.swift; sourceTree = "<group>"; };
 		C29B911225C1DD990010C13C /* JsonDeserializerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonDeserializerService.swift; sourceTree = "<group>"; };
@@ -301,6 +303,7 @@
 				1D6C7F58245037E4001FE80C /* EventProcessorHandlerTest.swift */,
 				75F793896A549ED373F17825 /* SDKEventProcessorHandlerTest.swift */,
 				D3A8FA015BA0F9D7A89FD17F /* EcommerceEventProcessorHandlerTest.swift */,
+				C256F80A25C3EFFE00240F79 /* RecommendationProcessorHandlerTest.swift */,
 			);
 			path = event;
 			sourceTree = "<group>";
@@ -556,6 +559,7 @@
 				1D6C7F7724503876001FE80C /* Xennio.swift in Sources */,
 				1D6C7F7124503863001FE80C /* XennioLogger.swift in Sources */,
 				1D6C7F752450386E001FE80C /* SessionState.swift in Sources */,
+				C256F80B25C3EFFE00240F79 /* RecommendationProcessorHandlerTest.swift in Sources */,
 				1D6C7F6B24503851001FE80C /* XennEvent.swift in Sources */,
 				1D6C7F6D24503859001FE80C /* JsonSerializerService.swift in Sources */,
 				1D6C7F6F2450385E001FE80C /* HttpService.swift in Sources */,
