@@ -20,5 +20,5 @@ enum Constants: String {
     case UNKNOWN_PROPERTY_VALUE = "UNKNOWN"
     case IOS = "IOS"
     case APPLE = "Apple"
-
+    case XENN_API_URL = "https://api.xenn.io"
 }

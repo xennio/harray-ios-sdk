@@ -10,14 +10,16 @@ import Foundation
 
 class HttpService {
 
-    private let collectorUrl = "https://c.xenn.io"
-    private let apiUrl = "https://api.xenn.io"
     private let sdkKey: String
     private let session: HttpSession
-
-    init(sdkKey: String, session: HttpSession) {
+    private let collectorUrl: String
+    private let apiUrl: String
+    
+    init(sdkKey: String, session: HttpSession, collectorUrl: String, apiUrl: String) {
         self.session = session
         self.sdkKey = sdkKey
+        self.collectorUrl = collectorUrl
+        self.apiUrl = apiUrl
     }
     
     func getApiRequest<T>(path: String,
