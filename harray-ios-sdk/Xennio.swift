@@ -88,7 +88,7 @@ import UIKit
     @objc public class func notifications() -> NotificationProcessorHandler {
          let xennioInstance = getInstance()
         let entitySerializerService = EntitySerializerService(encodingService: EncodingService(), jsonSerializerService: JsonSerializerService())
-        let httpService = HttpService(sdkKey: xennioInstance.xennConfig.getSdkKey(), session: URLSession.shared, collectorUrl: xennioInstance.xennConfig.getCollectorUrl(), apiUrl: xennioInstance.xennConfig.getApiUrl())
+        let httpService = HttpService(sdkKey: "feedback", session: URLSession.shared, collectorUrl: xennioInstance.xennConfig.getCollectorUrl(), apiUrl: xennioInstance.xennConfig.getApiUrl())
         return NotificationProcessorHandler(httpService: httpService, entitySerializerService: entitySerializerService)
     }
 
