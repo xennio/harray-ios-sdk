@@ -19,25 +19,25 @@ import Foundation
         self.collectorUrl = collectorUrl
     }
 
-    static func create(sdkKey: String, collectorUrl: String) -> XennConfig {
+    public static func create(sdkKey: String, collectorUrl: String) -> XennConfig {
         return XennConfig(sdkKey: sdkKey, collectorUrl: getValidUrl(url: collectorUrl))
     }
 
-    func apiUrl(url: String) -> XennConfig {
+    public func apiUrl(url: String) -> XennConfig {
         self.apiUrl = XennConfig.getValidUrl(url: url)
         return self
     }
 
-    func getSdkKey() -> String {
-        return self.sdkKey
+    public func getSdkKey() -> String {
+        return sdkKey
     }
 
-    func getCollectorUrl() -> String {
-        return self.collectorUrl
+    public func getCollectorUrl() -> String {
+        return collectorUrl
     }
 
-    func getApiUrl() -> String {
-        return self.apiUrl
+    public func getApiUrl() -> String {
+        return apiUrl
     }
 
     private static func getValidUrl(url: String) -> String {
