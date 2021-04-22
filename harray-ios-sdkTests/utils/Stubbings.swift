@@ -287,3 +287,29 @@ class InitializedUserDefaults: UserDefaults {
         return "stored-persistent-id"
     }
 }
+
+class CapturingEventProcessorHandler: EventProcessorHandler {
+
+    var pageType: String?
+    var actionType: String?
+    var capturedParams: [Dictionary<String, Any>] = [Dictionary<String, Any>]()
+    var actionResultInvokeCount: Int = 0
+    var pageViewInvokeCount: Int = 0
+    init(){
+        super.init(applicationContextHolder: FakeApplicationContextHolder(userDefaults: NotInitializedUserDefaults()),
+                   sessionContextHolder: FakeSessionContextHolder(), httpService: FakeHttpService(sdkKey: "", session: FakeUrlSession(), collectorUrl: "", apiUrl: ""),
+                entitySerializerService: CapturingEntitySerializerService())
+    }
+
+    override func pageView(pageType: String, params: Dictionary<String, Any>) {
+        self.pageType = pageType
+        self.capturedParams.append(params)
+        self.pageViewInvokeCount = self.pageViewInvokeCount + 1
+    }
+
+    override func actionResult(type: String, params: Dictionary<String, Any>) {
+        self.actionType = type
+        self.capturedParams.append(params)
+        self.actionResultInvokeCount = self.actionResultInvokeCount + 1
+    }
+}

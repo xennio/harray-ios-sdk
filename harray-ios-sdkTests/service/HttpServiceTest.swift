@@ -20,8 +20,13 @@ class HttpServiceTest: XCTestCase {
     }
 
     func test_it_should_post_to_end_point_with_json_parameters() {
-        let fakeUrlSession = MockUrlSession(httpResult: HttpResult(statusCode: 201, hasError: false))
-        let httpService = HttpService(sdkKey: "sdk-key", session: fakeUrlSession)
+        let fakeUrlSession = MockUrlSession(httpResult: HttpResult(statusCode: 201, hasError: false, body: nil))
+        let httpService = HttpService(
+            sdkKey: "sdk-key",
+            session: fakeUrlSession,
+            collectorUrl: "https://c.xenn.io",
+            apiUrl: "https://api.xenn.io"
+        )
 
         var result: HttpResult?
         httpService.postJsonEncoded(payload: "payload", path: "feedback") {
@@ -33,7 +38,12 @@ class HttpServiceTest: XCTestCase {
 
     func test_it_should_respond_with_client_error_when_payload_is_nill() {
         let fakeUrlSession = MockUrlSession(httpResult: HttpResult.clientError())
-        let httpService = HttpService(sdkKey: "sdk-key", session: fakeUrlSession)
+        let httpService = HttpService(
+            sdkKey: "sdk-key",
+            session: fakeUrlSession,
+            collectorUrl: "https://c.xenn.io",
+            apiUrl: "https://api.xenn.io"
+        )
 
         var result: HttpResult?
         httpService.postFormUrlEncoded(payload: nil) {
@@ -45,7 +55,12 @@ class HttpServiceTest: XCTestCase {
 
     func test_it_should_call_completion_handler_with_nil_when_endpoint_is_nil() {
         let fakeUrlSession = MockUrlSession(httpResult: HttpResult.clientError())
-        let httpService = HttpService(sdkKey: "sdk-key", session: fakeUrlSession)
+        let httpService = HttpService(
+            sdkKey: "sdk-key",
+            session: fakeUrlSession,
+            collectorUrl: "https://c.xenn.io",
+            apiUrl: "https://api.xenn.io"
+        )
         var result: HttpDownloadableResult?
         httpService.downloadContent(endpoint: nil) {
             result = $0
@@ -55,7 +70,12 @@ class HttpServiceTest: XCTestCase {
 
     func test_it_should_call_completion_handler_with_http_downloadable_result_when_response_is_valid() {
         let fakeUrlSession = MockUrlSession(httpDownloadableResult: HttpDownloadableResult(path: URL(string: "http://www.xenn.io")!))
-        let httpService = HttpService(sdkKey: "sdk-key", session: fakeUrlSession)
+        let httpService = HttpService(
+            sdkKey: "sdk-key",
+            session: fakeUrlSession,
+            collectorUrl: "https://c.xenn.io",
+            apiUrl: "https://api.xenn.io"
+        )
         var result: HttpDownloadableResult?
         httpService.downloadContent(endpoint: "https://c.xenn.io/img.gif") {
             result = $0
@@ -65,13 +85,23 @@ class HttpServiceTest: XCTestCase {
 
     func test_it_should_add_sdk_key_to_collector_url() {
         let fakeUrlSession = MockUrlSession(httpDownloadableResult: HttpDownloadableResult(path: URL(string: "http://www.xenn.io")!))
-        let httpService = HttpService(sdkKey: "sdk-key", session: fakeUrlSession)
+        let httpService = HttpService(
+            sdkKey: "sdk-key",
+            session: fakeUrlSession,
+            collectorUrl: "https://c.xenn.io",
+            apiUrl: "https://api.xenn.io"
+        )
         XCTAssertEqual("https://c.xenn.io/sdk-key", httpService.getCollectorUrl())
     }
 
     func test_it_should_add_path_to_collector_url() {
         let fakeUrlSession = MockUrlSession(httpDownloadableResult: HttpDownloadableResult(path: URL(string: "http://www.xenn.io")!))
-        let httpService = HttpService(sdkKey: "sdk-key", session: fakeUrlSession)
+        let httpService = HttpService(
+            sdkKey: "sdk-key",
+            session: fakeUrlSession,
+            collectorUrl: "https://c.xenn.io",
+            apiUrl: "https://api.xenn.io"
+        )
         XCTAssertEqual("https://c.xenn.io/path", httpService.getCollectorUrl(path: "path"))
     }
 
