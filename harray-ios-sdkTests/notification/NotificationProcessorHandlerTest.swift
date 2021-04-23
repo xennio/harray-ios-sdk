@@ -8,7 +8,12 @@ import XCTest
 class NotificationProcessorHandlerTest: XCTestCase {
 
     func test_it_should_construct_push_receive_event_and_make_api_call() {
-        let httpService = FakeHttpService(sdkKey: "sdk-key", session: FakeUrlSession())
+        let httpService = FakeHttpService(
+                sdkKey: "sdk-key",
+                session: FakeUrlSession(),
+                collectorUrl: "https://c.xenn.io",
+                apiUrl: "https://api.xenn.io"
+        )
         let entitySerializerService = CapturingEntitySerializerService.init()
         let notificationProcessorHandler = NotificationProcessorHandler(httpService: httpService, entitySerializerService: entitySerializerService)
         entitySerializerService.givenSerializeReturns(callWith: TestUtils.anyDictionary(), expect: "serialized_event")
@@ -27,7 +32,12 @@ class NotificationProcessorHandlerTest: XCTestCase {
     }
 
     func test_it_should_construct_push_opened_event_and_make_api_call() {
-        let httpService = FakeHttpService(sdkKey: "sdk-key", session: FakeUrlSession())
+        let httpService = FakeHttpService(
+                sdkKey: "sdk-key",
+                session: FakeUrlSession(),
+                collectorUrl: "https://c.xenn.io",
+                apiUrl: "https://api.xenn.io"
+        )
         let entitySerializerService = CapturingEntitySerializerService.init()
         let notificationProcessorHandler = NotificationProcessorHandler(httpService: httpService, entitySerializerService: entitySerializerService)
         entitySerializerService.givenSerializeReturns(callWith: TestUtils.anyDictionary(), expect: "serialized_event")
@@ -46,7 +56,12 @@ class NotificationProcessorHandlerTest: XCTestCase {
     }
 
     func test_it_should_not_construct_push_opened_event_and_make_api_call_when_source_is_not_defined() {
-        let httpService = FakeHttpService(sdkKey: "sdk-key", session: FakeUrlSession())
+        let httpService = FakeHttpService(
+                sdkKey: "sdk-key",
+                session: FakeUrlSession(),
+                collectorUrl: "https://c.xenn.io",
+                apiUrl: "https://api.xenn.io"
+        )
         let entitySerializerService = CapturingEntitySerializerService.init()
         let notificationProcessorHandler = NotificationProcessorHandler(httpService: httpService, entitySerializerService: entitySerializerService)
         entitySerializerService.givenSerializeReturns(callWith: TestUtils.anyDictionary(), expect: "serialized_event")
@@ -65,7 +80,12 @@ class NotificationProcessorHandlerTest: XCTestCase {
     }
 
     func test_it_should_not_construct_push_opened_event_and_make_api_call_when_source_is_defined_other_than_xennio() {
-        let httpService = FakeHttpService(sdkKey: "sdk-key", session: FakeUrlSession())
+        let httpService = FakeHttpService(
+                sdkKey: "sdk-key",
+                session: FakeUrlSession(),
+                collectorUrl: "https://c.xenn.io",
+                apiUrl: "https://api.xenn.io"
+        )
         let entitySerializerService = CapturingEntitySerializerService.init()
         let notificationProcessorHandler = NotificationProcessorHandler(httpService: httpService, entitySerializerService: entitySerializerService)
         entitySerializerService.givenSerializeReturns(callWith: TestUtils.anyDictionary(), expect: "serialized_event")

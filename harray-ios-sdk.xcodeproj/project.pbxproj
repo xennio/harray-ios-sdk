@@ -70,6 +70,12 @@
 		D3A8FC241756BFC390B30613 /* PostJsonEncodedRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A8FF478F58033193386CAC /* PostJsonEncodedRequest.swift */; };
 		D3A8FCE4CE647E4C7853EF2B /* FeedbackEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A8F03219DAFBBDCDB18479 /* FeedbackEvent.swift */; };
 		D3A8FCEE9365EFCF2872B5A7 /* FeedbackEventTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A8FD795BC84C16138F76BB /* FeedbackEventTest.swift */; };
+		EC7FE1D8C11AEA47F8D1B743 /* XennConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7FE660530553E3F205432D /* XennConfig.swift */; };
+		EC7FE21240A3BED3CF306E59 /* XennConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7FE660530553E3F205432D /* XennConfig.swift */; };
+		EC7FE22BE14594DACC6BE0A0 /* UrlUtilsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7FEBEFC6AE86B98D523D0B /* UrlUtilsTest.swift */; };
+		EC7FE6B4CEED01F52244C864 /* UrlUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7FE943BEDC736F7F6166D7 /* UrlUtils.swift */; };
+		EC7FE815747D9F1E226A0808 /* XennConfigTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7FEDA2D4CBD3B1FB898D76 /* XennConfigTest.swift */; };
+		EC7FED5462995DFD59075863 /* UrlUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7FE943BEDC736F7F6166D7 /* UrlUtils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -127,6 +133,10 @@
 		D3A8FD795BC84C16138F76BB /* FeedbackEventTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackEventTest.swift; sourceTree = "<group>"; };
 		D3A8FF478F58033193386CAC /* PostJsonEncodedRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostJsonEncodedRequest.swift; sourceTree = "<group>"; };
 		D3A8FFC1F8B279C1328FA628 /* PostJsonEncodedRequestTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostJsonEncodedRequestTest.swift; sourceTree = "<group>"; };
+		EC7FE660530553E3F205432D /* XennConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XennConfig.swift; sourceTree = "<group>"; };
+		EC7FE943BEDC736F7F6166D7 /* UrlUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UrlUtils.swift; sourceTree = "<group>"; };
+		EC7FEBEFC6AE86B98D523D0B /* UrlUtilsTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UrlUtilsTest.swift; sourceTree = "<group>"; };
+		EC7FEDA2D4CBD3B1FB898D76 /* XennConfigTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XennConfigTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -196,6 +206,7 @@
 				75F7901B9AAF866F3E9630BF /* model */,
 				75F798F30A99647A2B7E20EE /* notification */,
 				75F799521B408D26F0F895BE /* http */,
+				EC7FE5571430CDFA5AEA8F2E /* common */,
 			);
 			path = "harray-ios-sdkTests";
 			sourceTree = "<group>";
@@ -205,6 +216,7 @@
 			children = (
 				1D6C7F3224503782001FE80C /* Constants.swift */,
 				75F79280AAAAAA4ACB84F71E /* Errors.swift */,
+				EC7FE660530553E3F205432D /* XennConfig.swift */,
 			);
 			path = common;
 			sourceTree = "<group>";
@@ -234,6 +246,7 @@
 				1D6C7F3E245037C6001FE80C /* ClockUtils.swift */,
 				1D6C7F3F245037C6001FE80C /* XennioLogger.swift */,
 				1D6C7F40245037C6001FE80C /* RandomValueUtils.swift */,
+				EC7FE943BEDC736F7F6166D7 /* UrlUtils.swift */,
 			);
 			path = utils;
 			sourceTree = "<group>";
@@ -265,6 +278,7 @@
 				1D6C7F54245037E4001FE80C /* Stubbings.swift */,
 				1D6C7F55245037E4001FE80C /* ClockUtilsTest.swift */,
 				1D6C7F56245037E4001FE80C /* RandomValueUtilsTest.swift */,
+				EC7FEBEFC6AE86B98D523D0B /* UrlUtilsTest.swift */,
 			);
 			path = utils;
 			sourceTree = "<group>";
@@ -340,6 +354,14 @@
 				D3A8FF478F58033193386CAC /* PostJsonEncodedRequest.swift */,
 			);
 			path = http;
+			sourceTree = "<group>";
+		};
+		EC7FE5571430CDFA5AEA8F2E /* common */ = {
+			isa = PBXGroup;
+			children = (
+				EC7FEDA2D4CBD3B1FB898D76 /* XennConfigTest.swift */,
+			);
+			path = common;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -475,6 +497,8 @@
 				75F79E511915046F48D0FB2E /* HttpTask.swift in Sources */,
 				D3A8FAC96F4EBA60E90FE57B /* FeedbackEvent.swift in Sources */,
 				D3A8FC241756BFC390B30613 /* PostJsonEncodedRequest.swift in Sources */,
+				EC7FE1D8C11AEA47F8D1B743 /* XennConfig.swift in Sources */,
+				EC7FE6B4CEED01F52244C864 /* UrlUtils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -521,6 +545,10 @@
 				D3A8FCEE9365EFCF2872B5A7 /* FeedbackEventTest.swift in Sources */,
 				D3A8F470ECDD24C3F748B3DA /* PostJsonEncodedRequest.swift in Sources */,
 				D3A8FAAFE5131F29783596E2 /* PostJsonEncodedRequestTest.swift in Sources */,
+				EC7FE21240A3BED3CF306E59 /* XennConfig.swift in Sources */,
+				EC7FED5462995DFD59075863 /* UrlUtils.swift in Sources */,
+				EC7FE815747D9F1E226A0808 /* XennConfigTest.swift in Sources */,
+				EC7FE22BE14594DACC6BE0A0 /* UrlUtilsTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
