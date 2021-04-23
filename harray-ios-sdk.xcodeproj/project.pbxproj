@@ -76,8 +76,14 @@
 		C296EE4D25C1535400EA7E73 /* RecommendationProcessorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C296EE4C25C1535400EA7E73 /* RecommendationProcessorHandler.swift */; };
 		C296EE5325C18B4400EA7E73 /* ApiGetJsonRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C296EE5225C18B4400EA7E73 /* ApiGetJsonRequest.swift */; };
 		C29B911325C1DD990010C13C /* JsonDeserializerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29B911225C1DD990010C13C /* JsonDeserializerService.swift */; };
+		C2B7CB94262F2F4200DAB8CE /* XennConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B7CB93262F2F4200DAB8CE /* XennConfig.swift */; };
+		C2B7CB96262FF52300DAB8CE /* UrlUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B7CB95262FF52300DAB8CE /* UrlUtils.swift */; };
+		C2B7CB97263039B800DAB8CE /* XennConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B7CB93262F2F4200DAB8CE /* XennConfig.swift */; };
+		C2B7CB9826303ED400DAB8CE /* UrlUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B7CB95262FF52300DAB8CE /* UrlUtils.swift */; };
 		C2CFA29925C2863D001B61BE /* JsonDeserializerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29B911225C1DD990010C13C /* JsonDeserializerService.swift */; };
 		C2CFA29A25C2864E001B61BE /* ApiGetJsonRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C296EE5225C18B4400EA7E73 /* ApiGetJsonRequest.swift */; };
+		C2EB054B2630468B004EF82A /* UrlUtilsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2EB054A2630468B004EF82A /* UrlUtilsTest.swift */; };
+		C2EB054E26304713004EF82A /* XennConfigTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2EB054D26304713004EF82A /* XennConfigTest.swift */; };
 		D3A8F470ECDD24C3F748B3DA /* PostJsonEncodedRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A8FF478F58033193386CAC /* PostJsonEncodedRequest.swift */; };
 		D3A8FAAFE5131F29783596E2 /* PostJsonEncodedRequestTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A8FFC1F8B279C1328FA628 /* PostJsonEncodedRequestTest.swift */; };
 		D3A8FAC96F4EBA60E90FE57B /* FeedbackEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A8F03219DAFBBDCDB18479 /* FeedbackEvent.swift */; };
@@ -149,6 +155,10 @@
 		C296EE4C25C1535400EA7E73 /* RecommendationProcessorHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendationProcessorHandler.swift; sourceTree = "<group>"; };
 		C296EE5225C18B4400EA7E73 /* ApiGetJsonRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiGetJsonRequest.swift; sourceTree = "<group>"; };
 		C29B911225C1DD990010C13C /* JsonDeserializerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonDeserializerService.swift; sourceTree = "<group>"; };
+		C2B7CB93262F2F4200DAB8CE /* XennConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XennConfig.swift; sourceTree = "<group>"; };
+		C2B7CB95262FF52300DAB8CE /* UrlUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlUtils.swift; sourceTree = "<group>"; };
+		C2EB054A2630468B004EF82A /* UrlUtilsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlUtilsTest.swift; sourceTree = "<group>"; };
+		C2EB054D26304713004EF82A /* XennConfigTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XennConfigTest.swift; sourceTree = "<group>"; };
 		D3A8F03219DAFBBDCDB18479 /* FeedbackEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackEvent.swift; sourceTree = "<group>"; };
 		D3A8FA015BA0F9D7A89FD17F /* EcommerceEventProcessorHandlerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EcommerceEventProcessorHandlerTest.swift; sourceTree = "<group>"; };
 		D3A8FD795BC84C16138F76BB /* FeedbackEventTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackEventTest.swift; sourceTree = "<group>"; };
@@ -215,6 +225,7 @@
 		1D6C7F242450372D001FE80C /* harray-ios-sdkTests */ = {
 			isa = PBXGroup;
 			children = (
+				C2EB054C263046FA004EF82A /* common */,
 				1D6C7F5B245037E4001FE80C /* context */,
 				1D6C7F57245037E4001FE80C /* event */,
 				1D6C7F5E245037E4001FE80C /* service */,
@@ -233,6 +244,7 @@
 			children = (
 				1D6C7F3224503782001FE80C /* Constants.swift */,
 				75F79280AAAAAA4ACB84F71E /* Errors.swift */,
+				C2B7CB93262F2F4200DAB8CE /* XennConfig.swift */,
 			);
 			path = common;
 			sourceTree = "<group>";
@@ -264,6 +276,7 @@
 				1D6C7F3E245037C6001FE80C /* ClockUtils.swift */,
 				1D6C7F3F245037C6001FE80C /* XennioLogger.swift */,
 				1D6C7F40245037C6001FE80C /* RandomValueUtils.swift */,
+				C2B7CB95262FF52300DAB8CE /* UrlUtils.swift */,
 			);
 			path = utils;
 			sourceTree = "<group>";
@@ -297,6 +310,7 @@
 				1D6C7F54245037E4001FE80C /* Stubbings.swift */,
 				1D6C7F55245037E4001FE80C /* ClockUtilsTest.swift */,
 				1D6C7F56245037E4001FE80C /* RandomValueUtilsTest.swift */,
+				C2EB054A2630468B004EF82A /* UrlUtilsTest.swift */,
 			);
 			path = utils;
 			sourceTree = "<group>";
@@ -395,6 +409,14 @@
 				C296EE5225C18B4400EA7E73 /* ApiGetJsonRequest.swift */,
 			);
 			path = http;
+			sourceTree = "<group>";
+		};
+		C2EB054C263046FA004EF82A /* common */ = {
+			isa = PBXGroup;
+			children = (
+				C2EB054D26304713004EF82A /* XennConfigTest.swift */,
+			);
+			path = common;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -528,6 +550,7 @@
 				1D6C7F7B24505EF3001FE80C /* DeviceService.swift in Sources */,
 				75F7995A3063770EB44E8F6D /* NotificationProcessorHandler.swift in Sources */,
 				75F79FA7035C1DC7514F8D88 /* Errors.swift in Sources */,
+				C2B7CB94262F2F4200DAB8CE /* XennConfig.swift in Sources */,
 				75F79E02D73FE1F75CD7B894 /* PostFormUrlEncodedRequest.swift in Sources */,
 				75F79E511915046F48D0FB2E /* HttpTask.swift in Sources */,
 				354119D9254F2D5700FC0219 /* Order.swift in Sources */,
@@ -536,6 +559,7 @@
 				C29B911325C1DD990010C13C /* JsonDeserializerService.swift in Sources */,
 				D3A8FC241756BFC390B30613 /* PostJsonEncodedRequest.swift in Sources */,
 				D3A8FBA54C50A304CF02AEA1 /* EcommerceEventProcessorHandler.swift in Sources */,
+				C2B7CB96262FF52300DAB8CE /* UrlUtils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -576,13 +600,16 @@
 				75F796494FDB1AD75C5B9729 /* SDKEventProcessorHandlerTest.swift in Sources */,
 				75F79C72E86B55AF069A2635 /* SDKEventProcessorHandler.swift in Sources */,
 				75F79D0F2AF89319D341C0B3 /* Errors.swift in Sources */,
+				C2B7CB9826303ED400DAB8CE /* UrlUtils.swift in Sources */,
 				75F79538A038695F8306DA6D /* XennioTest.swift in Sources */,
+				C2EB054B2630468B004EF82A /* UrlUtilsTest.swift in Sources */,
 				75F795E919E1F03BF1032952 /* JsonSerializerServiceTest.swift in Sources */,
 				C256F80F25C42BDC00240F79 /* ApiGetJsonRequestTest.swift in Sources */,
 				75F79A2864363C2E049B9E77 /* XennEventTest.swift in Sources */,
 				75F79F68E5A695270A8E308A /* NotificationProcessorHandlerTest.swift in Sources */,
 				75F794E5C382C753E6924F0F /* HttpServiceTest.swift in Sources */,
 				75F7974DE59D3DE84EB166E9 /* PostFormUrlEncodedRequest.swift in Sources */,
+				C2EB054E26304713004EF82A /* XennConfigTest.swift in Sources */,
 				75F792287F3DC850963A0BEE /* HttpTask.swift in Sources */,
 				75F79A1CCEC0CF0706B6F4B7 /* PostFormUrlEncodedRequestTest.swift in Sources */,
 				354119DA254F2D5700FC0219 /* Order.swift in Sources */,
@@ -590,6 +617,7 @@
 				C256F80D25C4259B00240F79 /* JsonDeserializerServiceTest.swift in Sources */,
 				D3A8FCEE9365EFCF2872B5A7 /* FeedbackEventTest.swift in Sources */,
 				D3A8F470ECDD24C3F748B3DA /* PostJsonEncodedRequest.swift in Sources */,
+				C2B7CB97263039B800DAB8CE /* XennConfig.swift in Sources */,
 				D3A8FAAFE5131F29783596E2 /* PostJsonEncodedRequestTest.swift in Sources */,
 				D3A8FBEE9FBC3C0C5E78106E /* EcommerceEventProcessorHandler.swift in Sources */,
 				D3A8FB41601748D1AC228340 /* EcommerceEventProcessorHandlerTest.swift in Sources */,

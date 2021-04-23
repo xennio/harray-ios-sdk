@@ -20,7 +20,12 @@ class RecommendationProcessorHandlerTest: XCTestCase {
                     { "id": "id2", "name": "name2" }
                 ]
             """
-        let httpService = FakeHttpService(sdkKey: "sdkKey", session: FakeUrlSession())
+        let httpService = FakeHttpService(
+            sdkKey: "sdkKey",
+            session: FakeUrlSession(),
+            collectorUrl: "https://c.xenn.io",
+            apiUrl: "https://api.xenn.io"
+        )
         httpService.givenGetApiRequest(
             path: "/recommendation",
             params: [
@@ -59,7 +64,12 @@ class RecommendationProcessorHandlerTest: XCTestCase {
         
         var actualRecoResult: Array<Dictionary<String, String>>?
         
-        let httpService = FakeHttpService(sdkKey: "sdkKey", session: FakeUrlSession())
+        let httpService = FakeHttpService(
+            sdkKey: "sdkKey",
+            session: FakeUrlSession(),
+            collectorUrl: "https://c.xenn.io",
+            apiUrl: "https://api.xenn.io"
+        )
         httpService.givenGetApiRequest(
             path: "/recommendation",
             params: [
@@ -97,7 +107,12 @@ class RecommendationProcessorHandlerTest: XCTestCase {
                     { "id": "id2", "name": "name2" }
                 ]
             """
-        let httpService = FakeHttpService(sdkKey: "sdkKey", session: FakeUrlSession())
+        let httpService = FakeHttpService(
+            sdkKey: "sdkKey",
+            session: FakeUrlSession(),
+            collectorUrl: "https://c.xenn.io",
+            apiUrl: "https://api.xenn.io"
+        )
         httpService.givenGetApiRequest(
             path: "/recommendation",
             params: [
@@ -141,7 +156,12 @@ class RecommendationProcessorHandlerTest: XCTestCase {
                     { "id": "id2", "name": "name2" }
                 ]
             """
-        let httpService = FakeHttpService(sdkKey: "sdkKey", session: FakeUrlSession())
+        let httpService = FakeHttpService(
+            sdkKey: "sdkKey",
+            session: FakeUrlSession(),
+            collectorUrl: "https://c.xenn.io",
+            apiUrl: "https://api.xenn.io"
+        )
         httpService.givenGetApiRequest(
             path: "/recommendation",
             params: [
