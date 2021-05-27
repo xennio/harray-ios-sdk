@@ -4,6 +4,7 @@
 //
 
 import XCTest
+import UserNotifications
 
 class NotificationProcessorHandlerTest: XCTestCase {
 
