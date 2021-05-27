@@ -39,7 +39,6 @@ class EventProcessorHandlerTest: XCTestCase {
         XCTAssertTrue(sessionContextHolder.getSessionId() == header["s"] as! String)
         XCTAssertTrue(sessionContextHolder.getMemberId() == body["memberId"] as! String)
         XCTAssertTrue("homePage" == body["pageType"] as! String)
-        XCTAssertTrue("xennio" == body["utm_medium"] as! String)
     }
 
     func test_it_should_construct_page_view_and_append_extra_params_to_event_and_make_api_call() {
@@ -72,7 +71,6 @@ class EventProcessorHandlerTest: XCTestCase {
         XCTAssertTrue(sessionContextHolder.getSessionId() == header["s"] as! String)
         XCTAssertTrue(sessionContextHolder.getMemberId() == body["memberId"] as! String)
         XCTAssertTrue("homePage" == body["pageType"] as! String)
-        XCTAssertTrue("xennio" == body["utm_medium"] as! String)
         XCTAssertTrue("value1" == body["param1"] as! String)
         XCTAssertTrue(1 == body["param2"] as! Int)
     }
