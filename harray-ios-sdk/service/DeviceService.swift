@@ -15,11 +15,17 @@ class DeviceService {
     let uiDevice: UIDevice
     let bundle: Bundle
     let uiScreen: UIScreen
+    let locale: Locale
 
-    init(bundle: Bundle, uiDevice: UIDevice, uiScreen: UIScreen) {
+    init(bundle: Bundle, uiDevice: UIDevice, uiScreen: UIScreen, locale: Locale) {
         self.uiDevice = uiDevice
         self.bundle = bundle
         self.uiScreen = uiScreen
+        self.locale = locale
+    }
+    
+    func getLanguage() -> String {
+        return locale.languageCode ?? "en"
     }
 
     func getModel() -> String {
@@ -52,7 +58,7 @@ class DeviceService {
 
     func getCarrier() -> String {
         let info = CTTelephonyNetworkInfo()
-        let carrier = info.subscriberCellularProvider
+        let carrier = info.serviceSubscriberCellularProviders?.first?.value
         return carrier?.carrierName ?? Constants.UNKNOWN_PROPERTY_VALUE.rawValue
     }
 

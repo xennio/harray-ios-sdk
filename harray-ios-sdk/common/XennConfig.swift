@@ -11,16 +11,20 @@ import Foundation
 @objc public class XennConfig: NSObject {
     
     private let sdkKey: String
-    private let collectorUrl: String
     private var apiUrl: String = Constants.XENN_API_URL.rawValue
+    private var collectorUrl: String = Constants.XENN_COLLECTOR_URL.rawValue
     
-    private init(sdkKey: String, collectorUrl: String) {
+    private init(sdkKey: String) {
         self.sdkKey = sdkKey
-        self.collectorUrl = collectorUrl
     }
     
-    public static func create(sdkKey: String, collectorUrl: String) -> XennConfig {
-        return XennConfig(sdkKey: sdkKey, collectorUrl: getValidUrl(url: collectorUrl))
+    public static func create(sdkKey: String) -> XennConfig {
+        return XennConfig(sdkKey: sdkKey)
+    }
+    
+    public func collectorUrl(url: String) -> XennConfig {
+        self.collectorUrl = XennConfig.getValidUrl(url: url)
+        return self
     }
 
     public func apiUrl(url: String) -> XennConfig {

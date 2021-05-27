@@ -21,4 +21,5 @@ enum Constants: String {
     case IOS = "IOS"
     case APPLE = "Apple"
     case XENN_API_URL = "https://api.xenn.io"
+    case XENN_COLLECTOR_URL = "https://c.xenn.io"
 }

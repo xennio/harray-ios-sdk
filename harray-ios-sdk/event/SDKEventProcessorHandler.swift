@@ -42,6 +42,7 @@ class SDKEventProcessorHandler {
                 .addBody(key: "zn", value: applicationContextHolder.getTimezone())
                 .addBody(key: "sw", value: deviceService.getScreenWidth())
                 .addBody(key: "sh", value: deviceService.getScreenHeight())
+                .addBody(key: "ln", value: deviceService.getLanguage())
                 .appendExtra(params: sessionContextHolder.getExternalParameters())
                 .toMap()
         let serializedEvent = entitySerializerService.serializeToBase64(event: pageViewEvent)

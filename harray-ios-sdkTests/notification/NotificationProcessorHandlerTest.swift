@@ -102,4 +102,49 @@ class NotificationProcessorHandlerTest: XCTestCase {
         XCTAssertNil(captured["pi"])
         XCTAssertNil(captured["cd"])
     }
+    
+    func test_it_should_return_false_when_notification_is_not_xenn_io_notification() {
+        let httpService = FakeHttpService(
+            sdkKey: "sdk-key",
+            session: FakeUrlSession(),
+            collectorUrl: "https://c.xenn.io",
+            apiUrl: "https://api.xenn.io"
+        )
+        let entitySerializerService = CapturingEntitySerializerService.init()
+        let notificationProcessorHandler = NotificationProcessorHandler(httpService: httpService, entitySerializerService: entitySerializerService)
+        
+        let content = UNMutableNotificationContent()
+        content.title = "Alert!"
+        content.body = "Something happened"
+
+        let request = UNNotificationRequest(
+          identifier: "id",
+          content: content,
+          trigger: UNTimeIntervalNotificationTrigger(timeInterval: 10, repeats: false)
+          )
+        XCTAssertFalse(notificationProcessorHandler.isXennioNotification(request: request))
+    }
+    
+    func test_it_should_return_true_when_notification_is_not_xenn_io_notification() {
+        let httpService = FakeHttpService(
+            sdkKey: "sdk-key",
+            session: FakeUrlSession(),
+            collectorUrl: "https://c.xenn.io",
+            apiUrl: "https://api.xenn.io"
+        )
+        let entitySerializerService = CapturingEntitySerializerService.init()
+        let notificationProcessorHandler = NotificationProcessorHandler(httpService: httpService, entitySerializerService: entitySerializerService)
+        
+        let content = UNMutableNotificationContent()
+        content.title = "Alert!"
+        content.body = "Something happened"
+        content.userInfo = ["source": "xennio"]
+
+        let request = UNNotificationRequest(
+          identifier: "id",
+          content: content,
+          trigger: UNTimeIntervalNotificationTrigger(timeInterval: 10, repeats: false)
+          )
+        XCTAssertTrue(notificationProcessorHandler.isXennioNotification(request: request))
+    }
 }

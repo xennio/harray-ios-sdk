@@ -47,7 +47,7 @@ import UIKit
         let applicationContextHolder = ApplicationContextHolder(userDefaults: UserDefaults.standard)
         let httpService = HttpService(sdkKey: xennConfig.getSdkKey(), session: URLSession.shared, collectorUrl: xennConfig.getCollectorUrl(), apiUrl: xennConfig.getApiUrl())
         let entitySerializerService = EntitySerializerService(encodingService: EncodingService(), jsonSerializerService: JsonSerializerService())
-        let deviceService = DeviceService(bundle: Bundle.main, uiDevice: UIDevice.current, uiScreen: UIScreen.main)
+        let deviceService = DeviceService(bundle: Bundle.main, uiDevice: UIDevice.current, uiScreen: UIScreen.main, locale: Locale.current)
         
         let eventProcessorHandler = EventProcessorHandler(applicationContextHolder: applicationContextHolder, sessionContextHolder: sessionContextHolder, httpService: httpService, entitySerializerService: entitySerializerService)
         let sdkEventProcessorHandler = SDKEventProcessorHandler(applicationContextHolder: applicationContextHolder, sessionContextHolder: sessionContextHolder, httpService: httpService, entitySerializerService: entitySerializerService, deviceService: deviceService)

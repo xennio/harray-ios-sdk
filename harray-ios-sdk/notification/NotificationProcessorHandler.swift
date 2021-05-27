@@ -58,6 +58,17 @@ import UIKit
             }
         }
     }
+    
+    @objc public func isXennioNotification(request: UNNotificationRequest) -> Bool {
+        let source = request.content.userInfo[Constants.PUSH_PAYLOAD_SOURCE.rawValue]
+        if source != nil {
+            let pushChannelId = source as? String
+            if Constants.PUSH_CHANNEL_ID.rawValue == pushChannelId!{
+                return true
+            }
+        }
+        return false
+    }
 
     @objc public func handlePushNotification(request: UNNotificationRequest,
                                              bestAttemptContent: UNMutableNotificationContent,

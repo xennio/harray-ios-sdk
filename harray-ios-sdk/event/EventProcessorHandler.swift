@@ -31,7 +31,6 @@ import Foundation
                 .addBody(key: "pageType", value: pageType)
                 .memberId(memberId: sessionContextHolder.getMemberId())
                 .appendExtra(params: params)
-                .appendExtra(params: sessionContextHolder.getExternalParameters())
                 .toMap()
         let serializedEvent = entitySerializerService.serializeToBase64(event: pageViewEvent)
         httpService.postFormUrlEncoded(payload: serializedEvent)

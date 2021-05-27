@@ -23,7 +23,7 @@ class TestUtils {
 class FakeDeviceService: DeviceService {
 
     init() {
-        super.init(bundle: Bundle.main, uiDevice: UIDevice.current, uiScreen: UIScreen.main)
+        super.init(bundle: Bundle.main, uiDevice: UIDevice.current, uiScreen: UIScreen.main, locale: Locale.current)
     }
 
     override func getModel() -> String {
@@ -64,6 +64,10 @@ class FakeDeviceService: DeviceService {
 
     override func getDeviceModel() -> String {
         return "Iphone 8"
+    }
+    
+    override func getLanguage() -> String {
+        return "en"
     }
 }
 
