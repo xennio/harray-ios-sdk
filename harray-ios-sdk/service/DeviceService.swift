@@ -58,7 +58,7 @@ class DeviceService {
 
     func getCarrier() -> String {
         let info = CTTelephonyNetworkInfo()
-        let carrier = info.serviceSubscriberCellularProviders?.first?.value
+        let carrier = info.subscriberCellularProvider
         return carrier?.carrierName ?? Constants.UNKNOWN_PROPERTY_VALUE.rawValue
     }
 
