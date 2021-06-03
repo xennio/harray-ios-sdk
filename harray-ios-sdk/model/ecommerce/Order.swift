@@ -26,70 +26,70 @@ import Foundation
         return Order(orderId: orderId)
     }
 
-    @objc func addItem(productId: String, variantId: Any?, quantity: Int64, price: Double, discountedPrice: Any?, currency: String, supplierId: Any?) -> Order {
+    @objc public func addItem(productId: String, variantId: Any?, quantity: Int64, price: Double, discountedPrice: Any?, currency: String, supplierId: Any?) -> Order {
         orderItems.append(OrderItem(productId: productId, variant: variantId, quantity: quantity, price: price, discountedPrice: discountedPrice, currency: currency, supplierId: supplierId))
         return self
     }
 
-    @objc func paidWith(paymentMethod: String) -> Order {
+    @objc public func paidWith(paymentMethod: String) -> Order {
         self.paymentMethod = paymentMethod
         return self
     }
 
-    @objc func withPromotion(promotionName: String?) -> Order {
+    @objc public func withPromotion(promotionName: String?) -> Order {
         self.promotionName = promotionName
         return self
     }
 
-    @objc func withDiscount(discountName: String?) -> Order {
+    @objc public func withDiscount(discountName: String?) -> Order {
         self.discountName = discountName
         return self
     }
 
-    @objc func withCoupon(couponName: String?) -> Order {
+    @objc public func withCoupon(couponName: String?) -> Order {
         self.couponName = couponName
         return self
     }
 
-    @objc func totalAmount(totalAmount: Double) -> Order {
+    @objc public func totalAmount(totalAmount: Double) -> Order {
         self.totalAmount = totalAmount
         return self
     }
 
-    @objc func discountedAmount(discountedAmount: Any?) -> Order {
+    @objc public func discountedAmount(discountedAmount: Any?) -> Order {
         self.discountedAmount = discountedAmount
         return self
     }
 
-    @objc func getOrderId() -> String {
+    @objc public func getOrderId() -> String {
         return self.orderId
     }
 
-    @objc func getTotalAmount() -> Any? {
+    @objc public func getTotalAmount() -> Any? {
         return self.totalAmount
     }
 
-    @objc func getDiscountAmount() -> Any? {
+    @objc public func getDiscountAmount() -> Any? {
         return self.discountedAmount
     }
 
-    @objc func getDiscountName() -> Any? {
+    @objc public func getDiscountName() -> Any? {
         return self.discountName
     }
 
-    @objc func getCouponName() -> Any? {
+    @objc public func getCouponName() -> Any? {
         return self.couponName
     }
 
-    @objc func getPromotionName() -> Any? {
+    @objc public func getPromotionName() -> Any? {
         return self.promotionName
     }
 
-    @objc func getPaymentMethod() -> Any? {
+    @objc public func getPaymentMethod() -> Any? {
         return self.paymentMethod
     }
 
-    func getOrderItems() -> [OrderItem] {
+    @objc public func getOrderItems() -> [OrderItem] {
         return self.orderItems
     }
 }
