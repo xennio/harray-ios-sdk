@@ -86,17 +86,20 @@ import UIKit
     }
 
     @objc public class func notifications() -> NotificationProcessorHandler {
-         let xennioInstance = getInstance()
         let entitySerializerService = EntitySerializerService(encodingService: EncodingService(), jsonSerializerService: JsonSerializerService())
-        let httpService = HttpService(sdkKey: "feedback", session: URLSession.shared, collectorUrl: xennioInstance.xennConfig.getCollectorUrl(), apiUrl: xennioInstance.xennConfig.getApiUrl())
+        let httpService = HttpService(sdkKey: "feedback", session: URLSession.shared, collectorUrl: Constants.XENN_COLLECTOR_URL.rawValue,
+                                      apiUrl: Constants.XENN_API_URL.rawValue)
         return NotificationProcessorHandler(httpService: httpService, entitySerializerService: entitySerializerService)
     }
 
     @objc public class func login(memberId: String) {
-        if "" != memberId {
-            getInstance().sessionContextHolder.login(memberId: memberId)
+        let xennInstance = getInstance()
+        let sessionContextHolder = getInstance().sessionContextHolder
+        if ("" != memberId) && sessionContextHolder.getMemberId() != memberId {
+            sessionContextHolder.login(memberId: memberId)
+            sessionContextHolder.restartSession()
             if "" != getInstance().pushNotificationToken {
-                getInstance().eventProcessorHandler.savePushToken(deviceToken: getInstance().pushNotificationToken)
+                xennInstance.eventProcessorHandler.savePushToken(deviceToken: getInstance().pushNotificationToken)
             }
         }
     }
@@ -110,6 +113,7 @@ import UIKit
         getInstance().eventProcessorHandler.removeTokenAssociation(deviceToken: getInstance().pushNotificationToken);
         getInstance().pushNotificationToken = ""
         getInstance().sessionContextHolder.logout()
+        getInstance().sessionContextHolder.restartSession()
     }
 
     @objc public class func synchronizeWith(externalParameters: Dictionary<String, Any>) {

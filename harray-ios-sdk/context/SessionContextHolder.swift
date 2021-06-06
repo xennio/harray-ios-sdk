@@ -28,13 +28,18 @@ class SessionContextHolder {
     func getSessionIdAndExtendSession() -> String {
         let now = ClockUtils.getTime()
         if lastActivityTime + sessionDuration < now {
-            self.sessionId = RandomValueUtils.randomUUID()
-            self.sessionStartTime = now
-            self.sessionState = SessionState.SESSION_RESTARTED
-            self.externalParameters = Dictionary<String, Any>()
+            restartSession()
         }
         lastActivityTime = now
         return self.sessionId
+    }
+    
+    func restartSession() {
+        let now = ClockUtils.getTime()
+        self.sessionId = RandomValueUtils.randomUUID()
+        self.sessionStartTime = now
+        self.sessionState = SessionState.SESSION_RESTARTED
+        self.externalParameters = Dictionary<String, Any>()
     }
 
     func login(memberId: String) {
