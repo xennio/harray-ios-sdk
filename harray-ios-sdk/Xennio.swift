@@ -22,6 +22,7 @@ import UIKit
     private let notificationProcessorHandler: NotificationProcessorHandler
     private let ecommerceEventProcessorHandler: EcommerceEventProcessorHandler
     private let recommendationProcessorHandler: RecommendationProcessorHandler
+    private let browsingHistoryProcessorHandler: BrowsingHistoryProcessorHandler
 
     private init(xennConfig: XennConfig,
                  sessionContextHolder: SessionContextHolder,
@@ -30,8 +31,8 @@ import UIKit
                  sdkEventProcessorHandler: SDKEventProcessorHandler,
                  notificationProcessorHandler: NotificationProcessorHandler,
                  ecommerceEventProcessorHandler: EcommerceEventProcessorHandler,
-                 recommendationProcessorHandler: RecommendationProcessorHandler
-                 ) {
+                 recommendationProcessorHandler: RecommendationProcessorHandler,
+                 browsingHistoryProcessorHandler: BrowsingHistoryProcessorHandler) {
         self.sessionContextHolder = sessionContextHolder
         self.applicationContextHolder = applicationContextHolder
         self.eventProcessorHandler = eventProcessorHandler
@@ -40,6 +41,7 @@ import UIKit
         self.ecommerceEventProcessorHandler = ecommerceEventProcessorHandler
         self.xennConfig = xennConfig
         self.recommendationProcessorHandler = recommendationProcessorHandler
+        self.browsingHistoryProcessorHandler = browsingHistoryProcessorHandler
     }
     
     @objc public class func configure(xennConfig: XennConfig) {
@@ -53,8 +55,10 @@ import UIKit
         let sdkEventProcessorHandler = SDKEventProcessorHandler(applicationContextHolder: applicationContextHolder, sessionContextHolder: sessionContextHolder, httpService: httpService, entitySerializerService: entitySerializerService, deviceService: deviceService)
         let notificationProcessorHandler = NotificationProcessorHandler(httpService: httpService, entitySerializerService: entitySerializerService)
         let ecommerceEventProcessorHandler = EcommerceEventProcessorHandler(eventProcessorHandler: eventProcessorHandler)
-        let recommendationProcessorHandler = RecommendationProcessorHandler(applicationContextHolder: applicationContextHolder, sessionContextHolder: sessionContextHolder,httpService: httpService, sdkKey: xennConfig.getSdkKey(), jsonDeserializerService: JsonDeserializerService())
-        
+        let jsonDeserializerService = JsonDeserializerService()
+        let recommendationProcessorHandler = RecommendationProcessorHandler(applicationContextHolder: applicationContextHolder, sessionContextHolder: sessionContextHolder, httpService: httpService, sdkKey: xennConfig.getSdkKey(), jsonDeserializerService: jsonDeserializerService)
+        let browsingHistoryProcessorHandler = BrowsingHistoryProcessorHandler(applicationContextHolder: applicationContextHolder, sessionContextHolder: sessionContextHolder, httpService: httpService, sdkKey: xennConfig.getSdkKey(), jsonDeserializerService: jsonDeserializerService)
+
         instance = Xennio(xennConfig: xennConfig,
                           sessionContextHolder: sessionContextHolder,
                           applicationContextHolder: applicationContextHolder,
@@ -62,7 +66,8 @@ import UIKit
                           sdkEventProcessorHandler: sdkEventProcessorHandler,
                           notificationProcessorHandler: notificationProcessorHandler,
                           ecommerceEventProcessorHandler: ecommerceEventProcessorHandler,
-                          recommendationProcessorHandler: recommendationProcessorHandler
+                          recommendationProcessorHandler: recommendationProcessorHandler,
+                          browsingHistoryProcessorHandler: browsingHistoryProcessorHandler
         )
     }
 
@@ -126,5 +131,9 @@ import UIKit
     
     @objc public class func recommendations() -> RecommendationProcessorHandler {
         return getInstance().recommendationProcessorHandler
+    }
+
+    @objc public class func browsingHistory() -> BrowsingHistoryProcessorHandler {
+        return getInstance().browsingHistoryProcessorHandler
     }
 }
