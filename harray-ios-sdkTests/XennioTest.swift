@@ -53,4 +53,10 @@ class XennioTest: XCTestCase {
         let handler = Xennio.recommendations()
         XCTAssertEqual(String(describing: type(of: handler)), "RecommendationProcessorHandler")
     }
+
+    func test_it_should_get_browsing_history_handler() {
+        Xennio.configure(xennConfig: XennConfig.create(sdkKey: "SDK_KEY"))
+        let handler = Xennio.browsingHistory()
+        XCTAssertEqual(String(describing: type(of: handler)), "BrowsingHistoryProcessorHandler")
+    }
 }
