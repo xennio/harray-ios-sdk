@@ -26,9 +26,14 @@ class JsonDeserializerService {
     }
     
     func deserializeToDictArray(jsonString: String) -> Array<Dictionary<String, String>>? {
+        let jsonData = jsonString.data(using: .utf8)!
         do {
-            let rawArrDict = try JSONSerialization.jsonObject(with: jsonString.data(using: .utf8)!) as! [[String: Any]]
-            return rawArrDict.map { m in m.mapValues { "\($0)" } }
+            if let rawArrDict = try JSONSerialization.jsonObject(with: jsonData) as? [[String: Any]] {
+                return rawArrDict.map { m in m.mapValues { "\($0)" } }
+            } else {
+                XennioLogger.log(message: "Json deserialize type conversion error for jsonString: \(jsonString)")
+                return nil
+            }
         } catch {
             XennioLogger.log(message: "Json deserialize error for jsonString: \(jsonString)")
             return nil
