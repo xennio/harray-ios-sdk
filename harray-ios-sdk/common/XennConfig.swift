@@ -13,6 +13,7 @@ import Foundation
     private let sdkKey: String
     private var apiUrl: String = Constants.XENN_API_URL.rawValue
     private var collectorUrl: String = Constants.XENN_COLLECTOR_URL.rawValue
+    private var inAppNotificationLinkClickHandler: ((_ deepLink: String) -> ())? = nil
     
     private init(sdkKey: String) {
         self.sdkKey = sdkKey
@@ -24,6 +25,11 @@ import Foundation
     
     public func collectorUrl(url: String) -> XennConfig {
         self.collectorUrl = XennConfig.getValidUrl(url: url)
+        return self
+    }
+    
+    public func inAppNotificationLinkClickHandler(_ handler: ((_ deepLink: String) -> ())? = nil) -> XennConfig {
+        self.inAppNotificationLinkClickHandler = handler
         return self
     }
 
@@ -42,6 +48,10 @@ import Foundation
 
     public func getApiUrl() -> String {
         return self.apiUrl
+    }
+    
+    public func getInAppNotificationLinkClickHandler() -> ((_ deepLink: String) -> ())? {
+        return self.inAppNotificationLinkClickHandler
     }
     
     private static func getValidUrl(url: String) -> String {

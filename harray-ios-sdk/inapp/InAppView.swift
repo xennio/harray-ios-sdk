@@ -15,6 +15,7 @@ class InAppView : UIView {
     @IBOutlet weak var webViewContainerView: UIView!
     
     var onNavigation: ((_ navigateTo: String) -> ())?
+    var onClose: (() -> ())?
     
     let kCONTENT_XIB_NAME = "InAppView"
     
@@ -24,16 +25,14 @@ class InAppView : UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        commonInit()
     }
         
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        commonInit()
     }
     
-    func commonInit() {
-        Bundle(identifier: "com.xennSDK.example")?.loadNibNamed(kCONTENT_XIB_NAME, owner: self, options: nil)
+    func loadPopup(content: String) {
+        Bundle(identifier: "io.xenn.harray-ios-sdk")?.loadNibNamed(kCONTENT_XIB_NAME, owner: self, options: nil)
         containerView.fixInView(self)
         
         //Adding WKWebView to the Container View.
@@ -41,12 +40,7 @@ class InAppView : UIView {
         webView.fixInView(webViewContainerView)
         webViewContainerView.addSubview(webView)
         webView.navigationDelegate = self
-        
-        let link = URL(string:"https://www.google.com/")!
-        let request = URLRequest(url: link)
-        
-        webView.load(request)
-        
+        webView.loadHTMLString(content, baseURL: nil)
     }
 
     

@@ -50,14 +50,20 @@ import UIKit
         let httpService = HttpService(sdkKey: xennConfig.getSdkKey(), session: URLSession.shared, collectorUrl: xennConfig.getCollectorUrl(), apiUrl: xennConfig.getApiUrl())
         let entitySerializerService = EntitySerializerService(encodingService: EncodingService(), jsonSerializerService: JsonSerializerService())
         let deviceService = DeviceService(bundle: Bundle.main, uiDevice: UIDevice.current, uiScreen: UIScreen.main, locale: Locale.current)
+        let chainProcessorHandler = ChainProcessorHandler()
         
-        let eventProcessorHandler = EventProcessorHandler(applicationContextHolder: applicationContextHolder, sessionContextHolder: sessionContextHolder, httpService: httpService, entitySerializerService: entitySerializerService)
+        let eventProcessorHandler = EventProcessorHandler(applicationContextHolder: applicationContextHolder, sessionContextHolder: sessionContextHolder, httpService: httpService, entitySerializerService: entitySerializerService, chainProcessorHandler: chainProcessorHandler)
         let sdkEventProcessorHandler = SDKEventProcessorHandler(applicationContextHolder: applicationContextHolder, sessionContextHolder: sessionContextHolder, httpService: httpService, entitySerializerService: entitySerializerService, deviceService: deviceService)
         let notificationProcessorHandler = NotificationProcessorHandler(httpService: httpService, entitySerializerService: entitySerializerService)
         let ecommerceEventProcessorHandler = EcommerceEventProcessorHandler(eventProcessorHandler: eventProcessorHandler)
         let jsonDeserializerService = JsonDeserializerService()
         let recommendationProcessorHandler = RecommendationProcessorHandler(applicationContextHolder: applicationContextHolder, sessionContextHolder: sessionContextHolder, httpService: httpService, sdkKey: xennConfig.getSdkKey(), jsonDeserializerService: jsonDeserializerService)
         let browsingHistoryProcessorHandler = BrowsingHistoryProcessorHandler(applicationContextHolder: applicationContextHolder, sessionContextHolder: sessionContextHolder, httpService: httpService, sdkKey: xennConfig.getSdkKey(), jsonDeserializerService: jsonDeserializerService)
+        
+        let inAppNotificationProcessorHandler =
+            InAppNotificationProcessorHandler(applicationContextHolder: applicationContextHolder, sessionContextHolder: sessionContextHolder, httpService: httpService, eventProcessorHandler: eventProcessorHandler, xennConfig: xennConfig, jsonDeserializerService: jsonDeserializerService)
+        
+        chainProcessorHandler.addHandler(handler: inAppNotificationProcessorHandler)
 
         instance = Xennio(xennConfig: xennConfig,
                           sessionContextHolder: sessionContextHolder,

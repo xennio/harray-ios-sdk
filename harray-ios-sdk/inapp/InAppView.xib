@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -11,12 +11,49 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+        <view contentMode="scaleToFill" id="jKo-5H-6uI" customClass="InAppView" customModule="harray_ios_sdk" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="310" height="504"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
-            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-            <point key="canvasLocation" x="139" y="100"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YV9-ol-zzu">
+                    <rect key="frame" x="0.0" y="0.0" width="310" height="504"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.20793006533668154" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JJ9-Yg-V22">
+                    <rect key="frame" x="30" y="74" width="250" height="400"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p6l-eM-rLT">
+                    <rect key="frame" x="230" y="94" width="30" height="40"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                    <state key="normal" title="X">
+                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="btnCloseAction:" destination="jKo-5H-6uI" eventType="touchUpInside" id="lzn-hi-LU2"/>
+                    </connections>
+                </button>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="GRs-jN-FEj"/>
+            <color key="backgroundColor" white="0.0" alpha="0.171871886" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="GRs-jN-FEj" firstAttribute="trailing" secondItem="JJ9-Yg-V22" secondAttribute="trailing" constant="30" id="7bb-d9-Q3G"/>
+                <constraint firstItem="JJ9-Yg-V22" firstAttribute="leading" secondItem="GRs-jN-FEj" secondAttribute="leading" constant="30" id="Anv-kp-nGO"/>
+                <constraint firstItem="GRs-jN-FEj" firstAttribute="bottom" secondItem="JJ9-Yg-V22" secondAttribute="bottom" constant="30" id="D3l-64-LC4"/>
+                <constraint firstItem="YV9-ol-zzu" firstAttribute="leading" secondItem="GRs-jN-FEj" secondAttribute="leading" id="PGm-no-H5R"/>
+                <constraint firstItem="JJ9-Yg-V22" firstAttribute="top" secondItem="GRs-jN-FEj" secondAttribute="top" constant="30" id="hvv-K7-zmh"/>
+                <constraint firstItem="p6l-eM-rLT" firstAttribute="trailing" secondItem="JJ9-Yg-V22" secondAttribute="trailing" constant="-20" id="o6g-fr-opB"/>
+                <constraint firstItem="YV9-ol-zzu" firstAttribute="top" secondItem="jKo-5H-6uI" secondAttribute="top" id="ryK-p5-a8S"/>
+                <constraint firstItem="GRs-jN-FEj" firstAttribute="bottom" secondItem="YV9-ol-zzu" secondAttribute="bottom" id="thg-5Y-etl"/>
+                <constraint firstItem="p6l-eM-rLT" firstAttribute="top" secondItem="JJ9-Yg-V22" secondAttribute="top" constant="20" id="vau-oc-3KP"/>
+                <constraint firstItem="GRs-jN-FEj" firstAttribute="trailing" secondItem="YV9-ol-zzu" secondAttribute="trailing" id="zD9-yd-3hG"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="containerView" destination="YV9-ol-zzu" id="0d3-9d-u28"/>
+                <outlet property="webViewContainerView" destination="JJ9-Yg-V22" id="0m4-0R-j7d"/>
+            </connections>
+            <point key="canvasLocation" x="125" y="-40"/>
         </view>
     </objects>
     <resources>

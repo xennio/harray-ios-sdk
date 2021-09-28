@@ -56,6 +56,14 @@
 		35A9769526FBB90100AADE45 /* InAppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A9769326FBB90100AADE45 /* InAppView.swift */; };
 		35A9769726FBBA1100AADE45 /* InAppView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 35A9769626FBBA1100AADE45 /* InAppView.xib */; };
 		35A9769826FBBA1100AADE45 /* InAppView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 35A9769626FBBA1100AADE45 /* InAppView.xib */; };
+		35F2FAFD270385C000EE41AD /* AfterPageViewEventHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F2FAFC270385C000EE41AD /* AfterPageViewEventHandler.swift */; };
+		35F2FAFE270385C000EE41AD /* AfterPageViewEventHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F2FAFC270385C000EE41AD /* AfterPageViewEventHandler.swift */; };
+		35F2FB002703876200EE41AD /* InAppNotificationProcessorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F2FAFF2703876200EE41AD /* InAppNotificationProcessorHandler.swift */; };
+		35F2FB012703876200EE41AD /* InAppNotificationProcessorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F2FAFF2703876200EE41AD /* InAppNotificationProcessorHandler.swift */; };
+		35F2FB032703988D00EE41AD /* InAppNotificationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F2FB022703988D00EE41AD /* InAppNotificationResponse.swift */; };
+		35F2FB042703988D00EE41AD /* InAppNotificationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F2FB022703988D00EE41AD /* InAppNotificationResponse.swift */; };
+		35F2FB0627039D5E00EE41AD /* ChainProcessorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F2FB0527039D5E00EE41AD /* ChainProcessorHandler.swift */; };
+		35F2FB0727039D5E00EE41AD /* ChainProcessorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F2FB0527039D5E00EE41AD /* ChainProcessorHandler.swift */; };
 		75F792287F3DC850963A0BEE /* HttpTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F79CE78FABE7F3A95D9FAA /* HttpTask.swift */; };
 		75F7936590788B5E2B4D582A /* DeviceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6C7F7A24505EF3001FE80C /* DeviceService.swift */; };
 		75F794E5C382C753E6924F0F /* HttpServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F79E2D8FC019EEC9D0E3FB /* HttpServiceTest.swift */; };
@@ -147,6 +155,10 @@
 		354119DF254F2F0800FC0219 /* OrderItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderItem.swift; sourceTree = "<group>"; };
 		35A9769326FBB90100AADE45 /* InAppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InAppView.swift; sourceTree = "<group>"; };
 		35A9769626FBBA1100AADE45 /* InAppView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InAppView.xib; sourceTree = "<group>"; };
+		35F2FAFC270385C000EE41AD /* AfterPageViewEventHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AfterPageViewEventHandler.swift; sourceTree = "<group>"; };
+		35F2FAFF2703876200EE41AD /* InAppNotificationProcessorHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InAppNotificationProcessorHandler.swift; sourceTree = "<group>"; };
+		35F2FB022703988D00EE41AD /* InAppNotificationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InAppNotificationResponse.swift; sourceTree = "<group>"; };
+		35F2FB0527039D5E00EE41AD /* ChainProcessorHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChainProcessorHandler.swift; sourceTree = "<group>"; };
 		75F79280AAAAAA4ACB84F71E /* Errors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		75F7937C8E4A3DE0197BA508 /* NotificationProcessorHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationProcessorHandler.swift; sourceTree = "<group>"; };
 		75F793896A549ED373F17825 /* SDKEventProcessorHandlerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SDKEventProcessorHandlerTest.swift; sourceTree = "<group>"; };
@@ -279,6 +291,9 @@
 				D3A8FFD867CD2725033E487D /* EcommerceEventProcessorHandler.swift */,
 				C296EE4C25C1535400EA7E73 /* RecommendationProcessorHandler.swift */,
 				EC7FEB4033718193879CBBD0 /* BrowsingHistoryProcessorHandler.swift */,
+				35F2FAFC270385C000EE41AD /* AfterPageViewEventHandler.swift */,
+				35F2FAFF2703876200EE41AD /* InAppNotificationProcessorHandler.swift */,
+				35F2FB0527039D5E00EE41AD /* ChainProcessorHandler.swift */,
 			);
 			path = event;
 			sourceTree = "<group>";
@@ -313,6 +328,7 @@
 				354119D7254F2D4700FC0219 /* ecommerce */,
 				1D6C7F47245037C6001FE80C /* XennEvent.swift */,
 				D3A8F03219DAFBBDCDB18479 /* FeedbackEvent.swift */,
+				35F2FB022703988D00EE41AD /* InAppNotificationResponse.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -558,6 +574,7 @@
 				1D6C7F4B245037C6001FE80C /* RandomValueUtils.swift in Sources */,
 				1D6C7F38245037BC001FE80C /* SessionContextHolder.swift in Sources */,
 				1D6C7F7924505DE5001FE80C /* SDKEventProcessorHandler.swift in Sources */,
+				35F2FB0627039D5E00EE41AD /* ChainProcessorHandler.swift in Sources */,
 				1D6C7F4A245037C6001FE80C /* XennioLogger.swift in Sources */,
 				1D6C7F48245037C6001FE80C /* EventProcessorHandler.swift in Sources */,
 				354119E0254F2F0800FC0219 /* OrderItem.swift in Sources */,
@@ -575,8 +592,10 @@
 				1D6C7F7B24505EF3001FE80C /* DeviceService.swift in Sources */,
 				75F7995A3063770EB44E8F6D /* NotificationProcessorHandler.swift in Sources */,
 				75F79FA7035C1DC7514F8D88 /* Errors.swift in Sources */,
+				35F2FAFD270385C000EE41AD /* AfterPageViewEventHandler.swift in Sources */,
 				C2B7CB94262F2F4200DAB8CE /* XennConfig.swift in Sources */,
 				75F79E02D73FE1F75CD7B894 /* PostFormUrlEncodedRequest.swift in Sources */,
+				35F2FB002703876200EE41AD /* InAppNotificationProcessorHandler.swift in Sources */,
 				75F79E511915046F48D0FB2E /* HttpTask.swift in Sources */,
 				354119D9254F2D5700FC0219 /* Order.swift in Sources */,
 				D3A8FAC96F4EBA60E90FE57B /* FeedbackEvent.swift in Sources */,
@@ -586,6 +605,7 @@
 				D3A8FBA54C50A304CF02AEA1 /* EcommerceEventProcessorHandler.swift in Sources */,
 				35A9769426FBB90100AADE45 /* InAppView.swift in Sources */,
 				C2B7CB96262FF52300DAB8CE /* UrlUtils.swift in Sources */,
+				35F2FB032703988D00EE41AD /* InAppNotificationResponse.swift in Sources */,
 				EC7FE906101F353C4EAE3DCA /* BrowsingHistoryProcessorHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -596,6 +616,8 @@
 			files = (
 				C285B35E25C20A5400E1E88A /* RecommendationProcessorHandler.swift in Sources */,
 				1D6C7F7324503869001FE80C /* SessionContextHolder.swift in Sources */,
+				35F2FAFE270385C000EE41AD /* AfterPageViewEventHandler.swift in Sources */,
+				35F2FB0727039D5E00EE41AD /* ChainProcessorHandler.swift in Sources */,
 				1D6C7F742450386B001FE80C /* ApplicationContextHolder.swift in Sources */,
 				1D6C7F63245037E4001FE80C /* RandomValueUtilsTest.swift in Sources */,
 				35A9769526FBB90100AADE45 /* InAppView.swift in Sources */,
@@ -604,6 +626,7 @@
 				1D6C7F7624503870001FE80C /* Constants.swift in Sources */,
 				C2CFA29A25C2864E001B61BE /* ApiGetJsonRequest.swift in Sources */,
 				1D6C7F62245037E4001FE80C /* ClockUtilsTest.swift in Sources */,
+				35F2FB012703876200EE41AD /* InAppNotificationProcessorHandler.swift in Sources */,
 				1D6C7F61245037E4001FE80C /* Stubbings.swift in Sources */,
 				1D6C7F6A2450384E001FE80C /* EventProcessorHandler.swift in Sources */,
 				1D6C7F69245037E4001FE80C /* EncodingServiceTest.swift in Sources */,
@@ -640,6 +663,7 @@
 				C2EB054E26304713004EF82A /* XennConfigTest.swift in Sources */,
 				75F792287F3DC850963A0BEE /* HttpTask.swift in Sources */,
 				75F79A1CCEC0CF0706B6F4B7 /* PostFormUrlEncodedRequestTest.swift in Sources */,
+				35F2FB042703988D00EE41AD /* InAppNotificationResponse.swift in Sources */,
 				354119DA254F2D5700FC0219 /* Order.swift in Sources */,
 				D3A8FCE4CE647E4C7853EF2B /* FeedbackEvent.swift in Sources */,
 				C256F80D25C4259B00240F79 /* JsonDeserializerServiceTest.swift in Sources */,

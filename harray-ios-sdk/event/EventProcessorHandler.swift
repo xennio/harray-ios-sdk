@@ -14,12 +14,14 @@ import Foundation
     private let sessionContextHolder: SessionContextHolder
     private let httpService: HttpService
     private let entitySerializerService: EntitySerializerService
+    private let chainProcessorHandler : ChainProcessorHandler
 
-    init(applicationContextHolder: ApplicationContextHolder, sessionContextHolder: SessionContextHolder, httpService: HttpService, entitySerializerService: EntitySerializerService) {
+    init(applicationContextHolder: ApplicationContextHolder, sessionContextHolder: SessionContextHolder, httpService: HttpService, entitySerializerService: EntitySerializerService, chainProcessorHandler : ChainProcessorHandler) {
         self.applicationContextHolder = applicationContextHolder
         self.sessionContextHolder = sessionContextHolder
         self.httpService = httpService
         self.entitySerializerService = entitySerializerService
+        self.chainProcessorHandler = chainProcessorHandler
     }
 
     @objc public func pageView(pageType: String) {
@@ -34,6 +36,7 @@ import Foundation
                 .toMap()
         let serializedEvent = entitySerializerService.serializeToBase64(event: pageViewEvent)
         httpService.postFormUrlEncoded(payload: serializedEvent)
+        chainProcessorHandler.callAll(pageType: pageType)
     }
 
     @objc public func actionResult(type: String) {
