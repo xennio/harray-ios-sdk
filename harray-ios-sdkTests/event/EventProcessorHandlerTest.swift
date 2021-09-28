@@ -13,6 +13,7 @@ class EventProcessorHandlerTest: XCTestCase {
     func test_it_should_construct_page_view_event_and_make_api_call() {
         let sessionContextHolder = FakeSessionContextHolder().withExtraParameters(["utm_medium": "xennio"])
         let applicationContextHolder = FakeApplicationContextHolder(userDefaults: InitializedUserDefaults())
+        let chainProcessorHandler = ChainProcessorHandler()
 
         let httpService = FakeHttpService(
             sdkKey: "sdk-key",
@@ -21,7 +22,7 @@ class EventProcessorHandlerTest: XCTestCase {
             apiUrl: "https://api.xenn.io"
         )
         let entitySerializerService = CapturingEntitySerializerService.init()
-        let eventProcessorHandler = EventProcessorHandler(applicationContextHolder: applicationContextHolder, sessionContextHolder: sessionContextHolder, httpService: httpService, entitySerializerService: entitySerializerService)
+        let eventProcessorHandler = EventProcessorHandler(applicationContextHolder: applicationContextHolder, sessionContextHolder: sessionContextHolder, httpService: httpService, entitySerializerService: entitySerializerService, chainProcessorHandler: chainProcessorHandler)
         entitySerializerService.givenSerializeReturns(callWith: TestUtils.anyDictionary(), expect: "serialized_event")
         httpService.givenPostWithPayload(callWith: "serialized_event")
 
@@ -44,7 +45,7 @@ class EventProcessorHandlerTest: XCTestCase {
     func test_it_should_construct_page_view_and_append_extra_params_to_event_and_make_api_call() {
         let sessionContextHolder = FakeSessionContextHolder().withExtraParameters(["utm_medium": "xennio"])
         let applicationContextHolder = FakeApplicationContextHolder(userDefaults: InitializedUserDefaults())
-
+        let chainProcessorHandler = ChainProcessorHandler()
         let httpService = FakeHttpService(
             sdkKey: "sdk-key",
             session: FakeUrlSession(),
@@ -53,7 +54,7 @@ class EventProcessorHandlerTest: XCTestCase {
         )
 
         let entitySerializerService = CapturingEntitySerializerService.init()
-        let eventProcessorHandler = EventProcessorHandler(applicationContextHolder: applicationContextHolder, sessionContextHolder: sessionContextHolder, httpService: httpService, entitySerializerService: entitySerializerService)
+        let eventProcessorHandler = EventProcessorHandler(applicationContextHolder: applicationContextHolder, sessionContextHolder: sessionContextHolder, httpService: httpService, entitySerializerService: entitySerializerService,chainProcessorHandler: chainProcessorHandler)
         entitySerializerService.givenSerializeReturns(callWith: TestUtils.anyDictionary(), expect: "serialized_event")
         httpService.givenPostWithPayload(callWith: "serialized_event")
 
@@ -78,7 +79,7 @@ class EventProcessorHandlerTest: XCTestCase {
     func test_it_should_not_invoke_http_service_when_serializer_service_has_error_on_page_view() {
         let sessionContextHolder = FakeSessionContextHolder().withExtraParameters(["utm_medium": "xennio"])
         let applicationContextHolder = FakeApplicationContextHolder(userDefaults: InitializedUserDefaults())
-
+        let chainProcessorHandler = ChainProcessorHandler()
         let httpService = FakeHttpService(
             sdkKey: "sdk-key",
             session: FakeUrlSession(),
@@ -86,7 +87,7 @@ class EventProcessorHandlerTest: XCTestCase {
             apiUrl: "https://api.xenn.io"
         )
         let entitySerializerService = CapturingEntitySerializerService.init()
-        let eventProcessorHandler = EventProcessorHandler(applicationContextHolder: applicationContextHolder, sessionContextHolder: sessionContextHolder, httpService: httpService, entitySerializerService: entitySerializerService)
+        let eventProcessorHandler = EventProcessorHandler(applicationContextHolder: applicationContextHolder, sessionContextHolder: sessionContextHolder, httpService: httpService, entitySerializerService: entitySerializerService,chainProcessorHandler: chainProcessorHandler)
         entitySerializerService.givenSerializeReturns(callWith: TestUtils.anyDictionary(), expect: nil)
 
         eventProcessorHandler.pageView(pageType: "homePage", params: ["param1": "value1", "param2": 1])
@@ -97,7 +98,7 @@ class EventProcessorHandlerTest: XCTestCase {
     func test_it_should_construct_action_result_event_and_make_api_call() {
         let sessionContextHolder = FakeSessionContextHolder()
         let applicationContextHolder = FakeApplicationContextHolder(userDefaults: InitializedUserDefaults())
-
+        let chainProcessorHandler = ChainProcessorHandler()
         let httpService = FakeHttpService(
             sdkKey: "sdk-key",
             session: FakeUrlSession(),
@@ -105,7 +106,7 @@ class EventProcessorHandlerTest: XCTestCase {
             apiUrl: "https://api.xenn.io"
         )
         let entitySerializerService = CapturingEntitySerializerService.init()
-        let eventProcessorHandler = EventProcessorHandler(applicationContextHolder: applicationContextHolder, sessionContextHolder: sessionContextHolder, httpService: httpService, entitySerializerService: entitySerializerService)
+        let eventProcessorHandler = EventProcessorHandler(applicationContextHolder: applicationContextHolder, sessionContextHolder: sessionContextHolder, httpService: httpService, entitySerializerService: entitySerializerService,chainProcessorHandler: chainProcessorHandler)
         entitySerializerService.givenSerializeReturns(callWith: TestUtils.anyDictionary(), expect: "serialized_event")
         httpService.givenPostWithPayload(callWith: "serialized_event")
 
@@ -128,7 +129,7 @@ class EventProcessorHandlerTest: XCTestCase {
     func test_it_should_construct_action_result_event_and_append_extra_params_to_event_and_make_api_call() {
         let sessionContextHolder = FakeSessionContextHolder()
         let applicationContextHolder = FakeApplicationContextHolder(userDefaults: InitializedUserDefaults())
-
+        let chainProcessorHandler = ChainProcessorHandler()
         let httpService = FakeHttpService(
             sdkKey: "sdk-key",
             session: FakeUrlSession(),
@@ -136,7 +137,7 @@ class EventProcessorHandlerTest: XCTestCase {
             apiUrl: "https://api.xenn.io"
         )
         let entitySerializerService = CapturingEntitySerializerService.init()
-        let eventProcessorHandler = EventProcessorHandler(applicationContextHolder: applicationContextHolder, sessionContextHolder: sessionContextHolder, httpService: httpService, entitySerializerService: entitySerializerService)
+        let eventProcessorHandler = EventProcessorHandler(applicationContextHolder: applicationContextHolder, sessionContextHolder: sessionContextHolder, httpService: httpService, entitySerializerService: entitySerializerService,chainProcessorHandler: chainProcessorHandler)
         entitySerializerService.givenSerializeReturns(callWith: TestUtils.anyDictionary(), expect: "serialized_event")
         httpService.givenPostWithPayload(callWith: "serialized_event")
 
@@ -161,7 +162,7 @@ class EventProcessorHandlerTest: XCTestCase {
     func test_it_should_not_invoke_http_service_when_serializer_service_has_error_on_action_result() {
         let sessionContextHolder = FakeSessionContextHolder().withExtraParameters(["utm_medium": "xennio"])
         let applicationContextHolder = FakeApplicationContextHolder(userDefaults: InitializedUserDefaults())
-
+        let chainProcessorHandler = ChainProcessorHandler()
         let httpService = FakeHttpService(
             sdkKey: "sdk-key",
             session: FakeUrlSession(),
@@ -169,7 +170,7 @@ class EventProcessorHandlerTest: XCTestCase {
             apiUrl: "https://api.xenn.io"
         )
         let entitySerializerService = CapturingEntitySerializerService.init()
-        let eventProcessorHandler = EventProcessorHandler(applicationContextHolder: applicationContextHolder, sessionContextHolder: sessionContextHolder, httpService: httpService, entitySerializerService: entitySerializerService)
+        let eventProcessorHandler = EventProcessorHandler(applicationContextHolder: applicationContextHolder, sessionContextHolder: sessionContextHolder, httpService: httpService, entitySerializerService: entitySerializerService,chainProcessorHandler: chainProcessorHandler)
         entitySerializerService.givenSerializeReturns(callWith: TestUtils.anyDictionary(), expect: nil)
 
         eventProcessorHandler.actionResult(type: "conversion", params: ["param1": "value1", "param2": 1])
@@ -180,7 +181,7 @@ class EventProcessorHandlerTest: XCTestCase {
     func test_it_should_construct_impression_event_and_make_api_call() {
         let sessionContextHolder = FakeSessionContextHolder()
         let applicationContextHolder = FakeApplicationContextHolder(userDefaults: InitializedUserDefaults())
-
+        let chainProcessorHandler = ChainProcessorHandler()
         let httpService = FakeHttpService(
             sdkKey: "sdk-key",
             session: FakeUrlSession(),
@@ -188,7 +189,7 @@ class EventProcessorHandlerTest: XCTestCase {
             apiUrl: "https://api.xenn.io"
         )
         let entitySerializerService = CapturingEntitySerializerService.init()
-        let eventProcessorHandler = EventProcessorHandler(applicationContextHolder: applicationContextHolder, sessionContextHolder: sessionContextHolder, httpService: httpService, entitySerializerService: entitySerializerService)
+        let eventProcessorHandler = EventProcessorHandler(applicationContextHolder: applicationContextHolder, sessionContextHolder: sessionContextHolder, httpService: httpService, entitySerializerService: entitySerializerService,chainProcessorHandler: chainProcessorHandler)
         entitySerializerService.givenSerializeReturns(callWith: TestUtils.anyDictionary(), expect: "serialized_event")
         httpService.givenPostWithPayload(callWith: "serialized_event")
 
@@ -211,7 +212,7 @@ class EventProcessorHandlerTest: XCTestCase {
     func test_it_should_construct_impression_event_and_append_extra_params_to_event_and_make_api_call() {
         let sessionContextHolder = FakeSessionContextHolder()
         let applicationContextHolder = FakeApplicationContextHolder(userDefaults: InitializedUserDefaults())
-
+        let chainProcessorHandler = ChainProcessorHandler()
         let httpService = FakeHttpService(
             sdkKey: "sdk-key",
             session: FakeUrlSession(),
@@ -219,7 +220,7 @@ class EventProcessorHandlerTest: XCTestCase {
             apiUrl: "https://api.xenn.io"
         )
         let entitySerializerService = CapturingEntitySerializerService.init()
-        let eventProcessorHandler = EventProcessorHandler(applicationContextHolder: applicationContextHolder, sessionContextHolder: sessionContextHolder, httpService: httpService, entitySerializerService: entitySerializerService)
+        let eventProcessorHandler = EventProcessorHandler(applicationContextHolder: applicationContextHolder, sessionContextHolder: sessionContextHolder, httpService: httpService, entitySerializerService: entitySerializerService,chainProcessorHandler: chainProcessorHandler)
         entitySerializerService.givenSerializeReturns(callWith: TestUtils.anyDictionary(), expect: "serialized_event")
         httpService.givenPostWithPayload(callWith: "serialized_event")
 
@@ -244,7 +245,7 @@ class EventProcessorHandlerTest: XCTestCase {
     func test_it_should_not_invoke_http_service_when_serializer_service_has_error_on_impression() {
         let sessionContextHolder = FakeSessionContextHolder().withExtraParameters(["utm_medium": "xennio"])
         let applicationContextHolder = FakeApplicationContextHolder(userDefaults: InitializedUserDefaults())
-
+        let chainProcessorHandler = ChainProcessorHandler()
         let httpService = FakeHttpService(
             sdkKey: "sdk-key",
             session: FakeUrlSession(),
@@ -252,7 +253,7 @@ class EventProcessorHandlerTest: XCTestCase {
             apiUrl: "https://api.xenn.io"
         )
         let entitySerializerService = CapturingEntitySerializerService.init()
-        let eventProcessorHandler = EventProcessorHandler(applicationContextHolder: applicationContextHolder, sessionContextHolder: sessionContextHolder, httpService: httpService, entitySerializerService: entitySerializerService)
+        let eventProcessorHandler = EventProcessorHandler(applicationContextHolder: applicationContextHolder, sessionContextHolder: sessionContextHolder, httpService: httpService, entitySerializerService: entitySerializerService,chainProcessorHandler: chainProcessorHandler)
         entitySerializerService.givenSerializeReturns(callWith: TestUtils.anyDictionary(), expect: nil)
 
         eventProcessorHandler.impression(pageType: "productDetail", params: ["param1": "value1", "param2": 1])
@@ -264,7 +265,7 @@ class EventProcessorHandlerTest: XCTestCase {
     func test_it_should_construct_custom_event_and_make_api_call() {
         let sessionContextHolder = FakeSessionContextHolder().withExtraParameters(["utm_medium": "xennio"])
         let applicationContextHolder = FakeApplicationContextHolder(userDefaults: InitializedUserDefaults())
-
+        let chainProcessorHandler = ChainProcessorHandler()
         let httpService = FakeHttpService(
             sdkKey: "sdk-key",
             session: FakeUrlSession(),
@@ -272,7 +273,7 @@ class EventProcessorHandlerTest: XCTestCase {
             apiUrl: "https://api.xenn.io"
         )
         let entitySerializerService = CapturingEntitySerializerService.init()
-        let eventProcessorHandler = EventProcessorHandler(applicationContextHolder: applicationContextHolder, sessionContextHolder: sessionContextHolder, httpService: httpService, entitySerializerService: entitySerializerService)
+        let eventProcessorHandler = EventProcessorHandler(applicationContextHolder: applicationContextHolder, sessionContextHolder: sessionContextHolder, httpService: httpService, entitySerializerService: entitySerializerService,chainProcessorHandler: chainProcessorHandler)
         entitySerializerService.givenSerializeReturns(callWith: TestUtils.anyDictionary(), expect: "serialized_event")
         httpService.givenPostWithPayload(callWith: "serialized_event")
 
@@ -296,7 +297,7 @@ class EventProcessorHandlerTest: XCTestCase {
     func test_it_should_not_invoke_http_service_when_serializer_service_has_error_on_custom_event() {
         let sessionContextHolder = FakeSessionContextHolder().withExtraParameters(["utm_medium": "xennio"])
         let applicationContextHolder = FakeApplicationContextHolder(userDefaults: InitializedUserDefaults())
-
+        let chainProcessorHandler = ChainProcessorHandler()
         let httpService = FakeHttpService(
             sdkKey: "sdk-key",
             session: FakeUrlSession(),
@@ -304,7 +305,7 @@ class EventProcessorHandlerTest: XCTestCase {
             apiUrl: "https://api.xenn.io"
         )
         let entitySerializerService = CapturingEntitySerializerService.init()
-        let eventProcessorHandler = EventProcessorHandler(applicationContextHolder: applicationContextHolder, sessionContextHolder: sessionContextHolder, httpService: httpService, entitySerializerService: entitySerializerService)
+        let eventProcessorHandler = EventProcessorHandler(applicationContextHolder: applicationContextHolder, sessionContextHolder: sessionContextHolder, httpService: httpService, entitySerializerService: entitySerializerService,chainProcessorHandler: chainProcessorHandler)
         entitySerializerService.givenSerializeReturns(callWith: TestUtils.anyDictionary(), expect: nil)
 
         eventProcessorHandler.custom(eventName: "customEvent", params: ["param1": "value1", "param2": 1])
@@ -315,7 +316,7 @@ class EventProcessorHandlerTest: XCTestCase {
     func test_it_should_construct_save_push_token_event_and_make_api_call() {
         let sessionContextHolder = FakeSessionContextHolder()
         let applicationContextHolder = FakeApplicationContextHolder(userDefaults: InitializedUserDefaults())
-
+        let chainProcessorHandler = ChainProcessorHandler()
         let httpService = FakeHttpService(
             sdkKey: "sdk-key",
             session: FakeUrlSession(),
@@ -323,7 +324,7 @@ class EventProcessorHandlerTest: XCTestCase {
             apiUrl: "https://api.xenn.io"
         )
         let entitySerializerService = CapturingEntitySerializerService.init()
-        let eventProcessorHandler = EventProcessorHandler(applicationContextHolder: applicationContextHolder, sessionContextHolder: sessionContextHolder, httpService: httpService, entitySerializerService: entitySerializerService)
+        let eventProcessorHandler = EventProcessorHandler(applicationContextHolder: applicationContextHolder, sessionContextHolder: sessionContextHolder, httpService: httpService, entitySerializerService: entitySerializerService,chainProcessorHandler: chainProcessorHandler)
 
         entitySerializerService.givenSerializeReturns(callWith: TestUtils.anyDictionary(), expect: "serialized_event")
         httpService.givenPostWithPayload(callWith: "serialized_event")
@@ -351,7 +352,7 @@ class EventProcessorHandlerTest: XCTestCase {
     func test_it_should_construct_remove_push_token_event_and_make_api_call() {
         let sessionContextHolder = FakeSessionContextHolder()
         let applicationContextHolder = FakeApplicationContextHolder(userDefaults: InitializedUserDefaults())
-
+        let chainProcessorHandler = ChainProcessorHandler()
         let httpService = FakeHttpService(
             sdkKey: "sdk-key",
             session: FakeUrlSession(),
@@ -359,7 +360,7 @@ class EventProcessorHandlerTest: XCTestCase {
             apiUrl: "https://api.xenn.io"
         )
         let entitySerializerService = CapturingEntitySerializerService.init()
-        let eventProcessorHandler = EventProcessorHandler(applicationContextHolder: applicationContextHolder, sessionContextHolder: sessionContextHolder, httpService: httpService, entitySerializerService: entitySerializerService)
+        let eventProcessorHandler = EventProcessorHandler(applicationContextHolder: applicationContextHolder, sessionContextHolder: sessionContextHolder, httpService: httpService, entitySerializerService: entitySerializerService,chainProcessorHandler: chainProcessorHandler)
 
         entitySerializerService.givenSerializeReturns(callWith: TestUtils.anyDictionary(), expect: "serialized_event")
         httpService.givenPostWithPayload(callWith: "serialized_event")

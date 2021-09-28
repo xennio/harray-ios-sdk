@@ -336,10 +336,12 @@ class CapturingEventProcessorHandler: EventProcessorHandler {
     var capturedParams: [Dictionary<String, Any>] = [Dictionary<String, Any>]()
     var actionResultInvokeCount: Int = 0
     var pageViewInvokeCount: Int = 0
+    let chainProcessorHandler = ChainProcessorHandler()
     init(){
         super.init(applicationContextHolder: FakeApplicationContextHolder(userDefaults: NotInitializedUserDefaults()),
                    sessionContextHolder: FakeSessionContextHolder(), httpService: FakeHttpService(sdkKey: "", session: FakeUrlSession(), collectorUrl: "", apiUrl: ""),
-                entitySerializerService: CapturingEntitySerializerService())
+                entitySerializerService: CapturingEntitySerializerService()
+        ,chainProcessorHandler: chainProcessorHandler)
     }
 
     override func pageView(pageType: String, params: Dictionary<String, Any>) {

@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 
+@available(iOSApplicationExtension,unavailable)
 @objc public class InAppNotificationProcessorHandler: NSObject, AfterPageViewEventHandler {
     
     private let xennConfig: XennConfig
@@ -23,7 +24,6 @@ import UIKit
         self.sessionContextHolder = sessionContextHolder
         self.httpService = httpService
         self.eventProcessorHandler = eventProcessorHandler
-    
         self.xennConfig = xennConfig
         self.jsonDeserializerService = jsonDeserializerService
     }
@@ -39,7 +39,7 @@ import UIKit
                 
                 if let frame = self.topViewController()?.view.frame {
                     let mView = InAppView(frame: frame)
-                    mView.loadPopup(content: "<html><head>" + notificationResponse.style + "</head><body>" + notificationResponse.html + "</body></html>")
+                    mView.loadPopup(content: "<html><head><style>" + notificationResponse.style + "</style></head><body>" + notificationResponse.html + "</body></html>")
                     mView.onNavigation = {
                         navigateTo in
                         self.xennConfig.getInAppNotificationLinkClickHandler()?(navigateTo)

@@ -44,6 +44,7 @@ import UIKit
         self.browsingHistoryProcessorHandler = browsingHistoryProcessorHandler
     }
     
+    @available(iOSApplicationExtension,unavailable)
     @objc public class func configure(xennConfig: XennConfig) {
         let sessionContextHolder = SessionContextHolder()
         let applicationContextHolder = ApplicationContextHolder(userDefaults: UserDefaults.standard)

@@ -12,5 +12,5 @@ class InAppNotificationResponse: Decodable{
     let id: String
     let style: String
     let html: String
-    let imageUrl: String
+    let imageUrl: String?
 }
