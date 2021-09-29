@@ -38,14 +38,12 @@ class InAppView : UIView {
     }
     
     func loadPopup(content: String) {
-        Bundle(identifier: "org.cocoapods.Xennio")?.loadNibNamed(kCONTENT_XIB_NAME, owner: self, options: nil)
         let bundle = Bundle(identifier: "org.cocoapods.Xennio")
         bundle?.loadNibNamed(kCONTENT_XIB_NAME, owner: self, options: nil)
         containerView.fixInView(self)
         
         btnClose.setImage(UIImage(named: "icon_close", in: bundle, compatibleWith: nil), for: .normal)
         
-        //Adding WKWebView to the Container View.
         let webView = WKWebView(frame: webViewContainerView.frame)
         webView.fixInView(webViewContainerView)
         webViewContainerView.addSubview(webView)
