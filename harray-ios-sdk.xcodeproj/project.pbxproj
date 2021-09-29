@@ -81,6 +81,9 @@
 		75F79E511915046F48D0FB2E /* HttpTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F79CE78FABE7F3A95D9FAA /* HttpTask.swift */; };
 		75F79F68E5A695270A8E308A /* NotificationProcessorHandlerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F79C386130ECC4CD1638D9 /* NotificationProcessorHandlerTest.swift */; };
 		75F79FA7035C1DC7514F8D88 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F79280AAAAAA4ACB84F71E /* Errors.swift */; };
+		C224C6D72704754900D22A72 /* PushMessagesHistoryProcessorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C224C6D62704754900D22A72 /* PushMessagesHistoryProcessorHandler.swift */; };
+		C224C6D82704754900D22A72 /* PushMessagesHistoryProcessorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C224C6D62704754900D22A72 /* PushMessagesHistoryProcessorHandler.swift */; };
+		C224C6DC2704898100D22A72 /* PushMessagesHistoryProcessorHandlerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C224C6D92704883600D22A72 /* PushMessagesHistoryProcessorHandlerTest.swift */; };
 		C256F80B25C3EFFE00240F79 /* RecommendationProcessorHandlerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C256F80A25C3EFFE00240F79 /* RecommendationProcessorHandlerTest.swift */; };
 		C256F80D25C4259B00240F79 /* JsonDeserializerServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C256F80C25C4259B00240F79 /* JsonDeserializerServiceTest.swift */; };
 		C256F80F25C42BDC00240F79 /* ApiGetJsonRequestTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C256F80E25C42BDC00240F79 /* ApiGetJsonRequestTest.swift */; };
@@ -170,6 +173,8 @@
 		75F79C386130ECC4CD1638D9 /* NotificationProcessorHandlerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationProcessorHandlerTest.swift; sourceTree = "<group>"; };
 		75F79CE78FABE7F3A95D9FAA /* HttpTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpTask.swift; sourceTree = "<group>"; };
 		75F79E2D8FC019EEC9D0E3FB /* HttpServiceTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpServiceTest.swift; sourceTree = "<group>"; };
+		C224C6D62704754900D22A72 /* PushMessagesHistoryProcessorHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushMessagesHistoryProcessorHandler.swift; sourceTree = "<group>"; };
+		C224C6D92704883600D22A72 /* PushMessagesHistoryProcessorHandlerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushMessagesHistoryProcessorHandlerTest.swift; sourceTree = "<group>"; };
 		C256F80A25C3EFFE00240F79 /* RecommendationProcessorHandlerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendationProcessorHandlerTest.swift; sourceTree = "<group>"; };
 		C256F80C25C4259B00240F79 /* JsonDeserializerServiceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonDeserializerServiceTest.swift; sourceTree = "<group>"; };
 		C256F80E25C42BDC00240F79 /* ApiGetJsonRequestTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiGetJsonRequestTest.swift; sourceTree = "<group>"; };
@@ -294,6 +299,7 @@
 				35F2FAFC270385C000EE41AD /* AfterPageViewEventHandler.swift */,
 				35F2FAFF2703876200EE41AD /* InAppNotificationProcessorHandler.swift */,
 				35F2FB0527039D5E00EE41AD /* ChainProcessorHandler.swift */,
+				C224C6D62704754900D22A72 /* PushMessagesHistoryProcessorHandler.swift */,
 			);
 			path = event;
 			sourceTree = "<group>";
@@ -352,6 +358,7 @@
 				D3A8FA015BA0F9D7A89FD17F /* EcommerceEventProcessorHandlerTest.swift */,
 				C256F80A25C3EFFE00240F79 /* RecommendationProcessorHandlerTest.swift */,
 				EC7FED0FBCF2B727391D6C41 /* BrowsingHistoryProcessorHandlerTest.swift */,
+				C224C6D92704883600D22A72 /* PushMessagesHistoryProcessorHandlerTest.swift */,
 			);
 			path = event;
 			sourceTree = "<group>";
@@ -605,6 +612,7 @@
 				D3A8FBA54C50A304CF02AEA1 /* EcommerceEventProcessorHandler.swift in Sources */,
 				35A9769426FBB90100AADE45 /* InAppView.swift in Sources */,
 				C2B7CB96262FF52300DAB8CE /* UrlUtils.swift in Sources */,
+				C224C6D72704754900D22A72 /* PushMessagesHistoryProcessorHandler.swift in Sources */,
 				35F2FB032703988D00EE41AD /* InAppNotificationResponse.swift in Sources */,
 				EC7FE906101F353C4EAE3DCA /* BrowsingHistoryProcessorHandler.swift in Sources */,
 			);
@@ -626,6 +634,7 @@
 				1D6C7F7624503870001FE80C /* Constants.swift in Sources */,
 				C2CFA29A25C2864E001B61BE /* ApiGetJsonRequest.swift in Sources */,
 				1D6C7F62245037E4001FE80C /* ClockUtilsTest.swift in Sources */,
+				C224C6DC2704898100D22A72 /* PushMessagesHistoryProcessorHandlerTest.swift in Sources */,
 				35F2FB012703876200EE41AD /* InAppNotificationProcessorHandler.swift in Sources */,
 				1D6C7F61245037E4001FE80C /* Stubbings.swift in Sources */,
 				1D6C7F6A2450384E001FE80C /* EventProcessorHandler.swift in Sources */,
@@ -650,6 +659,7 @@
 				75F796CFB20ACD51266EDC35 /* NotificationProcessorHandler.swift in Sources */,
 				75F796494FDB1AD75C5B9729 /* SDKEventProcessorHandlerTest.swift in Sources */,
 				75F79C72E86B55AF069A2635 /* SDKEventProcessorHandler.swift in Sources */,
+				C224C6D82704754900D22A72 /* PushMessagesHistoryProcessorHandler.swift in Sources */,
 				75F79D0F2AF89319D341C0B3 /* Errors.swift in Sources */,
 				C2B7CB9826303ED400DAB8CE /* UrlUtils.swift in Sources */,
 				75F79538A038695F8306DA6D /* XennioTest.swift in Sources */,

@@ -23,6 +23,7 @@ import UIKit
     private let ecommerceEventProcessorHandler: EcommerceEventProcessorHandler
     private let recommendationProcessorHandler: RecommendationProcessorHandler
     private let browsingHistoryProcessorHandler: BrowsingHistoryProcessorHandler
+    private let pushMessagesHistoryProcessorHandler: PushMessagesHistoryProcessorHandler
 
     private init(xennConfig: XennConfig,
                  sessionContextHolder: SessionContextHolder,
@@ -32,7 +33,9 @@ import UIKit
                  notificationProcessorHandler: NotificationProcessorHandler,
                  ecommerceEventProcessorHandler: EcommerceEventProcessorHandler,
                  recommendationProcessorHandler: RecommendationProcessorHandler,
-                 browsingHistoryProcessorHandler: BrowsingHistoryProcessorHandler) {
+                 browsingHistoryProcessorHandler: BrowsingHistoryProcessorHandler,
+                 pushMessagesHistoryProcessorHandler: PushMessagesHistoryProcessorHandler
+                 ) {
         self.sessionContextHolder = sessionContextHolder
         self.applicationContextHolder = applicationContextHolder
         self.eventProcessorHandler = eventProcessorHandler
@@ -42,6 +45,7 @@ import UIKit
         self.xennConfig = xennConfig
         self.recommendationProcessorHandler = recommendationProcessorHandler
         self.browsingHistoryProcessorHandler = browsingHistoryProcessorHandler
+        self.pushMessagesHistoryProcessorHandler = pushMessagesHistoryProcessorHandler
     }
     
     @available(iOSApplicationExtension,unavailable)
@@ -60,6 +64,7 @@ import UIKit
         let jsonDeserializerService = JsonDeserializerService()
         let recommendationProcessorHandler = RecommendationProcessorHandler(applicationContextHolder: applicationContextHolder, sessionContextHolder: sessionContextHolder, httpService: httpService, sdkKey: xennConfig.getSdkKey(), jsonDeserializerService: jsonDeserializerService)
         let browsingHistoryProcessorHandler = BrowsingHistoryProcessorHandler(applicationContextHolder: applicationContextHolder, sessionContextHolder: sessionContextHolder, httpService: httpService, sdkKey: xennConfig.getSdkKey(), jsonDeserializerService: jsonDeserializerService)
+        let pushMessagesHistoryProcessorHandler = PushMessagesHistoryProcessorHandler(sessionContextHolder: sessionContextHolder, httpService: httpService, sdkKey: xennConfig.getSdkKey(), jsonDeserializerService: jsonDeserializerService)
         
         let inAppNotificationProcessorHandler =
             InAppNotificationProcessorHandler(applicationContextHolder: applicationContextHolder, sessionContextHolder: sessionContextHolder, httpService: httpService, eventProcessorHandler: eventProcessorHandler, xennConfig: xennConfig, jsonDeserializerService: jsonDeserializerService)
@@ -74,7 +79,8 @@ import UIKit
                           notificationProcessorHandler: notificationProcessorHandler,
                           ecommerceEventProcessorHandler: ecommerceEventProcessorHandler,
                           recommendationProcessorHandler: recommendationProcessorHandler,
-                          browsingHistoryProcessorHandler: browsingHistoryProcessorHandler
+                          browsingHistoryProcessorHandler: browsingHistoryProcessorHandler,
+                          pushMessagesHistoryProcessorHandler: pushMessagesHistoryProcessorHandler
         )
     }
 
@@ -142,5 +148,9 @@ import UIKit
 
     @objc public class func browsingHistory() -> BrowsingHistoryProcessorHandler {
         return getInstance().browsingHistoryProcessorHandler
+    }
+    
+    @objc public class func pushMessagesHistory() -> PushMessagesHistoryProcessorHandler {
+        return getInstance().pushMessagesHistoryProcessorHandler
     }
 }
