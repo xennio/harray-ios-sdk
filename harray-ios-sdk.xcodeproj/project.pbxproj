@@ -56,6 +56,7 @@
 		35A9769526FBB90100AADE45 /* InAppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A9769326FBB90100AADE45 /* InAppView.swift */; };
 		35A9769726FBBA1100AADE45 /* InAppView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 35A9769626FBBA1100AADE45 /* InAppView.xib */; };
 		35A9769826FBBA1100AADE45 /* InAppView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 35A9769626FBBA1100AADE45 /* InAppView.xib */; };
+		35E65A2F2704A0F500CC6C98 /* icon_close.png in Resources */ = {isa = PBXBuildFile; fileRef = 35E65A2E2704A0F400CC6C98 /* icon_close.png */; };
 		35F2FAFD270385C000EE41AD /* AfterPageViewEventHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F2FAFC270385C000EE41AD /* AfterPageViewEventHandler.swift */; };
 		35F2FAFE270385C000EE41AD /* AfterPageViewEventHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F2FAFC270385C000EE41AD /* AfterPageViewEventHandler.swift */; };
 		35F2FB002703876200EE41AD /* InAppNotificationProcessorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F2FAFF2703876200EE41AD /* InAppNotificationProcessorHandler.swift */; };
@@ -158,6 +159,7 @@
 		354119DF254F2F0800FC0219 /* OrderItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderItem.swift; sourceTree = "<group>"; };
 		35A9769326FBB90100AADE45 /* InAppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InAppView.swift; sourceTree = "<group>"; };
 		35A9769626FBBA1100AADE45 /* InAppView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InAppView.xib; sourceTree = "<group>"; };
+		35E65A2E2704A0F400CC6C98 /* icon_close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_close.png; sourceTree = "<group>"; };
 		35F2FAFC270385C000EE41AD /* AfterPageViewEventHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AfterPageViewEventHandler.swift; sourceTree = "<group>"; };
 		35F2FAFF2703876200EE41AD /* InAppNotificationProcessorHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InAppNotificationProcessorHandler.swift; sourceTree = "<group>"; };
 		35F2FB022703988D00EE41AD /* InAppNotificationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InAppNotificationResponse.swift; sourceTree = "<group>"; };
@@ -404,6 +406,7 @@
 		35A9769226FBB8DE00AADE45 /* inapp */ = {
 			isa = PBXGroup;
 			children = (
+				35E65A2E2704A0F400CC6C98 /* icon_close.png */,
 				35A9769326FBB90100AADE45 /* InAppView.swift */,
 				35A9769626FBBA1100AADE45 /* InAppView.xib */,
 			);
@@ -560,6 +563,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				35A9769726FBBA1100AADE45 /* InAppView.xib in Resources */,
+				35E65A2F2704A0F500CC6C98 /* icon_close.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

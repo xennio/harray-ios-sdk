@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="InAppView" customModule="Xennio" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="InAppView" customModule="harray_ios_sdk" customModuleProvider="target">
             <connections>
+                <outlet property="btnClose" destination="p6l-eM-rLT" id="ZOb-UQ-PJK"/>
                 <outlet property="containerView" destination="jKo-5H-6uI" id="WEm-kd-qAF"/>
                 <outlet property="webViewContainerView" destination="JJ9-Yg-V22" id="9tM-O2-zeD"/>
             </connections>
@@ -24,10 +25,13 @@
                     <rect key="frame" x="30" y="74" width="250" height="400"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p6l-eM-rLT">
-                    <rect key="frame" x="230" y="94" width="30" height="40"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="23"/>
-                    <state key="normal" title="X">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p6l-eM-rLT">
+                    <rect key="frame" x="249" y="62" width="43" height="43"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="43" id="Feu-K3-Lg7"/>
+                        <constraint firstAttribute="height" constant="43" id="i9A-MB-omq"/>
+                    </constraints>
+                    <state key="normal" image="icon_close">
                         <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
                     <connections>
@@ -36,20 +40,20 @@
                 </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="GRs-jN-FEj"/>
-            <color key="backgroundColor" white="0.0" alpha="0.171871886" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="GRs-jN-FEj" firstAttribute="trailing" secondItem="JJ9-Yg-V22" secondAttribute="trailing" constant="30" id="7bb-d9-Q3G"/>
                 <constraint firstItem="JJ9-Yg-V22" firstAttribute="leading" secondItem="GRs-jN-FEj" secondAttribute="leading" constant="30" id="Anv-kp-nGO"/>
                 <constraint firstItem="GRs-jN-FEj" firstAttribute="bottom" secondItem="JJ9-Yg-V22" secondAttribute="bottom" constant="30" id="D3l-64-LC4"/>
                 <constraint firstItem="JJ9-Yg-V22" firstAttribute="top" secondItem="GRs-jN-FEj" secondAttribute="top" constant="30" id="hvv-K7-zmh"/>
-                <constraint firstItem="p6l-eM-rLT" firstAttribute="trailing" secondItem="JJ9-Yg-V22" secondAttribute="trailing" constant="-20" id="o6g-fr-opB"/>
-                <constraint firstItem="p6l-eM-rLT" firstAttribute="top" secondItem="JJ9-Yg-V22" secondAttribute="top" constant="20" id="vau-oc-3KP"/>
+                <constraint firstItem="p6l-eM-rLT" firstAttribute="trailing" secondItem="JJ9-Yg-V22" secondAttribute="trailing" constant="12" id="o6g-fr-opB"/>
+                <constraint firstItem="p6l-eM-rLT" firstAttribute="top" secondItem="JJ9-Yg-V22" secondAttribute="top" constant="-12" id="vau-oc-3KP"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="124.6376811594203" y="-40.178571428571423"/>
         </view>
     </objects>
     <resources>
+        <image name="icon_close" width="33" height="33"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -33,13 +33,13 @@ import UIKit
         if let notificationResponse = data {
             var params = Dictionary<String, String>()
             params["entity"] = "banners"
-            params["id"] = notificationResponse.id
+            params["id"] = notificationResponse.id!
             eventProcessorHandler.impression(pageType: "bannerShow", params: params)
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                 
                 if let frame = self.topViewController()?.view.frame {
                     let mView = InAppView(frame: frame)
-                    mView.loadPopup(content: "<html><head><style>" + notificationResponse.style + "</style></head><body>" + notificationResponse.html + "</body></html>")
+                    mView.loadPopup(content: "<html><head><style>" + notificationResponse.style! + "</style></head><body>" + notificationResponse.html! + "</body></html>")
                     mView.onNavigation = {
                         navigateTo in
                         self.xennConfig.getInAppNotificationLinkClickHandler()?(navigateTo)

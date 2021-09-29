@@ -9,8 +9,8 @@
 import Foundation
 
 class InAppNotificationResponse: Decodable{
-    let id: String
-    let style: String
-    let html: String
+    let id: String?
+    let style: String?
+    let html: String?
     let imageUrl: String?
 }

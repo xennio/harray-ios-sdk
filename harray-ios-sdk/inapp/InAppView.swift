@@ -13,6 +13,7 @@ import WebKit
 class InAppView : UIView {
     @IBOutlet var containerView: UIView!
     @IBOutlet weak var webViewContainerView: UIView!
+    @IBOutlet var btnClose: UIButton!
     
     var onNavigation: ((_ navigateTo: String) -> ())?
     var onClose: (() -> ())?
@@ -20,7 +21,12 @@ class InAppView : UIView {
     let kCONTENT_XIB_NAME = "InAppView"
     
     @IBAction func btnCloseAction(_ sender: Any) {
-            self.removeFromSuperview()
+        closingEvent()
+    }
+    
+    func closingEvent(){
+        self.removeFromSuperview()
+        self.onClose?()
     }
     
     override init(frame: CGRect) {
@@ -32,10 +38,12 @@ class InAppView : UIView {
     }
     
     func loadPopup(content: String) {
-        
-        // This bundel identifier should be the same as the SDK's one.
         Bundle(identifier: "org.cocoapods.Xennio")?.loadNibNamed(kCONTENT_XIB_NAME, owner: self, options: nil)
+        let bundle = Bundle(identifier: "org.cocoapods.Xennio")
+        bundle?.loadNibNamed(kCONTENT_XIB_NAME, owner: self, options: nil)
         containerView.fixInView(self)
+        
+        btnClose.setImage(UIImage(named: "icon_close", in: bundle, compatibleWith: nil), for: .normal)
         
         //Adding WKWebView to the Container View.
         let webView = WKWebView(frame: webViewContainerView.frame)
@@ -44,20 +52,22 @@ class InAppView : UIView {
         webView.navigationDelegate = self
         webView.loadHTMLString(content, baseURL: nil)
     }
-
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
-    
     
 }
 
 extension InAppView: WKNavigationDelegate {
-    func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
-        self.onNavigation?(webView.url?.absoluteString ?? "")
-    }
+    func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping ((WKNavigationActionPolicy) -> Void)) {
+        let url = navigationAction.request.url?.absoluteString ?? ""
+        if(!url.contains("about:blank")){
+                self.onNavigation?(url)
+                self.closingEvent()
+            }
+            decisionHandler(.allow)
+        }
 }
 
 extension UIView {
