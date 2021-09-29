@@ -32,7 +32,9 @@ class InAppView : UIView {
     }
     
     func loadPopup(content: String) {
-        Bundle(identifier: "io.xenn.harray-ios-sdk")?.loadNibNamed(kCONTENT_XIB_NAME, owner: self, options: nil)
+        
+        // This bundel identifier should be the same as the SDK's one.
+        Bundle(identifier: "org.cocoapods.Xennio")?.loadNibNamed(kCONTENT_XIB_NAME, owner: self, options: nil)
         containerView.fixInView(self)
         
         //Adding WKWebView to the Container View.
