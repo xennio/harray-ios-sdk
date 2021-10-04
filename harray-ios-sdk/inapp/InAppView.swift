@@ -46,6 +46,8 @@ class InAppView : UIView {
         
         let webView = WKWebView(frame: webViewContainerView.frame)
         webView.fixInView(webViewContainerView)
+        webView.isOpaque = false
+        webView.backgroundColor = .clear
         webViewContainerView.addSubview(webView)
         webView.navigationDelegate = self
         webView.loadHTMLString(content, baseURL: nil)
