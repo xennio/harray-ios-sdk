@@ -34,7 +34,7 @@ import UIKit
             var params = Dictionary<String, String>()
             params["entity"] = "banners"
             params["id"] = notificationResponse.id!
-            eventProcessorHandler.actionResult(type: "bannerShow", params: params)
+            eventProcessorHandler.impression(pageType: "bannerShow", params: params)
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                 
                 if let frame = self.topViewController()?.view.frame {
