@@ -45,6 +45,10 @@ class HttpResult {
     func isSuccess() -> Bool {
         return !hasError
     }
+    
+    func isValidStatus() -> Bool {
+        return self.statusCode >= 200 && self.statusCode <= 299
+    }
 
     func getStatusCode() -> Int {
         return statusCode

@@ -29,7 +29,7 @@ class HttpService {
         let endpoint = getApiUrl(path: path, params: params)
         let request = ApiGetJsonRequest(endpoint: endpoint)
         session.doRequest(from: request.getUrlRequest()) { httpResult in
-            if httpResult.isSuccess() {
+            if httpResult.isValidStatus() {
                 completionHandler(responseHandler(httpResult))
             } else {
                 XennioLogger.log(message: "getApiRequest error. Detail: \(httpResult.toString())")
