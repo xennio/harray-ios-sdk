@@ -58,4 +58,37 @@ import Foundation
             completionHandler: callback)
     }
     
+    public func getRecommendations(boxId: String,
+                                   size: Int8,
+                                   filterExpression: String?,
+                                   sortingFactors: String?,
+                                   callback: @escaping (Array<Dictionary<String, String>>?) -> Void) -> Void {
+        var params = Dictionary<String, String>()
+        params["sdkKey"] = sdkKey
+        params["pid"] = applicationContextHolder.getPersistentId()
+        params["boxId"] = boxId
+        if sessionContextHolder.getMemberId() != nil {
+            params["memberId"] = sessionContextHolder.getMemberId()
+        }
+        if filterExpression != nil {
+            params["filterExpression"] = filterExpression
+        }
+        if sortingFactors != nil {
+            params["sortExpression"] = sortingFactors
+        }
+        params["size"] = String(size)
+        let responseHandler: (HttpResult) -> Array<Dictionary<String, String>>? = { hr in
+            if let body = hr.getBody() {
+                return self.jsonDeserializerService.deserializeToDictArray(jsonString: body)
+            } else {
+                return nil
+            }
+        }
+        httpService.getApiRequest(
+            path: "/recommendation",
+            params: params,
+            responseHandler: responseHandler,
+            completionHandler: callback)
+    }
+    
 }
