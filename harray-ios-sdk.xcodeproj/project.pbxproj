@@ -47,11 +47,15 @@
 		1D6C7F7724503876001FE80C /* Xennio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6C7F51245037CF001FE80C /* Xennio.swift */; };
 		1D6C7F7924505DE5001FE80C /* SDKEventProcessorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6C7F7824505DE5001FE80C /* SDKEventProcessorHandler.swift */; };
 		1D6C7F7B24505EF3001FE80C /* DeviceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6C7F7A24505EF3001FE80C /* DeviceService.swift */; };
+		3509747328EAD989004C5401 /* MemberSummaryProcessorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3509747228EAD989004C5401 /* MemberSummaryProcessorHandler.swift */; };
+		3509747428EAD989004C5401 /* MemberSummaryProcessorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3509747228EAD989004C5401 /* MemberSummaryProcessorHandler.swift */; };
 		354119D4254F2D3600FC0219 /* OrderTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354119D3254F2D3600FC0219 /* OrderTest.swift */; };
 		354119D9254F2D5700FC0219 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354119D8254F2D5700FC0219 /* Order.swift */; };
 		354119DA254F2D5700FC0219 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354119D8254F2D5700FC0219 /* Order.swift */; };
 		354119E0254F2F0800FC0219 /* OrderItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354119DF254F2F0800FC0219 /* OrderItem.swift */; };
 		354119E1254F2F0800FC0219 /* OrderItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354119DF254F2F0800FC0219 /* OrderItem.swift */; };
+		355C889228F0F2FB0072FEA1 /* MemberSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355C889128F0F2FB0072FEA1 /* MemberSummary.swift */; };
+		355C889328F0F2FB0072FEA1 /* MemberSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355C889128F0F2FB0072FEA1 /* MemberSummary.swift */; };
 		35A9769426FBB90100AADE45 /* InAppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A9769326FBB90100AADE45 /* InAppView.swift */; };
 		35A9769526FBB90100AADE45 /* InAppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A9769326FBB90100AADE45 /* InAppView.swift */; };
 		35A9769726FBBA1100AADE45 /* InAppView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 35A9769626FBBA1100AADE45 /* InAppView.xib */; };
@@ -154,9 +158,11 @@
 		1D6C7F60245037E4001FE80C /* EncodingServiceTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EncodingServiceTest.swift; sourceTree = "<group>"; };
 		1D6C7F7824505DE5001FE80C /* SDKEventProcessorHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SDKEventProcessorHandler.swift; sourceTree = "<group>"; };
 		1D6C7F7A24505EF3001FE80C /* DeviceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceService.swift; sourceTree = "<group>"; };
+		3509747228EAD989004C5401 /* MemberSummaryProcessorHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberSummaryProcessorHandler.swift; sourceTree = "<group>"; };
 		354119D3254F2D3600FC0219 /* OrderTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderTest.swift; sourceTree = "<group>"; };
 		354119D8254F2D5700FC0219 /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 		354119DF254F2F0800FC0219 /* OrderItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderItem.swift; sourceTree = "<group>"; };
+		355C889128F0F2FB0072FEA1 /* MemberSummary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberSummary.swift; sourceTree = "<group>"; };
 		35A9769326FBB90100AADE45 /* InAppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InAppView.swift; sourceTree = "<group>"; };
 		35A9769626FBBA1100AADE45 /* InAppView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InAppView.xib; sourceTree = "<group>"; };
 		35E65A2E2704A0F400CC6C98 /* icon_close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_close.png; sourceTree = "<group>"; };
@@ -302,6 +308,7 @@
 				35F2FAFF2703876200EE41AD /* InAppNotificationProcessorHandler.swift */,
 				35F2FB0527039D5E00EE41AD /* ChainProcessorHandler.swift */,
 				C224C6D62704754900D22A72 /* PushMessagesHistoryProcessorHandler.swift */,
+				3509747228EAD989004C5401 /* MemberSummaryProcessorHandler.swift */,
 			);
 			path = event;
 			sourceTree = "<group>";
@@ -337,6 +344,7 @@
 				1D6C7F47245037C6001FE80C /* XennEvent.swift */,
 				D3A8F03219DAFBBDCDB18479 /* FeedbackEvent.swift */,
 				35F2FB022703988D00EE41AD /* InAppNotificationResponse.swift */,
+				355C889128F0F2FB0072FEA1 /* MemberSummary.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -582,6 +590,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				355C889228F0F2FB0072FEA1 /* MemberSummary.swift in Sources */,
 				1D6C7F4B245037C6001FE80C /* RandomValueUtils.swift in Sources */,
 				1D6C7F38245037BC001FE80C /* SessionContextHolder.swift in Sources */,
 				1D6C7F7924505DE5001FE80C /* SDKEventProcessorHandler.swift in Sources */,
@@ -590,6 +599,7 @@
 				1D6C7F48245037C6001FE80C /* EventProcessorHandler.swift in Sources */,
 				354119E0254F2F0800FC0219 /* OrderItem.swift in Sources */,
 				1D6C7F4C245037C6001FE80C /* EncodingService.swift in Sources */,
+				3509747328EAD989004C5401 /* MemberSummaryProcessorHandler.swift in Sources */,
 				1D6C7F4F245037C6001FE80C /* HttpService.swift in Sources */,
 				1D6C7F49245037C6001FE80C /* ClockUtils.swift in Sources */,
 				C296EE4D25C1535400EA7E73 /* RecommendationProcessorHandler.swift in Sources */,
@@ -644,6 +654,7 @@
 				1D6C7F6A2450384E001FE80C /* EventProcessorHandler.swift in Sources */,
 				1D6C7F69245037E4001FE80C /* EncodingServiceTest.swift in Sources */,
 				1D6C7F7024503861001FE80C /* ClockUtils.swift in Sources */,
+				3509747428EAD989004C5401 /* MemberSummaryProcessorHandler.swift in Sources */,
 				1D6C7F67245037E4001FE80C /* ApplicationContextHolderTest.swift in Sources */,
 				1D6C7F64245037E4001FE80C /* EventProcessorHandlerTest.swift in Sources */,
 				1D6C7F68245037E4001FE80C /* EntitySerializerServiceTest.swift in Sources */,
@@ -677,6 +688,7 @@
 				C2EB054E26304713004EF82A /* XennConfigTest.swift in Sources */,
 				75F792287F3DC850963A0BEE /* HttpTask.swift in Sources */,
 				75F79A1CCEC0CF0706B6F4B7 /* PostFormUrlEncodedRequestTest.swift in Sources */,
+				355C889328F0F2FB0072FEA1 /* MemberSummary.swift in Sources */,
 				35F2FB042703988D00EE41AD /* InAppNotificationResponse.swift in Sources */,
 				354119DA254F2D5700FC0219 /* Order.swift in Sources */,
 				D3A8FCE4CE647E4C7853EF2B /* FeedbackEvent.swift in Sources */,
