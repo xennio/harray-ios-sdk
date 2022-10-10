@@ -8,13 +8,13 @@
 
 import Foundation
 
-public class MemberSummary: Decodable{
+@objc public class MemberSummary: NSObject, Decodable {
     let member: Member?
     let ratios: [AttirbuteValues]?
     let ranges: RangeStatistics?
 }
 
-public class Member: Decodable{
+@objc public class Member: NSObject, Decodable{
     let id: String?
     let name: String?
     let surname: String?
@@ -23,22 +23,22 @@ public class Member: Decodable{
     let segments: [String]?
 }
 
-public class AttirbuteValues: Decodable {
+@objc public class AttirbuteValues: NSObject, Decodable {
     let attribute: String?
     let values: [KeyValuePair]?
 }
 
-public class KeyValuePair: Decodable {
+@objc public class KeyValuePair: NSObject, Decodable {
     let key: String?
     let value: Double?
 }
 
-public class PriceStatistics: Decodable {
+@objc public class PriceStatistics: NSObject, Decodable {
     let min: Double?
     let max: Double?
     let avg: Double?
 }
 
-public class RangeStatistics:Decodable {
+@objc public class RangeStatistics: NSObject, Decodable {
     let price: PriceStatistics?
 }
