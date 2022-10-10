@@ -8,7 +8,6 @@
 
 import Foundation
 
-@available(iOSApplicationExtension,unavailable)
 @objc public class MemberSummaryProcessorHandler: NSObject {
     
     private let applicationContextHolder: ApplicationContextHolder
