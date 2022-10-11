@@ -14,6 +14,7 @@ class JsonDeserializerService {
     
     init() {
         self.jsonDecoder = JSONDecoder()
+        self.jsonDecoder.dateDecodingStrategy = .iso8601
     }
     
     func deserialize<T: Decodable>(jsonString: String) -> T? {
