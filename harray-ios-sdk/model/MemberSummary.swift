@@ -9,36 +9,36 @@
 import Foundation
 
 @objc public class MemberSummary: NSObject, Decodable {
-    let member: Member?
-    let ratios: [AttirbuteValues]?
-    let ranges: RangeStatistics?
+    public let member: Member?
+    public let ratios: [AttirbuteValues]?
+    public let ranges: RangeStatistics?
 }
 
 @objc public class Member: NSObject, Decodable{
-    let id: String?
-    let name: String?
-    let surname: String?
-    let lastSeen: Date?
-    let registerDate: Date?
-    let segments: [String]?
+    public let id: String?
+    public let name: String?
+    public let surname: String?
+    public let lastSeen: Date?
+    public let registerDate: Date?
+    public let segments: [String]?
 }
 
 @objc public class AttirbuteValues: NSObject, Decodable {
-    let attribute: String?
-    let values: [KeyValuePair]?
+    public let attribute: String?
+    public let values: [KeyValuePair]?
 }
 
 @objc public class KeyValuePair: NSObject, Decodable {
-    let key: String?
-    let value: Double?
+    public let key: String?
+    public let value: Double?
 }
 
 @objc public class PriceStatistics: NSObject, Decodable {
-    let min: Double?
-    let max: Double?
-    let avg: Double?
+    public let min: Double?
+    public let max: Double?
+    public let avg: Double?
 }
 
 @objc public class RangeStatistics: NSObject, Decodable {
-    let price: PriceStatistics?
+    public let price: PriceStatistics?
 }
