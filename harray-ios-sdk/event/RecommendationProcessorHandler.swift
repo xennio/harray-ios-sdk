@@ -15,18 +15,21 @@ import Foundation
     private let httpService: HttpService
     private let sdkKey: String
     private let jsonDeserializerService: JsonDeserializerService
+    private let encodingService: EncodingService
     
     init(applicationContextHolder: ApplicationContextHolder,
          sessionContextHolder: SessionContextHolder,
          httpService: HttpService,
          sdkKey: String,
-         jsonDeserializerService: JsonDeserializerService
+         jsonDeserializerService: JsonDeserializerService,
+         encodingService: EncodingService
         ) {
         self.applicationContextHolder = applicationContextHolder
         self.sessionContextHolder = sessionContextHolder
         self.httpService = httpService
         self.sdkKey = sdkKey
         self.jsonDeserializerService = jsonDeserializerService
+        self.encodingService = encodingService
     }
     
     public func getRecommendations(boxId: String,
@@ -71,7 +74,7 @@ import Foundation
             params["memberId"] = sessionContextHolder.getMemberId()
         }
         if filterExpression != nil {
-            params["filterExpression"] = filterExpression
+            params["filterExpression"] = encodingService.getUrlEncodedString(value: filterExpression!)
         }
         if sortingFactors != nil {
             params["sortExpression"] = sortingFactors

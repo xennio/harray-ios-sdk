@@ -47,7 +47,8 @@ class RecommendationProcessorHandlerTest: XCTestCase {
             sessionContextHolder: FakeSessionContextHolder(),
             httpService: httpService,
             sdkKey: "sdkKey",
-            jsonDeserializerService: jsonDeserializerService)
+            jsonDeserializerService: jsonDeserializerService,
+            encodingService: EncodingService())
         
         recoHandler.getRecommendations(boxId: "boxId", entityId: "entityId", size: 4) { (recoResult) in
             actualRecoResult = recoResult
@@ -88,7 +89,8 @@ class RecommendationProcessorHandlerTest: XCTestCase {
             sessionContextHolder: FakeSessionContextHolder(),
             httpService: httpService,
             sdkKey: "sdkKey",
-            jsonDeserializerService: FakeJsonDeserializerService())
+            jsonDeserializerService: FakeJsonDeserializerService(),
+            encodingService: EncodingService())
         
         recoHandler.getRecommendations(boxId: "boxId", entityId: "entityId", size: 4) { (recoResult) in
             actualRecoResult = recoResult
@@ -133,7 +135,8 @@ class RecommendationProcessorHandlerTest: XCTestCase {
             sessionContextHolder: FakeSessionContextHolder(),
             httpService: httpService,
             sdkKey: "sdkKey",
-            jsonDeserializerService: jsonDeserializerService)
+            jsonDeserializerService: jsonDeserializerService,
+            encodingService: EncodingService())
         
         recoHandler.getRecommendations(boxId: "boxId", entityId: nil, size: 4) { (recoResult) in
             actualRecoResult = recoResult
@@ -185,7 +188,8 @@ class RecommendationProcessorHandlerTest: XCTestCase {
             sessionContextHolder: sessionContextHolder,
             httpService: httpService,
             sdkKey: "sdkKey",
-            jsonDeserializerService: jsonDeserializerService)
+            jsonDeserializerService: jsonDeserializerService,
+            encodingService: EncodingService())
         
         recoHandler.getRecommendations(boxId: "boxId", entityId: "entityId", size: 4) { (recoResult) in
             actualRecoResult = recoResult
